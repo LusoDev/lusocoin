@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Luso
+Comment=Luso P2P Cryptocurrency
+Comment[fr]=Luso, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Luso, eşten eşe kriptografik sanal para birimi
+Exec=luso-qt %u
+Terminal=false
+Type=Application
+Icon=luso128
+MimeType=x-scheme-handler/luso;
+Categories=Office;Finance;
