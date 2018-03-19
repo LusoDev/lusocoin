@@ -1,6 +1,7 @@
 ACLOCAL_AMFLAGS = -I build-aux/m4
 CPPFLAGS_FOR_BUILD =
 CFLAGS_FOR_BUILD =
+CC_FOR_BUILD = gcc
 
 lib_LTLIBRARIES = libsecp256k1.la
 include_HEADERS = include/secp256k1.h
