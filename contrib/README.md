@@ -1,56 +1,56 @@
-### Usage
+Wallet Tools
+---------------------
 
-To build dependencies for the current arch+OS:
+### [SpendFrom](/contrib/spendfrom) ###
 
-    make
+Use the raw transactions API to send coins received on a particular
+address (or addresses).
 
-To build for another arch/OS:
+Repository Tools
+---------------------
 
-    make HOST=host-platform-triplet
+### [Developer tools](/contrib/devtools) ###
+Specific tools for developers working on this repository.
+Contains the script `github-merge.sh` for merging github pull requests securely and signing them using GPG.
 
-For example:
+### [Verify-Commits](/contrib/verify-commits) ###
+Tool to verify that every merge commit was signed by a developer using the above `github-merge.sh` script.
 
-    make HOST=x86_64-w64-mingw32 -j4
+### [Linearize](/contrib/linearize) ###
+Construct a linear, no-fork, best version of the blockchain.
 
-A prefix will be generated that's suitable for plugging into Luso's
-configure. In the above example, a dir named x86_64-w64-mingw32 will be
-created. To use it for Luso:
+### [Qos](/contrib/qos) ###
 
-    ./configure --prefix=`pwd`/depends/x86_64-w64-mingw32
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the Luso network. This means one can have an always-on lusod instance running, and another local lusod/luso-qt instance which connects to this node and receives blocks from it.
 
-Common `host-platform-triplets` for cross compilation are:
+### [Seeds](/contrib/seeds) ###
+Utility to generate the pnSeed[] array that is compiled into the client.
 
-- `i686-w64-mingw32` for Win32
-- `x86_64-w64-mingw32` for Win64
-- `x86_64-apple-darwin11` for MacOSX
-- `arm-linux-gnueabihf` for Linux ARM
+Build Tools and Keys
+---------------------
 
-No other options are needed, the paths are automatically configured.
+### [Debian](/contrib/debian) ###
+Contains files used to package lusod/luso-qt
+for Debian-based Linux systems. If you compile lusod/luso-qt yourself, there are some useful files here.
 
-Dependency Options:
-The following can be set when running make: make FOO=bar
+### [Gitian-descriptors](/contrib/gitian-descriptors) ###
+Gavin's notes on getting gitian builds up and running using KVM.
 
-    SOURCES_PATH: downloaded sources will be placed here
-    BASE_CACHE: built packages will be placed here
-    SDK_PATH: Path where sdk's can be found (used by OSX)
-    FALLBACK_DOWNLOAD_PATH: If a source file can't be fetched, try here before giving up
-    NO_QT: Don't download/build/cache qt and its dependencies
-    NO_WALLET: Don't download/build/cache libs needed to enable the wallet
-    NO_UPNP: Don't download/build/cache packages needed for enabling upnp
-    DEBUG: disable some optimizations and enable more runtime checking
+### [Gitian-downloader](/contrib/gitian-downloader)
+Various PGP files of core developers. 
 
-If some packages are not built, for example `make NO_WALLET=1`, the appropriate
-options will be passed to Luso Core's configure. In this case, `--disable-wallet`.
+### [MacDeploy](/contrib/macdeploy) ###
+Scripts and notes for Mac builds. 
 
-Additional targets:
+Test and Verify Tools 
+---------------------
 
-    download: run 'make download' to fetch all sources without building them
-    download-osx: run 'make download-osx' to fetch all sources needed for osx builds
-    download-win: run 'make download-win' to fetch all sources needed for win builds
-    download-linux: run 'make download-linux' to fetch all sources needed for linux builds
+### [TestGen](/contrib/testgen) ###
+Utilities to generate test vectors for the data-driven Luso tests.
 
-### Other documentation
+### [Test Patches](/contrib/test-patches) ###
+These patches are applied when the automated pull-tester
+tests each pull and when master is tested using jenkins.
 
-- [description.md](description.md): General description of the depends system
-- [packages.md](packages.md): Steps for adding packages
-
+### [Verify SF Binaries](/contrib/verifysfbinaries) ###
+This script attempts to download and verify the signature file SHA256SUMS.asc from SourceForge.

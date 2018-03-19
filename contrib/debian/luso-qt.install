@@ -1,0 +1,6 @@
+usr/local/bin/luso-qt usr/bin
+share/pixmaps/luso32.xpm usr/share/pixmaps
+share/pixmaps/luso16.xpm usr/share/pixmaps
+share/pixmaps/luso128.png usr/share/pixmaps
+debian/luso-qt.desktop usr/share/applications
+debian/luso-qt.protocol usr/share/kde4/services/
