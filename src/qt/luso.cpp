@@ -352,7 +352,7 @@ BitcoinApplication::BitcoinApplication(int &argc, char **argv):
     platformName = GetArg("-uiplatform", BitcoinGUI::DEFAULT_UIPLATFORM);
     platformStyle = PlatformStyle::instantiate(QString::fromStdString(platformName));
     if (!platformStyle) // Fall back to "other" if specified name not found
-        platformStyle = PlatformStyle::instantiate("luso_default");
+        platformStyle = PlatformStyle::instantiate("other");
     assert(platformStyle);
 }
 
@@ -732,3 +732,4 @@ int main(int argc, char *argv[])
     return app.getReturnValue();
 }
 #endif // BITCOIN_QT_TEST
+
