@@ -117,7 +117,7 @@ public:
         consensus.nMasternodePaymentsIncreaseBlock = 57600; // After second month start increase increasing every month cycle
         consensus.nMasternodePaymentsIncreasePeriod = 28800; // Month cycle
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 999999999; // actual historical value
+        consensus.nBudgetPaymentsStartBlock = 14400; // actual historical value
         consensus.nBudgetPaymentsCycleBlocks = 28800; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
@@ -157,10 +157,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-//        consensus.nMinimumChainWork = uint256S("0x0000011df028759051cca1f9b7859ae2146f336fc5e36b0c530121e4f42ed049"); // 5
-        consensus.nMinimumChainWork = uint256S("0x0");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); // genesis
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0"); // 782700
+        consensus.defaultAssumeValid = uint256S("0x00000184b12f1e5ab0728f413c12f98f37e165b7411ccdb062d820ad5fc4d151"); // 782700
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -215,11 +214,16 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x00000ee6635b617e6b850ba638411c956bc5e0b977c2aa466a2116b4b767599c")),
+            (  0, uint256S("0x00000ee6635b617e6b850ba638411c956bc5e0b977c2aa466a2116b4b767599c"))
+            (  10, uint256S("0x00000184b12f1e5ab0728f413c12f98f37e165b7411ccdb062d820ad5fc4d151"))
+            (  100, uint256S("0x00000001cb395da3a305e11d3df61f19e66462526ec914325c9f52c533609cae"))
+            (  500, uint256S("0x000000000006c9bebde98661eb60ee9073499e9b292efb2abae8b79f06b720b3"))
+            (  1000, uint256S("0x0000000000005ba048046ecf7fd9a913c5d5cade65384d60c18ecd3e1597526a"))
+            (  3000, uint256S("0x00000000000076ec59a731911d91b88518d88aa3aec05a302ce35d2a5cdbd442")),
             1521433216, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            1800        // * estimated number of transactions per day after checkpoint
+            2600        // * estimated number of transactions per day after checkpoint
         };
     }
 };
