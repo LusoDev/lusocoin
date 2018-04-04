@@ -172,60 +172,60 @@ RES_ICONS = \
   qt/res/icons/bitcoin.png \
   qt/res/icons/chevron.png \
   qt/res/icons/warning.png \
-  qt/res/icons/luso_default/add.png \
-  qt/res/icons/luso_default/address-book.png \
-  qt/res/icons/luso_default/browse.png \
-  qt/res/icons/luso_default/clock1.png \
-  qt/res/icons/luso_default/clock2.png \
-  qt/res/icons/luso_default/clock3.png \
-  qt/res/icons/luso_default/clock4.png \
-  qt/res/icons/luso_default/clock5.png \
-  qt/res/icons/luso_default/configure.png \
-  qt/res/icons/luso_default/connect0_16.png \
-  qt/res/icons/luso_default/connect1_16.png \
-  qt/res/icons/luso_default/connect2_16.png \
-  qt/res/icons/luso_default/connect3_16.png \
-  qt/res/icons/luso_default/connect4_16.png \
-  qt/res/icons/luso_default/debugwindow.png \
-  qt/res/icons/luso_default/luso_default_editpaste.png \
-  qt/res/icons/luso_default/luso_default_address-book.png \
-  qt/res/icons/luso_default/luso_default_editcopy.png \
-  qt/res/icons/luso_default/luso_default_remove.png \
-  qt/res/icons/luso_default/edit.png \
-  qt/res/icons/luso_default/editcopy.png \
-  qt/res/icons/luso_default/editpaste.png \
-  qt/res/icons/luso_default/export.png \
-  qt/res/icons/luso_default/eye.png \
-  qt/res/icons/luso_default/eye_minus.png \
-  qt/res/icons/luso_default/eye_plus.png \
-  qt/res/icons/luso_default/filesave.png \
-  qt/res/icons/luso_default/hd_disabled.png \
-  qt/res/icons/luso_default/hd_enabled.png \
-  qt/res/icons/luso_default/history.png \
-  qt/res/icons/luso_default/key.png \
-  qt/res/icons/luso_default/lock_closed.png \
-  qt/res/icons/luso_default/lock_open.png \
-  qt/res/icons/luso_default/masternodes.png \
-  qt/res/icons/luso_default/overview.png \
-  qt/res/icons/luso_default/quit.png \
-  qt/res/icons/luso_default/receive.png \
-  qt/res/icons/luso_default/remove.png \
-  qt/res/icons/luso_default/send.png \
-  qt/res/icons/luso_default/synced.png \
-  qt/res/icons/luso_default/transaction0.png \
-  qt/res/icons/luso_default/transaction2.png \
-  qt/res/icons/luso_default/transaction_conflicted.png \
-  qt/res/icons/luso_default/tx_inout.png \
-  qt/res/icons/luso_default/tx_input.png \
-  qt/res/icons/luso_default/tx_output.png \
-  qt/res/icons/luso_default/tx_mined.png \
-  qt/res/icons/luso_default/about.png \
-  qt/res/icons/luso_default/about_qt.png \
-  qt/res/icons/luso_default/verify.png \
-  qt/res/icons/luso_default/fontbigger.png \
-  qt/res/icons/luso_default/fontsmaller.png \
-  qt/res/icons/luso_default/transaction_abandoned.png \
-  qt/res/icons/luso_default/network_disabled.png
+  qt/res/icons/default/add.png \
+  qt/res/icons/default/address-book.png \
+  qt/res/icons/default/browse.png \
+  qt/res/icons/default/clock1.png \
+  qt/res/icons/default/clock2.png \
+  qt/res/icons/default/clock3.png \
+  qt/res/icons/default/clock4.png \
+  qt/res/icons/default/clock5.png \
+  qt/res/icons/default/configure.png \
+  qt/res/icons/default/connect0_16.png \
+  qt/res/icons/default/connect1_16.png \
+  qt/res/icons/default/connect2_16.png \
+  qt/res/icons/default/connect3_16.png \
+  qt/res/icons/default/connect4_16.png \
+  qt/res/icons/default/debugwindow.png \
+  qt/res/icons/default/luso_default_editpaste.png \
+  qt/res/icons/default/luso_default_address-book.png \
+  qt/res/icons/default/luso_default_editcopy.png \
+  qt/res/icons/default/luso_default_remove.png \
+  qt/res/icons/default/edit.png \
+  qt/res/icons/default/editcopy.png \
+  qt/res/icons/default/editpaste.png \
+  qt/res/icons/default/export.png \
+  qt/res/icons/default/eye.png \
+  qt/res/icons/default/eye_minus.png \
+  qt/res/icons/default/eye_plus.png \
+  qt/res/icons/default/filesave.png \
+  qt/res/icons/default/hd_disabled.png \
+  qt/res/icons/default/hd_enabled.png \
+  qt/res/icons/default/history.png \
+  qt/res/icons/default/key.png \
+  qt/res/icons/default/lock_closed.png \
+  qt/res/icons/default/lock_open.png \
+  qt/res/icons/default/masternodes.png \
+  qt/res/icons/default/overview.png \
+  qt/res/icons/default/quit.png \
+  qt/res/icons/default/receive.png \
+  qt/res/icons/default/remove.png \
+  qt/res/icons/default/send.png \
+  qt/res/icons/default/synced.png \
+  qt/res/icons/default/transaction0.png \
+  qt/res/icons/default/transaction2.png \
+  qt/res/icons/default/transaction_conflicted.png \
+  qt/res/icons/default/tx_inout.png \
+  qt/res/icons/default/tx_input.png \
+  qt/res/icons/default/tx_output.png \
+  qt/res/icons/default/tx_mined.png \
+  qt/res/icons/default/about.png \
+  qt/res/icons/default/about_qt.png \
+  qt/res/icons/default/verify.png \
+  qt/res/icons/default/fontbigger.png \
+  qt/res/icons/default/fontsmaller.png \
+  qt/res/icons/default/transaction_abandoned.png \
+  qt/res/icons/default/network_disabled.png
 
 BITCOIN_QT_CPP = \
   qt/bantablemodel.cpp \
@@ -289,22 +289,22 @@ BITCOIN_QT_CPP += \
 endif
 
 RES_IMAGES = \
-  qt/res/images/luso_default/about.png \
-  qt/res/images/luso_default/splash.png \
-  qt/res/images/luso_default/splash_testnet.png \
-  qt/res/images/luso_default/luso_logo_horizontal.png \
-  qt/res/images/luso_default/unchecked.png \
-  qt/res/images/luso_default/checked.png \
-  qt/res/images/luso_default/luso_default_downArrow.png \
-  qt/res/images/luso_default/luso_default_downArrow_small.png \
-  qt/res/images/luso_default/luso_default_upArrow_small.png \
-  qt/res/images/luso_default/luso_default_leftArrow_small.png \
-  qt/res/images/luso_default/luso_default_rightArrow_small.png \
-  qt/res/images/luso_default/luso_default_qtreeview_selected.png \
-  qt/res/images/luso_default/luso_default_walletFrame_bg.png
+  qt/res/images/default/about.png \
+  qt/res/images/default/splash.png \
+  qt/res/images/default/splash_testnet.png \
+  qt/res/images/default/luso_logo_horizontal.png \
+  qt/res/images/default/unchecked.png \
+  qt/res/images/default/checked.png \
+  qt/res/images/default/luso_default_downArrow.png \
+  qt/res/images/default/luso_default_downArrow_small.png \
+  qt/res/images/default/luso_default_upArrow_small.png \
+  qt/res/images/default/luso_default_leftArrow_small.png \
+  qt/res/images/default/luso_default_rightArrow_small.png \
+  qt/res/images/default/luso_default_qtreeview_selected.png \
+  qt/res/images/default/luso_default_walletFrame_bg.png
 
 RES_CSS = \
-  qt/res/css/luso_default.css
+  qt/res/css/default.css
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 

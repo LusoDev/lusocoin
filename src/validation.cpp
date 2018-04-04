@@ -1247,9 +1247,10 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount nSubsidy = nSubsidyBase*COIN;
 
     // yearly decline of production by ~15% per year, projected ~18M coins max by year 2050+.
-    double cycledReward = (double) ((double)nPrevHeight / (double)consensusParams.nSubsidyHalvingInterval)/(double)10; // 10 years for 60%
-    if (cycledReward>0.6)cycledReward=0.6; // +60% max
-    nSubsidy -= nSubsidy * cycledReward;
+    double cycledReward = (double) ((double)nPrevHeight / (double)consensusParams.nSubsidyHalvingInterval)/(double)10; // 10 years for 5 LUSO per block (2028)
+    double cycledRewardperc=0.83 * cycledReward;
+    if (cycledRewardperc>0.83)cycledRewardperc=0.83; // -83% max 5 LUSO
+    nSubsidy -= nSubsidy * cycledRewardperc;
     // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
     CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
     LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight+nFairLaunch, dDiff, fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart);
@@ -1262,21 +1263,25 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     int nFairLaunch = Params().GetConsensus().nFairLaunch*2; // 1 month kickin for masternodes
 
-    if (nHeight > 0 && nHeight < nFairLaunch) {
-        return blockValue*0.7; // 200% fair launch for investors
+    if (nHeight > 0 && nHeight < (nFairLaunch/2)) {
+        return blockValue*0.7; // 70% fair launch for investors
+    }
+    if (nHeight > 0 && nHeight < nFairLaunch) { // readjust fairlaunch for miners
+        return blockValue*0.6;
     }
     int nHeightf = nHeight - nFairLaunch; // fix cycles calc
     if (nHeightf<1)nHeightf=nHeight;
 
-    CAmount ret = blockValue/5; // start at 20%
+    CAmount ret = blockValue * 0.25; // start at 25%
 
-    int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
+    //int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
     int nMNPIPeriod = Params().GetConsensus().nMasternodePaymentsIncreasePeriod;
 
-    double cycledReward =(double) ((double)nHeightf / (double)nMNPIPeriod)/(double)10; // 10 years for 60%
-    if (cycledReward>0.6)cycledReward=0.6; // +60% max
-    ret += blockValue * cycledReward;
-    LogPrintf("Reward Masternode: %s\r\n",FormatMoney(ret));
+    double cycledReward = (double) ((double)nHeightf / (double)nMNPIPeriod)/(double)(12*10);
+    double cycledRewardPerc = 0.4 * cycledReward; // max added 40%// +60% max
+    if (cycledRewardPerc>0.4)cycledRewardPerc=0.4;
+    ret += blockValue * cycledRewardPerc;
+    //LogPrintf("Reward Masternode: %s\r\n",FormatMoney(ret));
     return ret;
 }
 
@@ -4394,4 +4399,3 @@ public:
         mapBlockIndex.clear();
     }
 } instance_of_cmaincleanup;
-

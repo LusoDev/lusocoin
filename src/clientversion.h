@@ -17,7 +17,7 @@
 #define CLIENT_VERSION_MAJOR 1
 #define CLIENT_VERSION_MINOR 0
 #define CLIENT_VERSION_REVISION 2
-#define CLIENT_VERSION_BUILD 1
+#define CLIENT_VERSION_BUILD 2
 
 //! Set to true for release, false for prerelease or test build
 #define CLIENT_VERSION_IS_RELEASE true
@@ -68,4 +68,3 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 #endif // WINDRES_PREPROC
 
 #endif // BITCOIN_CLIENTVERSION_H
-

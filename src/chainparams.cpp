@@ -183,6 +183,8 @@ public:
 
         vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 1", "dnsseed.lusoco.in"));
         vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 2", "dnsseed2.lusoco.in"));
+        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 3", "dnsseed3.lusoco.in"));
+        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 3", "dnsseed4.lusoco.in"));
         vSeeds.push_back(CDNSSeedData("Official TOR DNS Seed - Server 1", "vqtvvvczmnt2ner7.onion"));
 
         // Luso addresses start with 'L'
@@ -219,7 +221,9 @@ public:
             (  100, uint256S("0x00000001cb395da3a305e11d3df61f19e66462526ec914325c9f52c533609cae"))
             (  500, uint256S("0x000000000006c9bebde98661eb60ee9073499e9b292efb2abae8b79f06b720b3"))
             (  1000, uint256S("0x0000000000005ba048046ecf7fd9a913c5d5cade65384d60c18ecd3e1597526a"))
-            (  3000, uint256S("0x00000000000076ec59a731911d91b88518d88aa3aec05a302ce35d2a5cdbd442")),
+            (  3000, uint256S("0x00000000000076ec59a731911d91b88518d88aa3aec05a302ce35d2a5cdbd442"))
+            (  6000, uint256S("0x0000000000024913c09cdd71cd66c4cbc8c7fc743c235b95e455cafaca6bb1d9"))
+            (  12000, uint256S("0x0000000000023508a22e59b37fe4f21e0e1697b6571564708d443a15c6729498")),
             1521433216, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -476,4 +480,3 @@ void SelectParams(const std::string& network)
     SelectBaseParams(network);
     pCurrentParams = &Params(network);
 }
-
