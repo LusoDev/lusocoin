@@ -241,17 +241,17 @@ public:
     CTestNetParams() {
         strNetworkID = "test";
         consensus.nFairLaunch = 100; // Block 14400, or predicted half month for investors settle in
-        consensus.nSubsidyHalvingInterval = 400; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
-        consensus.nMasternodePaymentsStartBlock = 150; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 200; // actual historical value
-        consensus.nMasternodePaymentsIncreasePeriod = 100; // 17280 - actual historical value
+        consensus.nSubsidyHalvingInterval = 345600; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
+        consensus.nMasternodePaymentsStartBlock = 130; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 57600; // After second month start increase increasing every month cycle
+        consensus.nMasternodePaymentsIncreasePeriod = 28800; // Month cycle
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 9999999; // actual historical value
-        consensus.nBudgetPaymentsCycleBlocks = 50; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
+        consensus.nBudgetPaymentsStartBlock = 14400; // actual historical value
+        consensus.nBudgetPaymentsCycleBlocks = 28800; // ~(60*24*30)/2.6, actual number of blocks per month is 200700 / 12 = 16725
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
-        consensus.nSuperblockStartBlock = 33; // The block at which 12.1 goes live (end of final 12.0 budget cycle)
-        consensus.nSuperblockCycle = 33; // ~(60*24*30)/2.6, actual number of blocks per month is 57600 / 12 = 16725
+        consensus.nSuperblockStartBlock = 28800; // kicks the newest works of dash
+        consensus.nSuperblockCycle = 28800; // every month
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
@@ -259,16 +259,16 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("0x000004d51d1254d60e2dc1ae580383070a4ddffa4c64c2eeb3a2f9ecc0414341");
+        consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 12 * 60 * 60; // Retarget: 12 hour
-        consensus.nPowTargetSpacing = 30; // Block spacing: 1.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Retarget: 1 hour
+        consensus.nPowTargetSpacing = 1.5 * 60; // Block spacing: 1.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nPowKGWHeight = 15200;
-        consensus.nPowDGWHeight = 34140;
-        consensus.nRuleChangeActivationThreshold = 456; // 95% of 2016
-        consensus.nMinerConfirmationWindow = 480; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nPowKGWHeight = 99999999;
+        consensus.nPowDGWHeight = 1;
+        consensus.nRuleChangeActivationThreshold = 912; // 95% of 2016
+        consensus.nMinerConfirmationWindow = 960; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
@@ -300,11 +300,13 @@ public:
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
+	
 
-        genesis = CreateGenesisBlock(1520902537, 163088, 0x1e0ffff0, 1, 1 * COIN);
+        genesis = CreateGenesisBlock(1529194493, 1687411, 0x1e0ffff0, 1, 1 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        //    assert(consensus.hashGenesisBlock == uint256S("0x000001dc6322541cd5606837e680134a76a3c9959a0acf3db6bd988cfb461a61"));
-        //    assert(genesis.hashMerkleRoot == uint256S("0x8e2f164a6d726db3906780191d1a075a4560776853d165ca1fef167db9328481"));
+
+	    assert(consensus.hashGenesisBlock == uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740"));
+            assert(genesis.hashMerkleRoot == uint256S("0xefa312246fcfebe138d37ae038f9abe067b5bac566f005e9b3084f06cd826fda"));
 
 
         vFixedSeeds.clear();
@@ -341,9 +343,9 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    0, uint256S("0x000001dc6322541cd5606837e680134a76a3c9959a0acf3db6bd988cfb461a61")),
+            (    0, uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740")),
 
-            1520902537, // * UNIX timestamp of last checkpoint block
+            1529194493, // * UNIX timestamp of last checkpoint block
             0,       // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             1000         // * estimated number of transactions per day after checkpoint
@@ -480,3 +482,4 @@ void SelectParams(const std::string& network)
     SelectBaseParams(network);
     pCurrentParams = &Params(network);
 }
+
