@@ -40,6 +40,7 @@
 #include "utilmoneystr.h"
 #include "utilstrencodings.h"
 #include "validationinterface.h"
+#include <georeward.h>
 #ifdef ENABLE_WALLET
 #include "wallet/db.h"
 #include "wallet/wallet.h"
@@ -1523,6 +1524,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
             fReindex = true;
         }
     }
+
+
+    // GEOIP
+    uiInterface.InitMessage(_("Loading geoip db..."));
+    CGEOReward geor;
+    LogPrintf("Loading geoipdb:\n");
+    geor.checkLoad();
 
     // cache size calculations
     int64_t nTotalCache = (GetArg("-dbcache", nDefaultDbCache) << 20);

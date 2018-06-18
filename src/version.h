@@ -11,7 +11,7 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 70021;
+static const int PROTOCOL_VERSION = 70022;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 101;
@@ -46,4 +46,3 @@ static const int SENDHEADERS_VERSION = 70001;
 static const int DIP0001_PROTOCOL_VERSION = 70001;
 
 #endif // BITCOIN_VERSION_H
-

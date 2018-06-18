@@ -142,7 +142,8 @@ public:
     bool DoAutomaticDenominating(CConnman& connman, bool fDryRun=false);
 
     void CheckTimeout();
-
+    /// Process a new block
+    void NewBlock();
     void UpdatedBlockTip(const CBlockIndex *pindex);
 };
 

@@ -111,6 +111,7 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
+        consensus.nGEOLaunch = 99999999;
         consensus.nFairLaunch = 14400; // Block 14400, or predicted half month for investors settle in
         consensus.nSubsidyHalvingInterval = 345600; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
         consensus.nMasternodePaymentsStartBlock = 1000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
@@ -175,17 +176,14 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1521433216, 2683314, 0x1e0ffff0, 1, 1 * COIN);
-        consensus.hashGenesisBlock = genesis.GetHash();
+        genesis = CreateGenesisBlock(1521133216, 2683314, 0x1e0ffff0, 1, 1 * COIN);
+        //consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00000ee6635b617e6b850ba638411c956bc5e0b977c2aa466a2116b4b767599c"));
-        assert(genesis.hashMerkleRoot == uint256S("0xefa312246fcfebe138d37ae038f9abe067b5bac566f005e9b3084f06cd826fda"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740"));
+        //assert(genesis.hashMerkleRoot == uint256S("0xefa312246fcfebe138d37ae038f9abe067b5bac566f005e9b3084f06cd826fda"));
 
-        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 1", "dnsseed.lusoco.in"));
-        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 2", "dnsseed2.lusoco.in"));
-        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 3", "dnsseed3.lusoco.in"));
-        vSeeds.push_back(CDNSSeedData("Official DNS Seed - Server 3", "dnsseed4.lusoco.in"));
-        vSeeds.push_back(CDNSSeedData("Official TOR DNS Seed - Server 1", "vqtvvvczmnt2ner7.onion"));
+        vFixedSeeds.clear();
+        vSeeds.clear();
 
         // Luso addresses start with 'L'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,48);
@@ -216,14 +214,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (  0, uint256S("0x00000ee6635b617e6b850ba638411c956bc5e0b977c2aa466a2116b4b767599c"))
-            (  10, uint256S("0x00000184b12f1e5ab0728f413c12f98f37e165b7411ccdb062d820ad5fc4d151"))
-            (  100, uint256S("0x00000001cb395da3a305e11d3df61f19e66462526ec914325c9f52c533609cae"))
-            (  500, uint256S("0x000000000006c9bebde98661eb60ee9073499e9b292efb2abae8b79f06b720b3"))
-            (  1000, uint256S("0x0000000000005ba048046ecf7fd9a913c5d5cade65384d60c18ecd3e1597526a"))
-            (  3000, uint256S("0x00000000000076ec59a731911d91b88518d88aa3aec05a302ce35d2a5cdbd442"))
-            (  6000, uint256S("0x0000000000024913c09cdd71cd66c4cbc8c7fc743c235b95e455cafaca6bb1d9"))
-            (  12000, uint256S("0x0000000000023508a22e59b37fe4f21e0e1697b6571564708d443a15c6729498")),
+            (  0, uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740")),
             1521433216, // * UNIX timestamp of last checkpoint block
             0,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -240,6 +231,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
+        consensus.nGEOLaunch = 1550;
         consensus.nFairLaunch = 100; // Block 14400, or predicted half month for investors settle in
         consensus.nSubsidyHalvingInterval = 345600; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
         consensus.nMasternodePaymentsStartBlock = 130; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
@@ -300,20 +292,25 @@ public:
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
-	
+
 
         genesis = CreateGenesisBlock(1529194493, 1687411, 0x1e0ffff0, 1, 1 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+        //MineGenesis(genesis, consensus.powLimit, true);
 
-	    assert(consensus.hashGenesisBlock == uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740"));
+            assert(consensus.hashGenesisBlock == uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740"));
             assert(genesis.hashMerkleRoot == uint256S("0xefa312246fcfebe138d37ae038f9abe067b5bac566f005e9b3084f06cd826fda"));
 
 
         vFixedSeeds.clear();
         vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 1", "seedbr1.lusoco.in"));
         vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 1", "testnetdnsseed.lusoco.in"));
         vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 2", "testnetdnsseed2.lusoco.in"));
-        vSeeds.push_back(CDNSSeedData("Official TOR DNS Seed - Server 1", "vqtvvvczmnt2ner7.onion"));
+        vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 1", "99.99.99.117"));
+        vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 1", "99.99.99.13"));
+        //vSeeds.push_back(CDNSSeedData("Official Testnet DNS Seed - Server 2", "testnetdnsseed2.lusoco.in"));
+        //vSeeds.push_back(CDNSSeedData("Official TOR DNS Seed - Server 1", "vqtvvvczmnt2ner7.onion"));
 
         // Testnet Luso addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
@@ -331,7 +328,7 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
@@ -362,6 +359,7 @@ class CRegTestParams : public CChainParams {
 public:
     CRegTestParams() {
         strNetworkID = "regtest";
+        consensus.nGEOLaunch = 87600;
         consensus.nFairLaunch = 100; // Block 14400, or predicted half month for investors settle in
         consensus.nSubsidyHalvingInterval = 400; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
         consensus.nMasternodePaymentsStartBlock = 150; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
@@ -482,4 +480,3 @@ void SelectParams(const std::string& network)
     SelectBaseParams(network);
     pCurrentParams = &Params(network);
 }
-

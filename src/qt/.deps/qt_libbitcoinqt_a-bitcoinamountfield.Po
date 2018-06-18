@@ -127,45 +127,39 @@ qt/qt_libbitcoinqt_a-bitcoinamountfield.o: qt/bitcoinamountfield.cpp \
  /usr/include/c++/6/ostream /usr/include/c++/6/bits/ostream.tcc \
  /usr/include/c++/6/istream /usr/include/c++/6/bits/istream.tcc \
  /usr/include/c++/6/bits/stream_iterator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QWidget \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qwidget.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qwindowdefs.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobal.h \
  /usr/include/c++/6/cstddef \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h \
- /usr/include/c++/6/atomic /usr/include/c++/6/bits/atomic_base.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h \
- /usr/include/c++/6/numeric /usr/include/c++/6/bits/stl_numeric.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qconfig.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfeatures.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsystemdetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qprocessordetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcompilerdetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypeinfo.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypetraits.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsysinfo.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlogging.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qflags.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbasicatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic_x86.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qgenericatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobalstatic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnumeric.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnamespace.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs_impl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstring.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qchar.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearray.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrefcount.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qarraydata.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qalgorithms.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiterator.h \
  /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -173,103 +167,106 @@ qt/qt_libbitcoinqt_a-bitcoinamountfield.o: qt/bitcoinamountfield.cpp \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h qt/bitcoinunits.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QString \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h qt/guiconstants.h \
- qt/qvaluecombobox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractSpinBox \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/QKeyEvent \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit \
- /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h \
- /usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearraylist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringlist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregexp.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringmatcher.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qscopedpointer.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmetatype.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvarlengtharray.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcontainerfwd.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qisenum.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject_impl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmargins.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpaintdevice.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrect.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsize.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpoint.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpalette.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qcolor.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qrgb.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qbrush.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpair.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvector.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qmatrix.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpolygon.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qregion.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qdatastream.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiodevice.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qline.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtransform.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpainterpath.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qimage.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpixelformat.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpixmap.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsharedpointer.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qshareddata.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qhash.h \
+ /usr/include/c++/6/numeric /usr/include/c++/6/bits/stl_numeric.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsharedpointer_impl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfont.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfontmetrics.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfontinfo.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qsizepolicy.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qcursor.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qkeysequence.h \
+ qt/bitcoinunits.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QAbstractListModel \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qabstractitemmodel.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvariant.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmap.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QString \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qstring.h \
+ qt/guiconstants.h qt/qvaluecombobox.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QComboBox \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qcombobox.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qwidget.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractitemdelegate.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qstyleoption.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractspinbox.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qvalidator.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregularexpression.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlocale.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qicon.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qslider.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractslider.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qstyle.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qtabbar.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qtabwidget.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qrubberband.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qframe.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qabstractitemmodel.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QVariant \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qvariant.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QApplication \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qapplication.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcoreapplication.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcoreevent.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qeventloop.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qguiapplication.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qinputmethod.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QAbstractSpinBox \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qabstractspinbox.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QHBoxLayout \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qboxlayout.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qlayout.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qlayoutitem.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qboxlayout.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qgridlayout.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui/QKeyEvent \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui/qevent.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qset.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qurl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfile.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfiledevice.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qvector2d.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtouchdevice.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QLineEdit \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qlineedit.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextcursor.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextformat.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpen.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextoption.h \
  qt/bitcoinamountfield.moc
 
 /usr/include/stdc-predef.h:
@@ -638,87 +635,71 @@ prevector.h:
 
 /usr/include/c++/6/bits/stream_iterator.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QWidget:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qwidget.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qwindowdefs.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobal.h:
 
 /usr/include/c++/6/cstddef:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qconfig.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfeatures.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsystemdetection.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qprocessordetection.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcompilerdetection.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypeinfo.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypetraits.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsysinfo.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlogging.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qflags.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbasicatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic_x86.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qgenericatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobalstatic.h:
 
-/usr/include/c++/6/atomic:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnumeric.h:
 
-/usr/include/c++/6/bits/atomic_base.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnamespace.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs_impl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstring.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qchar.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrefcount.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qarraydata.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlist.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qalgorithms.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h:
-
-/usr/include/c++/6/numeric:
-
-/usr/include/c++/6/bits/stl_numeric.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiterator.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h:
 
@@ -736,202 +717,208 @@ prevector.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearraylist.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringlist.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregexp.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringmatcher.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qscopedpointer.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmetatype.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvarlengtharray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcontainerfwd.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qisenum.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject_impl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmargins.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpaintdevice.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrect.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsize.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpoint.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpalette.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qcolor.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qrgb.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qbrush.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpair.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvector.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qmatrix.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpolygon.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qregion.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qdatastream.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiodevice.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qline.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtransform.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpainterpath.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qimage.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpixelformat.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpixmap.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsharedpointer.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qshareddata.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qhash.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h:
+/usr/include/c++/6/numeric:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h:
+/usr/include/c++/6/bits/stl_numeric.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsharedpointer_impl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfont.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfontmetrics.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qfontinfo.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qsizepolicy.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qcursor.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qkeysequence.h:
 
 qt/bitcoinunits.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QAbstractListModel:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QAbstractListModel:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qabstractitemmodel.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvariant.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmap.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QString:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QString:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qstring.h:
 
 qt/guiconstants.h:
 
 qt/qvaluecombobox.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QComboBox:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QComboBox:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qcombobox.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qwidget.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractitemdelegate.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qstyleoption.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractspinbox.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qvalidator.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregularexpression.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlocale.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qicon.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qslider.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qabstractslider.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qstyle.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qtabbar.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qtabwidget.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qrubberband.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qframe.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qabstractitemmodel.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QVariant:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qvariant.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QApplication:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qapplication.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcoreapplication.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcoreevent.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qeventloop.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qguiapplication.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qinputmethod.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAbstractSpinBox:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QAbstractSpinBox:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qabstractspinbox.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QHBoxLayout:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qboxlayout.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qlayout.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qlayoutitem.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qboxlayout.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtWidgets/qgridlayout.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QKeyEvent:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui/QKeyEvent:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui/qevent.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qset.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qurl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfile.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfiledevice.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qvector2d.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtouchdevice.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/QLineEdit:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets/qlineedit.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextcursor.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextformat.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qpen.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtGui/qtextoption.h:
 
 qt/bitcoinamountfield.moc:

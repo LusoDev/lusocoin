@@ -1,10 +1,10 @@
 qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/stdc-predef.h qt/clientmodel.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QObject \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QObject \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qobject.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnamespace.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobal.h \
  /usr/include/c++/6/cstddef \
  /usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h \
@@ -14,11 +14,11 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h \
  /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qconfig.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfeatures.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsystemdetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qprocessordetection.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcompilerdetection.h \
  /usr/include/c++/6/utility /usr/include/c++/6/bits/stl_relops.h \
  /usr/include/c++/6/bits/stl_pair.h /usr/include/c++/6/bits/move.h \
  /usr/include/c++/6/bits/concept_check.h /usr/include/c++/6/type_traits \
@@ -65,35 +65,32 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/c++/6/bits/alloc_traits.h \
  /usr/include/c++/6/bits/memoryfwd.h \
  /usr/include/c++/6/bits/uniform_int_dist.h /usr/include/c++/6/limits \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h \
- /usr/include/c++/6/atomic /usr/include/c++/6/bits/atomic_base.h \
- /usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypeinfo.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypetraits.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsysinfo.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlogging.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qflags.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbasicatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic_x86.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qgenericatomic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobalstatic.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnumeric.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs_impl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstring.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qchar.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearray.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrefcount.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qarraydata.h \
  /usr/include/string.h /usr/include/x86_64-linux-gnu/bits/string3.h \
  /usr/include/c++/6/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h \
  /usr/include/c++/6/string /usr/include/c++/6/bits/stringfwd.h \
  /usr/include/c++/6/bits/char_traits.h /usr/include/c++/6/bits/postypes.h \
  /usr/include/c++/6/cwchar /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/c++/6/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
  /usr/include/c++/6/bits/allocator.h \
  /usr/include/x86_64-linux-gnu/c++/6/bits/c++allocator.h \
  /usr/include/c++/6/ext/new_allocator.h \
@@ -127,9 +124,12 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/c++/6/bits/functional_hash.h \
  /usr/include/c++/6/bits/hash_bytes.h \
- /usr/include/c++/6/bits/basic_string.tcc /usr/include/c++/6/iterator \
- /usr/include/c++/6/ostream /usr/include/c++/6/ios \
- /usr/include/c++/6/bits/ios_base.h \
+ /usr/include/c++/6/bits/basic_string.tcc \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qalgorithms.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiterator.h \
+ /usr/include/c++/6/iterator /usr/include/c++/6/ostream \
+ /usr/include/c++/6/ios /usr/include/c++/6/bits/ios_base.h \
  /usr/include/c++/6/bits/locale_classes.h \
  /usr/include/c++/6/bits/locale_classes.tcc \
  /usr/include/c++/6/system_error \
@@ -146,14 +146,8 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/c++/6/bits/basic_ios.tcc \
  /usr/include/c++/6/bits/ostream.tcc /usr/include/c++/6/istream \
  /usr/include/c++/6/bits/istream.tcc \
- /usr/include/c++/6/bits/stream_iterator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h \
- /usr/include/c++/6/numeric /usr/include/c++/6/bits/stl_numeric.h \
- /usr/include/c++/6/list /usr/include/c++/6/bits/stl_list.h \
+ /usr/include/c++/6/bits/stream_iterator.h /usr/include/c++/6/list \
+ /usr/include/c++/6/bits/stl_list.h \
  /usr/include/c++/6/bits/allocated_ptr.h \
  /usr/include/c++/6/ext/aligned_buffer.h /usr/include/c++/6/bits/list.tcc \
  /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h \
@@ -163,14 +157,15 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearraylist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringlist.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregexp.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringmatcher.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qscopedpointer.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmetatype.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvarlengtharray.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcontainerfwd.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qisenum.h \
  /usr/include/c++/6/vector /usr/include/c++/6/bits/stl_uninitialized.h \
  /usr/include/c++/6/bits/stl_vector.h \
  /usr/include/c++/6/bits/stl_bvector.h /usr/include/c++/6/bits/vector.tcc \
@@ -178,25 +173,28 @@ qt/qt_libbitcoinqt_a-moc_clientmodel.o: qt/moc_clientmodel.cpp \
  /usr/include/c++/6/bits/stl_map.h /usr/include/c++/6/tuple \
  /usr/include/c++/6/array /usr/include/c++/6/bits/uses_allocator.h \
  /usr/include/c++/6/bits/stl_multimap.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject_impl.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QDateTime \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qdatetime.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qshareddata.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qhash.h \
+ /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpair.h \
+ /usr/include/c++/6/numeric /usr/include/c++/6/bits/stl_numeric.h \
+ /usr/include/c++/6/atomic /usr/include/c++/6/bits/atomic_base.h
 
 /usr/include/stdc-predef.h:
 
 qt/clientmodel.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QObject:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QObject:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qobject.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnamespace.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobal.h:
 
 /usr/include/c++/6/cstddef:
 
@@ -218,15 +216,15 @@ qt/clientmodel.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qconfig.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfeatures.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qfeatures.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsystemdetection.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qprocessordetection.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcompilerdetection.h:
 
 /usr/include/c++/6/utility:
 
@@ -348,53 +346,39 @@ qt/clientmodel.h:
 
 /usr/include/c++/6/limits:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypeinfo.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qtypetraits.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qsysinfo.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlogging.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qflags.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbasicatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qatomic_x86.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qgenericatomic.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qglobalstatic.h:
 
-/usr/include/c++/6/atomic:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qnumeric.h:
 
-/usr/include/c++/6/bits/atomic_base.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobjectdefs_impl.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstring.h:
 
-/usr/include/stdint.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qrefcount.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qarraydata.h:
 
 /usr/include/string.h:
 
@@ -418,9 +402,15 @@ qt/clientmodel.h:
 
 /usr/include/stdio.h:
 
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
 /usr/include/x86_64-linux-gnu/bits/wchar2.h:
 
 /usr/include/c++/6/cstdint:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h:
+
+/usr/include/stdint.h:
 
 /usr/include/c++/6/bits/allocator.h:
 
@@ -510,6 +500,12 @@ qt/clientmodel.h:
 
 /usr/include/c++/6/bits/basic_string.tcc:
 
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qlist.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qalgorithms.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qiterator.h:
+
 /usr/include/c++/6/iterator:
 
 /usr/include/c++/6/ostream:
@@ -558,20 +554,6 @@ qt/clientmodel.h:
 
 /usr/include/c++/6/bits/stream_iterator.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h:
-
-/usr/include/c++/6/numeric:
-
-/usr/include/c++/6/bits/stl_numeric.h:
-
 /usr/include/c++/6/list:
 
 /usr/include/c++/6/bits/stl_list.h:
@@ -598,21 +580,23 @@ qt/clientmodel.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qbytearraylist.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringlist.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qregexp.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qstringmatcher.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qscopedpointer.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qmetatype.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qvarlengtharray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qcontainerfwd.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qisenum.h:
 
 /usr/include/c++/6/vector:
 
@@ -638,12 +622,22 @@ qt/clientmodel.h:
 
 /usr/include/c++/6/bits/stl_multimap.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qobject_impl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QDateTime:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/QDateTime:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore/qdatetime.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qshareddata.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h:
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qhash.h:
+
+/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/QtCore/qpair.h:
+
+/usr/include/c++/6/numeric:
+
+/usr/include/c++/6/bits/stl_numeric.h:
+
+/usr/include/c++/6/atomic:
+
+/usr/include/c++/6/bits/atomic_base.h:

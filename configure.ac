@@ -3,7 +3,7 @@ AC_PREREQ([2.60])
 define(_CLIENT_VERSION_MAJOR, 1)
 define(_CLIENT_VERSION_MINOR, 0)
 define(_CLIENT_VERSION_REVISION, 2)
-define(_CLIENT_VERSION_BUILD, 2)
+define(_CLIENT_VERSION_BUILD, 3)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
 AC_INIT([Luso Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/lusodev/lusocoin/issues],[lusocore])
@@ -608,7 +608,7 @@ AX_BOOST_FILESYSTEM
 AX_BOOST_PROGRAM_OPTIONS
 AX_BOOST_THREAD
 AX_BOOST_CHRONO
-
+AX_BOOST_IOSTREAMS
 
 if test x$use_reduce_exports = xyes; then
   AC_MSG_CHECKING([for working boost reduced exports])
@@ -670,7 +670,7 @@ fi
 
 if test x$use_boost = xyes; then
 
-BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB"
+BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB -lboost_iostreams"
 
 
 dnl If boost (prior to 1.57) was built without c++11, it emulated scoped enums

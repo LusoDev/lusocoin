@@ -1,4 +1,4 @@
-Luso Core v1.0.0.1
+Luso Core v1.0.2.3
 ===============================
 
 https://www.lusoco.in/
@@ -23,6 +23,16 @@ O que é a LUSO?
 LusoCoin, é um fork do trabalho feito pela equipa da moeda DASH, anteriormente conhecida como DarkCoin, uma tecnologia que tem o melhor interesse nos seus consumidores e investidores, com funcionalidades de performance, privacidade, segurança e capitalização inexistentes em moedas como o Bitcoin.
 
 Em tempos em que os bancos e os donos do dinheiro visam a globalização para fins de controlo, manipulação e execução de várias agendas ,o Nacionalismo é a nova forma de resistência.
+
+
+Masternode Share
+Max cap: 60%
+Max cap LUSO IP: 75%
+
+
+static const char * Nations[] = { "PT", "BR", "AO", "MZ", "GW", "TL", "CV", "GQ", "MO", "ST" };
+10 Countries list: Portugal, Brazil, Angola, Mozambique, Guinea-Bissau, East Timor, Equatorial Guinea, Macau, Cape Verde, São Tomé and Príncipe
+
 
 Especificações técnicas
 -------
@@ -53,6 +63,10 @@ Portas:
     REGTEST 22505
 
 
+Testnet:
+  ./src/lusod -testnet
+
+
 Processo de desenvolvimento
 -------
   Os desenvolvedores trabalham em suas próprias árvores e, em seguida, enviam pedidos de "push" quando acham que sua funcionalidade ou correção está pronta.
@@ -80,7 +94,7 @@ Compilar a LUSO
 -------
 
   --- Dependencias
-    sudo apt-get install build-essential libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils qt5-default qt4-default libprotobuf-dev protobuf-compiler qttools5-dev-tools libqrencode-dev libboost-all-dev libboost-dev libminiupnpc-dev
+    sudo apt-get install build-essential libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils libprotobuf-dev protobuf-compiler qttools5-dev-tools libqrencode-dev libboost-all-dev libboost-dev libminiupnpc-dev
 
     --- Boost
     sudo apt-get update
@@ -120,3 +134,7 @@ Se obtiveres erros, tenta incluir directamente as dependencias ou fazer disable 
 ex:
   ./configure CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include -O2" LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib" --disable-tests
   ./configure CPPFLAGS="-I/usr/include -O2" LDFLAGS="-L/usr/lib" --disable-tests --with-gui=qt4
+
+ou
+
+cd depends; make && cd ..; ./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu --disable-tests && make

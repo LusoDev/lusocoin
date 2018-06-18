@@ -31,6 +31,9 @@
 
 #include <univalue.h>
 
+
+#include <georeward.h>
+
 using namespace std;
 
 /**
@@ -449,6 +452,28 @@ UniValue createmultisig(const UniValue& params, bool fHelp)
     result.push_back(Pair("redeemScript", HexStr(inner.begin(), inner.end())));
 
     return result;
+}
+
+UniValue checkluso(const UniValue& params, bool fHelp)
+{
+  if (fHelp || params.size() != 1)
+    throw runtime_error(
+        "checkluso \"127.0.0.1\"\n");
+
+  CGEOReward geor;
+  string strAddress  = params[0].get_str();
+  return geor.checkLUSO(strAddress);
+}
+
+UniValue geoip(const UniValue& params, bool fHelp)
+{
+  if (fHelp || params.size() != 1)
+    throw runtime_error(
+        "geoip \"127.0.0.1\"\n");
+
+  CGEOReward geor;
+  string strAddress  = params[0].get_str();
+  return geor.getGEOIP(strAddress);
 }
 
 UniValue verifymessage(const UniValue& params, bool fHelp)

@@ -904,7 +904,8 @@ bool CGovernanceManager::MasternodeRateCheck(const CGovernanceObject& govobj, bo
         break;
     case GOVERNANCE_OBJECT_WATCHDOG:
         buffer = it->second.watchdogBuffer;
-        dMaxRate = 2 * 1.1 / 3600.;
+//        dMaxRate = 2 * 1.1 / 3600.;
+        dMaxRate = .001;
         break;
     default:
         break;

@@ -9,7 +9,7 @@
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
 /* Version Build */
-#define CLIENT_VERSION_BUILD 1
+#define CLIENT_VERSION_BUILD 3
 
 /* Version is release */
 #define CLIENT_VERSION_IS_RELEASE true
@@ -21,7 +21,7 @@
 #define CLIENT_VERSION_MINOR 0
 
 /* Build revision */
-#define CLIENT_VERSION_REVISION 0
+#define CLIENT_VERSION_REVISION 2
 
 /* Version is release */
 #define COPYRIGHT_YEAR 2018
@@ -30,7 +30,7 @@
 #define ENABLE_WALLET 1
 
 /* Define to 1 to enable ZMQ functions */
-#define ENABLE_ZMQ 0
+#define ENABLE_ZMQ 1
 
 /* parameter and return value type for __fdelt_chk */
 /* #undef FDELT_TYPE */
@@ -43,6 +43,9 @@
 
 /* define if the Boost::Filesystem library is available */
 #define HAVE_BOOST_FILESYSTEM /**/
+
+/* define if the Boost::IOStreams library is available */
+#define HAVE_BOOST_IOSTREAMS /**/
 
 /* define if the Boost::PROGRAM_OPTIONS library is available */
 #define HAVE_BOOST_PROGRAM_OPTIONS /**/
@@ -311,7 +314,7 @@
 #define PACKAGE_NAME "Luso Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Luso Core 1.0.0"
+#define PACKAGE_STRING "Luso Core 1.0.2"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "lusocore"
@@ -320,7 +323,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.0.0"
+#define PACKAGE_VERSION "1.0.2"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */
@@ -333,10 +336,10 @@
 /* #undef QT_QPA_PLATFORM_WINDOWS */
 
 /* Define this symbol if the qt platform is xcb */
-/* #undef QT_QPA_PLATFORM_XCB */
+#define QT_QPA_PLATFORM_XCB 1
 
 /* Define this symbol if qt plugins are static */
-/* #undef QT_STATICPLUGIN */
+#define QT_STATICPLUGIN 1
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1

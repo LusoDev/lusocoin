@@ -1382,12 +1382,27 @@ void CPrivateSendClient::SetState(PoolState nStateNew)
     LogPrintf("CPrivateSendClient::SetState -- nState: %d, nStateNew: %d\n", nState, nStateNew);
     nState = nStateNew;
 }
+void CPrivateSendClient::NewBlock()
+{
+    static int64_t nTimeNewBlockReceived = 0;
+
+    //we we're processing lots of blocks, we'll just leave
+    if(GetTime() - nTimeNewBlockReceived < 10) return;
+    nTimeNewBlockReceived = GetTime();
+    LogPrint("privatesend", "CPrivateSendClient::NewBlock\n");
+
+    CheckTimeout();
+}
 
 void CPrivateSendClient::UpdatedBlockTip(const CBlockIndex *pindex)
 {
     nCachedBlockHeight = pindex->nHeight;
     LogPrint("privatesend", "CPrivateSendClient::UpdatedBlockTip -- nCachedBlockHeight: %d\n", nCachedBlockHeight);
+    if(!fLiteMode && masternodeSync.IsMasternodeListSynced()) {
+        NewBlock();
+    }
 
+    CPrivateSend::CheckDSTXes(pindex->nHeight);
 }
 
 //TODO: Rename/move to core

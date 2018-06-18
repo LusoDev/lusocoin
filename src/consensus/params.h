@@ -61,6 +61,7 @@ struct Params {
     int nMajorityRejectBlockOutdated;
     int nMajorityWindow;
     int nFairLaunch;
+    int nGEOLaunch;
     /** Block height and hash at which BIP34 becomes active */
     int BIP34Height;
     uint256 BIP34Hash;
@@ -89,4 +90,3 @@ struct Params {
 } // namespace Consensus
 
 #endif // BITCOIN_CONSENSUS_PARAMS_H
-

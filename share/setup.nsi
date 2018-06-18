@@ -5,16 +5,16 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.0.0
+!define VERSION 1.0.2
 !define COMPANY "Luso Core project"
 !define URL https://www.lusoco.in/
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/user/luso/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/user/luso/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/user/luso/last/LusoCoin/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/user/luso/last/LusoCoin/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/user/luso/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/user/luso/last/LusoCoin/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,7 +22,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Luso Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\luso-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/user/luso/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/user/luso/last/LusoCoin/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/user/luso/lusocore-${VERSION}-win-setup.exe
+OutFile /home/user/luso/last/LusoCoin/lusocore-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\LusoCore
 !else
@@ -58,7 +58,7 @@ CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion ${VERSION}.1
+VIProductVersion ${VERSION}.3
 VIAddVersionKey ProductName "Luso Core"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/user/luso/release/luso-qt.exe
-    File /oname=COPYING.txt /home/user/luso/COPYING
-    File /oname=readme.txt /home/user/luso/doc/README_windows.txt
+    File /home/user/luso/last/LusoCoin/release/luso-qt.exe
+    File /oname=COPYING.txt /home/user/luso/last/LusoCoin/COPYING
+    File /oname=readme.txt /home/user/luso/last/LusoCoin/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/user/luso/release/lusod.exe
-    File /home/user/luso/release/luso-cli.exe
+    File /home/user/luso/last/LusoCoin/release/lusod.exe
+    File /home/user/luso/last/LusoCoin/release/luso-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/user/luso/doc\*.*
+    File /r /home/user/luso/last/LusoCoin/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 

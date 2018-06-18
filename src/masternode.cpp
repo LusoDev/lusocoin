@@ -14,12 +14,15 @@
 #include "messagesigner.h"
 #include "script/standard.h"
 #include "util.h"
+#include <georeward.h>
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
 #endif // ENABLE_WALLET
 
 #include <boost/lexical_cast.hpp>
 
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/classification.hpp>
 
 CMasternode::CMasternode() :
     masternode_info_t{ MASTERNODE_ENABLED, PROTOCOL_VERSION, GetAdjustedTime()},
@@ -313,9 +316,12 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
     const CBlockIndex *BlockReading = pindex;
 
     CScript mnpayee = GetScriptForDestination(pubKeyCollateralAddress.GetID());
-    // LogPrint("masternode", "CMasternode::UpdateLastPaidBlock -- searching for block with payment to %s\n", vin.prevout.ToStringShort());
+    LogPrint("masternode", "CMasternode::UpdateLastPaidBlock -- searching for block with payment to %s\n", vin.prevout.ToStringShort());
 
     LOCK(cs_mapMasternodeBlocks);
+    masternode_info_t mnInfoRet;
+    std::vector<std::string> mnip;
+    CGEOReward geor;
 
     for (int i = 0; BlockReading && BlockReading->nHeight > nBlockLastPaid && i < nMaxBlocksToScanBack; i++) {
         if(mnpayments.mapMasternodeBlocks.count(BlockReading->nHeight) &&
@@ -325,7 +331,15 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
             if(!ReadBlockFromDisk(block, BlockReading, Params().GetConsensus())) // shouldn't really happen
                 continue;
 
-            CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut());
+            masternode_info_t mnInfoRet;
+            if (mnodeman.GetMasternodeInfo(mnpayee, mnInfoRet) == 0)
+                continue;
+
+            boost::split(mnip,(const std::string) mnInfoRet.addr.ToString(), boost::is_any_of(":"));
+            if(mnip.size() != 2)
+                continue;
+
+            CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut(), geor.isLUSO(mnip[0].c_str()));
 
             BOOST_FOREACH(CTxOut txout, block.vtx[0].vout)
                 if(mnpayee == txout.scriptPubKey && nMasternodePayment == txout.nValue) {

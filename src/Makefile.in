@@ -198,6 +198,7 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/build-aux/m4/ax_boost_base.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_chrono.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_filesystem.m4 \
+	$(top_srcdir)/build-aux/m4/ax_boost_iostreams.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_program_options.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_system.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_thread.m4 \
@@ -229,7 +230,7 @@ ARFLAGS = cru
 AM_V_AR = $(am__v_AR_@AM_V@)
 am__v_AR_ = $(am__v_AR_@AM_DEFAULT_V@)
 am__v_AR_0 = @echo "  AR      " $@;
-am__v_AR_1 =
+am__v_AR_1 = 
 crypto_libbitcoin_crypto_a_AR = $(AR) $(ARFLAGS)
 crypto_libbitcoin_crypto_a_LIBADD =
 am__dirstamp = $(am__leading_dot)dirstamp
@@ -436,23 +437,23 @@ am__libbitcoin_util_a_SOURCES_DIST = support/pagelocker.cpp \
 	checkqueue.h clientversion.h coincontrol.h coins.h compat.h \
 	compat/byteswap.h compat/endian.h compat/sanity.h compressor.h \
 	consensus/consensus.h consensus/merkle.h consensus/params.h \
-	consensus/validation.h core_io.h core_memusage.h privatesend.h \
-	privatesend-client.h privatesend-server.h privatesend-util.h \
-	dsnotificationinterface.h governance.h governance-classes.h \
-	governance-exceptions.h governance-object.h \
-	governance-validators.h governance-vote.h governance-votedb.h \
-	flat-database.h hash.h hdchain.h httprpc.h httpserver.h init.h \
-	instantx.h key.h keepass.h keystore.h dbwrapper.h limitedmap.h \
-	masternode.h masternode-payments.h masternode-sync.h \
-	masternodeman.h masternodeconfig.h memusage.h merkleblock.h \
-	messagesigner.h miner.h net.h net_processing.h netaddress.h \
-	netbase.h netfulfilledman.h noui.h policy/fees.h \
-	policy/policy.h policy/rbf.h pow.h prevector.h \
-	primitives/block.h primitives/transaction.h protocol.h \
-	pubkey.h random.h reverselock.h rpc/client.h rpc/protocol.h \
-	rpc/server.h scheduler.h script/interpreter.h script/script.h \
-	script/script_error.h script/sigcache.h script/sign.h \
-	script/standard.h serialize.h spork.h streams.h \
+	consensus/validation.h core_io.h core_memusage.h georeward.h \
+	privatesend.h privatesend-client.h privatesend-server.h \
+	privatesend-util.h dsnotificationinterface.h governance.h \
+	governance-classes.h governance-exceptions.h \
+	governance-object.h governance-validators.h governance-vote.h \
+	governance-votedb.h flat-database.h hash.h hdchain.h httprpc.h \
+	httpserver.h init.h instantx.h key.h keepass.h keystore.h \
+	dbwrapper.h limitedmap.h masternode.h masternode-payments.h \
+	masternode-sync.h masternodeman.h masternodeconfig.h \
+	memusage.h merkleblock.h messagesigner.h miner.h net.h \
+	net_processing.h netaddress.h netbase.h netfulfilledman.h \
+	noui.h policy/fees.h policy/policy.h policy/rbf.h pow.h \
+	prevector.h primitives/block.h primitives/transaction.h \
+	protocol.h pubkey.h random.h reverselock.h rpc/client.h \
+	rpc/protocol.h rpc/server.h scheduler.h script/interpreter.h \
+	script/script.h script/script_error.h script/sigcache.h \
+	script/sign.h script/standard.h serialize.h spork.h streams.h \
 	support/allocators/secure.h support/allocators/zeroafterfree.h \
 	support/cleanse.h support/pagelocker.h sync.h threadsafety.h \
 	threadinterrupt.h timedata.h tinyformat.h torcontrol.h txdb.h \
@@ -598,23 +599,19 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/res/icons/default/edit.png \
 	qt/res/icons/default/editcopy.png \
 	qt/res/icons/default/editpaste.png \
-	qt/res/icons/default/export.png \
-	qt/res/icons/default/eye.png \
+	qt/res/icons/default/export.png qt/res/icons/default/eye.png \
 	qt/res/icons/default/eye_minus.png \
 	qt/res/icons/default/eye_plus.png \
 	qt/res/icons/default/filesave.png \
 	qt/res/icons/default/hd_disabled.png \
 	qt/res/icons/default/hd_enabled.png \
-	qt/res/icons/default/history.png \
-	qt/res/icons/default/key.png \
+	qt/res/icons/default/history.png qt/res/icons/default/key.png \
 	qt/res/icons/default/lock_closed.png \
 	qt/res/icons/default/lock_open.png \
 	qt/res/icons/default/masternodes.png \
 	qt/res/icons/default/overview.png \
-	qt/res/icons/default/quit.png \
-	qt/res/icons/default/receive.png \
-	qt/res/icons/default/remove.png \
-	qt/res/icons/default/send.png \
+	qt/res/icons/default/quit.png qt/res/icons/default/receive.png \
+	qt/res/icons/default/remove.png qt/res/icons/default/send.png \
 	qt/res/icons/default/synced.png \
 	qt/res/icons/default/transaction0.png \
 	qt/res/icons/default/transaction2.png \
@@ -643,8 +640,8 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/res/images/default/luso_default_rightArrow_small.png \
 	qt/res/images/default/luso_default_qtreeview_selected.png \
 	qt/res/images/default/luso_default_walletFrame_bg.png \
-	qt/res/css/default.css $(wildcard \
-	qt/res/movies/spinner-*.png)
+	qt/res/flags/pt.png qt/res/flags/us.png qt/res/css/default.css \
+	$(wildcard qt/res/movies/spinner-*.png)
 @ENABLE_QT_TRUE@@TARGET_WINDOWS_TRUE@am__objects_5 = qt/qt_libbitcoinqt_a-winshutdownmonitor.$(OBJEXT)
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@am__objects_6 = qt/qt_libbitcoinqt_a-addressbookpage.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libbitcoinqt_a-addresstablemodel.$(OBJEXT) \
@@ -819,7 +816,7 @@ liblusoconsensus_la_OBJECTS = $(am_liblusoconsensus_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__v_lt_1 =
+am__v_lt_1 = 
 liblusoconsensus_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(liblusoconsensus_la_CXXFLAGS) $(CXXFLAGS) \
@@ -1104,11 +1101,11 @@ am__v_P_1 = :
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 =
+am__v_GEN_1 = 
 AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
-am__v_at_1 =
+am__v_at_1 = 
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src/config
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -1122,7 +1119,7 @@ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CC = $(am__v_CC_@AM_V@)
 am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
 am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 =
+am__v_CC_1 = 
 CCLD = $(CC)
 LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -1130,7 +1127,7 @@ LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 =
+am__v_CCLD_1 = 
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -1140,7 +1137,7 @@ LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXX = $(am__v_CXX_@AM_V@)
 am__v_CXX_ = $(am__v_CXX_@AM_DEFAULT_V@)
 am__v_CXX_0 = @echo "  CXX     " $@;
-am__v_CXX_1 =
+am__v_CXX_1 = 
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
@@ -1148,7 +1145,7 @@ CXXLINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
-am__v_CXXLD_1 =
+am__v_CXXLD_1 = 
 OBJCXXCOMPILE = $(OBJCXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS)
 LTOBJCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
@@ -1158,7 +1155,7 @@ LTOBJCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) \
 AM_V_OBJCXX = $(am__v_OBJCXX_@AM_V@)
 am__v_OBJCXX_ = $(am__v_OBJCXX_@AM_DEFAULT_V@)
 am__v_OBJCXX_0 = @echo "  OBJCXX  " $@;
-am__v_OBJCXX_1 =
+am__v_OBJCXX_1 = 
 OBJCXXLD = $(OBJCXX)
 OBJCXXLINK = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(OBJCXXLD) $(AM_OBJCXXFLAGS) $(OBJCXXFLAGS) \
@@ -1166,7 +1163,7 @@ OBJCXXLINK = $(LIBTOOL) $(AM_V_lt) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 AM_V_OBJCXXLD = $(am__v_OBJCXXLD_@AM_V@)
 am__v_OBJCXXLD_ = $(am__v_OBJCXXLD_@AM_DEFAULT_V@)
 am__v_OBJCXXLD_0 = @echo "  OBJCXXLD" $@;
-am__v_OBJCXXLD_1 =
+am__v_OBJCXXLD_1 = 
 SOURCES = $(crypto_libbitcoin_crypto_a_SOURCES) \
 	$(leveldb_libleveldb_a_SOURCES) $(leveldb_libmemenv_a_SOURCES) \
 	$(libbitcoin_cli_a_SOURCES) $(libbitcoin_common_a_SOURCES) \
@@ -1450,6 +1447,7 @@ ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
+AS = @AS@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -1459,6 +1457,7 @@ BDB_LIBS = @BDB_LIBS@
 BOOST_CHRONO_LIB = @BOOST_CHRONO_LIB@
 BOOST_CPPFLAGS = @BOOST_CPPFLAGS@
 BOOST_FILESYSTEM_LIB = @BOOST_FILESYSTEM_LIB@
+BOOST_IOSTREAMS_LIB = @BOOST_IOSTREAMS_LIB@
 BOOST_LDFLAGS = @BOOST_LDFLAGS@
 BOOST_LIBS = @BOOST_LIBS@
 BOOST_PROGRAM_OPTIONS_LIB = @BOOST_PROGRAM_OPTIONS_LIB@
@@ -1709,9 +1708,9 @@ LIBBITCOIN_CRYPTO = crypto/libbitcoin_crypto.a
 LIBBITCOINQT = qt/libbitcoinqt.a
 LIBSECP256K1 = secp256k1/libsecp256k1.la
 @BUILD_BITCOIN_LIBS_TRUE@lib_LTLIBRARIES = liblusoconsensus.la
-@BUILD_BITCOIN_LIBS_FALSE@LIBBITCOIN_CONSENSUS =
+@BUILD_BITCOIN_LIBS_FALSE@LIBBITCOIN_CONSENSUS = 
 @BUILD_BITCOIN_LIBS_TRUE@LIBBITCOIN_CONSENSUS = liblusoconsensus.la
-BENCHMARKS =
+BENCHMARKS = 
 # luso core #
 BITCOIN_CORE_H = \
   addrdb.h \
@@ -1748,6 +1747,7 @@ BITCOIN_CORE_H = \
   consensus/validation.h \
   core_io.h \
   core_memusage.h \
+  georeward.h \
   privatesend.h \
   privatesend-client.h \
   privatesend-server.h \
@@ -2468,7 +2468,9 @@ EXTRA_DIST = leveldb $(am__append_23)
 @ENABLE_QT_TRUE@  qt/res/images/default/luso_default_leftArrow_small.png \
 @ENABLE_QT_TRUE@  qt/res/images/default/luso_default_rightArrow_small.png \
 @ENABLE_QT_TRUE@  qt/res/images/default/luso_default_qtreeview_selected.png \
-@ENABLE_QT_TRUE@  qt/res/images/default/luso_default_walletFrame_bg.png
+@ENABLE_QT_TRUE@  qt/res/images/default/luso_default_walletFrame_bg.png \
+@ENABLE_QT_TRUE@  qt/res/flags/pt.png \
+@ENABLE_QT_TRUE@  qt/res/flags/us.png
 
 @ENABLE_QT_TRUE@RES_CSS = \
 @ENABLE_QT_TRUE@  qt/res/css/default.css
@@ -2810,7 +2812,7 @@ rpc/$(DEPDIR)/$(am__dirstamp):
 rpc/libbitcoin_cli_a-client.$(OBJEXT): rpc/$(am__dirstamp) \
 	rpc/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_cli.a: $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_DEPENDENCIES) $(EXTRA_libbitcoin_cli_a_DEPENDENCIES)
+libbitcoin_cli.a: $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_DEPENDENCIES) $(EXTRA_libbitcoin_cli_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_cli.a
 	$(AM_V_AR)$(libbitcoin_cli_a_AR) libbitcoin_cli.a $(libbitcoin_cli_a_OBJECTS) $(libbitcoin_cli_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_cli.a
@@ -2851,7 +2853,7 @@ script/libbitcoin_common_a-sign.$(OBJEXT): script/$(am__dirstamp) \
 script/libbitcoin_common_a-standard.$(OBJEXT): script/$(am__dirstamp) \
 	script/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_common.a: $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_DEPENDENCIES) $(EXTRA_libbitcoin_common_a_DEPENDENCIES)
+libbitcoin_common.a: $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_DEPENDENCIES) $(EXTRA_libbitcoin_common_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_common.a
 	$(AM_V_AR)$(libbitcoin_common_a_AR) libbitcoin_common.a $(libbitcoin_common_a_OBJECTS) $(libbitcoin_common_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_common.a
@@ -2884,7 +2886,7 @@ rpc/libbitcoin_server_a-server.$(OBJEXT): rpc/$(am__dirstamp) \
 script/libbitcoin_server_a-sigcache.$(OBJEXT): script/$(am__dirstamp) \
 	script/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_server.a: $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_DEPENDENCIES) $(EXTRA_libbitcoin_server_a_DEPENDENCIES)
+libbitcoin_server.a: $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_DEPENDENCIES) $(EXTRA_libbitcoin_server_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_server.a
 	$(AM_V_AR)$(libbitcoin_server_a_AR) libbitcoin_server.a $(libbitcoin_server_a_OBJECTS) $(libbitcoin_server_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_server.a
@@ -2915,7 +2917,7 @@ support/libbitcoin_util_a-cleanse.$(OBJEXT): support/$(am__dirstamp) \
 compat/libbitcoin_util_a-glibc_compat.$(OBJEXT):  \
 	compat/$(am__dirstamp) compat/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_util.a: $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_DEPENDENCIES) $(EXTRA_libbitcoin_util_a_DEPENDENCIES)
+libbitcoin_util.a: $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_DEPENDENCIES) $(EXTRA_libbitcoin_util_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_util.a
 	$(AM_V_AR)$(libbitcoin_util_a_AR) libbitcoin_util.a $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_util.a
@@ -2942,7 +2944,7 @@ wallet/libbitcoin_wallet_a-walletdb.$(OBJEXT): wallet/$(am__dirstamp) \
 policy/libbitcoin_wallet_a-rbf.$(OBJEXT): policy/$(am__dirstamp) \
 	policy/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_wallet.a: $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_DEPENDENCIES) $(EXTRA_libbitcoin_wallet_a_DEPENDENCIES)
+libbitcoin_wallet.a: $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_DEPENDENCIES) $(EXTRA_libbitcoin_wallet_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_wallet.a
 	$(AM_V_AR)$(libbitcoin_wallet_a_AR) libbitcoin_wallet.a $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_wallet.a
@@ -2959,7 +2961,7 @@ zmq/libbitcoin_zmq_a-zmqnotificationinterface.$(OBJEXT):  \
 zmq/libbitcoin_zmq_a-zmqpublishnotifier.$(OBJEXT):  \
 	zmq/$(am__dirstamp) zmq/$(DEPDIR)/$(am__dirstamp)
 
-libbitcoin_zmq.a: $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_DEPENDENCIES) $(EXTRA_libbitcoin_zmq_a_DEPENDENCIES)
+libbitcoin_zmq.a: $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_DEPENDENCIES) $(EXTRA_libbitcoin_zmq_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_zmq.a
 	$(AM_V_AR)$(libbitcoin_zmq_a_AR) libbitcoin_zmq.a $(libbitcoin_zmq_a_OBJECTS) $(libbitcoin_zmq_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_zmq.a
@@ -3235,7 +3237,7 @@ script/liblusoconsensus_la-script.lo: script/$(am__dirstamp) \
 compat/liblusoconsensus_la-glibc_compat.lo: compat/$(am__dirstamp) \
 	compat/$(DEPDIR)/$(am__dirstamp)
 
-liblusoconsensus.la: $(liblusoconsensus_la_OBJECTS) $(liblusoconsensus_la_DEPENDENCIES) $(EXTRA_liblusoconsensus_la_DEPENDENCIES)
+liblusoconsensus.la: $(liblusoconsensus_la_OBJECTS) $(liblusoconsensus_la_DEPENDENCIES) $(EXTRA_liblusoconsensus_la_DEPENDENCIES) 
 	$(AM_V_CXXLD)$(liblusoconsensus_la_LINK) $(am_liblusoconsensus_la_rpath) $(liblusoconsensus_la_OBJECTS) $(liblusoconsensus_la_LIBADD) $(LIBS)
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
@@ -3303,15 +3305,15 @@ bench/bench_luso$(EXEEXT): $(bench_bench_luso_OBJECTS) $(bench_bench_luso_DEPEND
 	@rm -f bench/bench_luso$(EXEEXT)
 	$(AM_V_CXXLD)$(bench_bench_luso_LINK) $(bench_bench_luso_OBJECTS) $(bench_bench_luso_LDADD) $(LIBS)
 
-luso-cli$(EXEEXT): $(luso_cli_OBJECTS) $(luso_cli_DEPENDENCIES) $(EXTRA_luso_cli_DEPENDENCIES)
+luso-cli$(EXEEXT): $(luso_cli_OBJECTS) $(luso_cli_DEPENDENCIES) $(EXTRA_luso_cli_DEPENDENCIES) 
 	@rm -f luso-cli$(EXEEXT)
 	$(AM_V_CXXLD)$(luso_cli_LINK) $(luso_cli_OBJECTS) $(luso_cli_LDADD) $(LIBS)
 
-luso-tx$(EXEEXT): $(luso_tx_OBJECTS) $(luso_tx_DEPENDENCIES) $(EXTRA_luso_tx_DEPENDENCIES)
+luso-tx$(EXEEXT): $(luso_tx_OBJECTS) $(luso_tx_DEPENDENCIES) $(EXTRA_luso_tx_DEPENDENCIES) 
 	@rm -f luso-tx$(EXEEXT)
 	$(AM_V_CXXLD)$(luso_tx_LINK) $(luso_tx_OBJECTS) $(luso_tx_LDADD) $(LIBS)
 
-lusod$(EXEEXT): $(lusod_OBJECTS) $(lusod_DEPENDENCIES) $(EXTRA_lusod_DEPENDENCIES)
+lusod$(EXEEXT): $(lusod_OBJECTS) $(lusod_DEPENDENCIES) $(EXTRA_lusod_DEPENDENCIES) 
 	@rm -f lusod$(EXEEXT)
 	$(AM_V_CXXLD)$(lusod_LINK) $(lusod_OBJECTS) $(lusod_LDADD) $(LIBS)
 qt/qt_luso_qt-luso.$(OBJEXT): qt/$(am__dirstamp) \
@@ -9289,7 +9291,7 @@ check-TESTS:
 	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
 	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
 	exit $$?;
-recheck: all
+recheck: all 
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 	@set +e; $(am__set_TESTS_bases); \
 	bases=`for i in $$bases; do echo $$i; done \
