@@ -161,7 +161,7 @@ private:
                 if (!--num)
                     return tok;
             }
-            //return NULL;
+            return NULL;
         }
         void removeChar(char *str, char garbage) {
 
@@ -179,7 +179,6 @@ private:
 						boost::filesystem::path fullfl_gz = GetDataDir() / (fl + ".gz");
 						//printf("Downloading %s to %s\r\n",fl_gz.string().c_str(),fullfl_gz.string().c_str());
             bool downloaded=0;
-            bool tries=0;
             std::string result = "0";
 						for(int i=0; i < 3; i++) {
 							if (IPvDB[i] == NULL) break;
@@ -345,7 +344,7 @@ public:
 					}
 					return countryName;
 				};
-				char* setGEOcache(const char* linetry) {
+				void setGEOcache(const char* linetry) {
 					const boost::filesystem::path cache = GetDataDir() / ".geoip.cache";
 					boost::filesystem::ifstream streamConfig(cache);
 					bool foundGEO=0;
@@ -463,3 +462,4 @@ public:
         };
 
 };
+

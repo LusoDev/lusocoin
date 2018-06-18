@@ -1279,7 +1279,7 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue, bool isLUSO)
 
     double cycledReward = (double) ((double)nHeightf / (double)nMNPIPeriod)/(double)(12*10);
     double cycledRewardPerc = 0.4 * cycledReward; // max added 40%// +60% max
-    if (cycledRewardPerc>0.4)cycledRewardPerc=0.4;
+    if (cycledRewardPerc>0.25)cycledRewardPerc=0.25;
     if (nHeight > Params().GetConsensus().nGEOLaunch && isLUSO == 1)cycledRewardPerc+=0.20;
     ret += blockValue * cycledRewardPerc;
     //LogPrintf("Reward Masternode: %s\r\n",FormatMoney(ret));
@@ -4400,3 +4400,4 @@ public:
         mapBlockIndex.clear();
     }
 } instance_of_cmaincleanup;
+

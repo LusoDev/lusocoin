@@ -26,8 +26,8 @@ Em tempos em que os bancos e os donos do dinheiro visam a globalização para fi
 
 
 Masternode Share
-Max cap: 60%
-Max cap LUSO IP: 75%
+Max cap: 50%
+Max cap LUSO IP: 70%
 
 
 static const char * Nations[] = { "PT", "BR", "AO", "MZ", "GW", "TL", "CV", "GQ", "MO", "ST" };
