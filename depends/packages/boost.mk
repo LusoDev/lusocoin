@@ -33,9 +33,9 @@ define $(package)_config_cmds
 endef
 
 define $(package)_build_cmds
-  ./b2 -d2 -j2 -d1 --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
+  ./b2 -d2 -j2 -d1 --with-iostreams --with-chrono --with-filesystem --with-system --with-thread --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
 endef
 
 define $(package)_stage_cmds
-  ./b2 -d0 -j4 --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
+  ./b2 -d0 -j4 --with-iostreams --with-chrono --with-filesystem --with-thread --with-system --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
 endef
