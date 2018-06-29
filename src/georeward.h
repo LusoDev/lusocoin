@@ -106,13 +106,21 @@ private:
 	bool is_ipv4_address(const string& str)
 	{
 			struct sockaddr_in sa;
+			#ifdef HAVE_INET_PTON
 			return inet_pton(AF_INET, str.c_str(), &(sa.sin_addr))!=0;
+			#else
+			return inet_addr(str.c_str()) != INADDR_NONE;
+			#endif
 	};
 
 	bool is_ipv6_address(const string& str)
 	{
 			struct sockaddr_in6 sa;
+			#ifdef HAVE_INET_PTON
 			return inet_pton(AF_INET6, str.c_str(), &(sa.sin6_addr))!=0;
+			#else
+			return inet_addr(str.c_str()) != INADDR_NONE;
+			#endif
 	};
 
 	bool is_valid_domain_name(const string& str)
