@@ -1,8 +1,8 @@
 package=boost
-$(package)_version=1_63_0
-$(package)_download_path=https://sourceforge.net/projects/boost/files/boost/1.63.0
+$(package)_version=1_56_0
+$(package)_download_path=https://sourceforge.net/projects/boost/files/boost/1.56.0
 $(package)_file_name=$(package)_$($(package)_version).tar.bz2
-$(package)_sha256_hash=beae2529f759f6b3bf3f4969a19c2e9d6f0c503edcb2de4a61d1428519fcb3b0
+$(package)_sha256_hash=134732acaf3a6e7eba85988118d943f0fa6b7f0850f65131fff89823ad30ff1d
 
 define $(package)_set_vars
 $(package)_config_opts_release=variant=release
@@ -33,9 +33,9 @@ define $(package)_config_cmds
 endef
 
 define $(package)_build_cmds
-  ./b2 -d2 -j2 -d1 --with-timer --with-test --with-program_options --with-iostreams --with-chrono --with-filesystem --with-system --with-thread --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
+  ./b2 -d2 -j2 --with-test --with-program_options --with-iostreams --with-chrono --with-filesystem --with-thread --with-system -d1 --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
 endef
 
 define $(package)_stage_cmds
-  ./b2 -d0 -j4 --with-timer --with-test --with-program_options --with-iostreams --with-chrono --with-filesystem --with-thread --with-system --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
+  ./b2 -d0 -j4 --with-test --with-program_options --with-iostreams --with-chrono --with-filesystem --with-thread --with-system --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
 endef
