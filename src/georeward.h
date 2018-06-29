@@ -105,21 +105,37 @@ private:
 
 	bool is_ipv4_address(const string& str)
 	{
-			struct sockaddr_in sa;
+			{
+	        CNetAddr addr;
+	        if (addr.SetSpecial(std::string(str))) {
+	            return true;
+	        }
+	    }
+#ifdef HAVE_GETADDRINFO_A
 #ifdef HAVE_INET_PTON
+			struct sockaddr_in sa;
 			return inet_pton(AF_INET, str.c_str(), &(sa.sin_addr))!=0;
 #else
 			return inet_addr(str.c_str()) != INADDR_NONE;
+#endif
 #endif
 	};
 
 	bool is_ipv6_address(const string& str)
 	{
-			struct sockaddr_in6 sa;
+			{
+					CNetAddr addr;
+					if (addr.SetSpecial(std::string(str))) {
+							return true;
+					}
+			}
+#ifdef HAVE_GETADDRINFO_A
 #ifdef HAVE_INET_PTON
+			struct sockaddr_in6 sa;
 			return inet_pton(AF_INET6, str.c_str(), &(sa.sin6_addr))!=0;
 #else
 			return inet_addr(str.c_str()) != INADDR_NONE;
+#endif
 #endif
 	};
 
