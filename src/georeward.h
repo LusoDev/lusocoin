@@ -309,7 +309,8 @@ public:
 					if (!streamConfig.good())
 						return countryName;
 
-          FILE* stream = fopen(fileIPv.c_str(), "r");
+					char* flopen = (char *) fileIPv.c_str();
+					FILE* stream = fopen(flopen, "r");
           int found_it = 0;
           char* tmp;
           char line[1024];
@@ -421,7 +422,7 @@ public:
 					boost::filesystem::ifstream streamConfig(fileIPv);
 						if (!streamConfig.good())
 							return countryName;
-					char* flopen = (char *) fileIPv;
+					char* flopen = (char *) fileIPv.c_str();
           FILE* stream = fopen(flopen, "r");
           int found_it = 0;
           char* tmp;
