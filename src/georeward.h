@@ -32,7 +32,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
-#include <boost/asio.hpp>
+//#include <boost/asio.hpp>
 
 #include "compat.h"
 
