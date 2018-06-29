@@ -18,6 +18,7 @@
 #include "timedata.h"
 #include "util.h"
 #include <univalue.h>
+#include "compat.h"
 
 #include <iostream>
 #include <fstream>
@@ -32,10 +33,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
-//#include <boost/asio.hpp>
-
-#include "compat.h"
-
+#include <boost/asio.hpp>
 
 using std::string;
 using std::cout;
