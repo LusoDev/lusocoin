@@ -33,6 +33,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/asio.hpp>
+#include <arpa/inet.h>
 
 using std::string;
 using std::cout;
@@ -410,8 +411,8 @@ public:
 					boost::filesystem::ifstream streamConfig(fileIPv);
 						if (!streamConfig.good())
 							return countryName;
-
-          FILE* stream = fopen(fileIPv.c_str(), "r");
+					char* flopen = (char *) fileIPv;
+          FILE* stream = fopen(flopen, "r");
           int found_it = 0;
           char* tmp;
           char line[1024];
@@ -462,4 +463,3 @@ public:
         };
 
 };
-
