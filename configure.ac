@@ -755,9 +755,9 @@ LIBS="$TEMP_LIBS"
 CPPFLAGS="$TEMP_CPPFLAGS"
 fi
 
-if test x$boost_sleep != xyes; then
-  AC_MSG_ERROR(No working boost sleep implementation found.)
-fi
+dnl if test x$boost_sleep != xyes; then
+dnl  AC_MSG_ERROR(No working boost sleep implementation found.)
+dnl fi
 
 fi
 
