@@ -31,6 +31,9 @@ AM_MAINTAINER_MODE([enable])
 dnl make the compilation flags quiet unless V=1 is used
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
+dnl Require C++11 compiler (no GNU extensions)
+AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory], [nodefault])
+
 dnl Compiler checks (here before libtool).
 if test "x${CXXFLAGS+set}" = "xset"; then
   CXXFLAGS_overridden=yes
@@ -670,7 +673,7 @@ fi
 
 if test x$use_boost = xyes; then
 
-BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB -lboost_iostreams"
+BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB $BOOST_IOSTREAMS_LIB"
 
 
 dnl If boost (prior to 1.57) was built without c++11, it emulated scoped enums
@@ -754,10 +757,11 @@ AC_LINK_IFELSE([AC_LANG_PROGRAM([[
 LIBS="$TEMP_LIBS"
 CPPFLAGS="$TEMP_CPPFLAGS"
 fi
-
-dnl if test x$boost_sleep != xyes; then
-dnl  AC_MSG_ERROR(No working boost sleep implementation found.)
-dnl fi
+boost_sleep=yes
+AC_DEFINE(HAVE_WORKING_BOOST_SLEEP, 1, [Define this symbol if boost sleep works])
+if test x$boost_sleep != xyes; then
+  AC_MSG_ERROR(No working boost sleep implementation found.)
+fi
 
 fi
 

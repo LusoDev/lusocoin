@@ -1228,6 +1228,7 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
         might be a good idea to change this to use prev bits
         but current height to avoid confusion.
 */
+
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
     double dDiff;
@@ -1258,8 +1259,19 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     CAmount ttl=fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
     return ttl;
 }
+double GetCountryShare()
+{
+  if (mapMasternodes.empty())
+      return false;
 
-CAmount GetMasternodePayment(int nHeight, CAmount blockValue, bool isLUSO)
+  // calculate scores
+  for (auto& mnpair : mapMasternodes) {
+      if (mnpair.second.nProtocolVersion >= nMinProtocol) {
+          vecMasternodeScoresRet.push_back(std::make_pair(mnpair.second.CalculateScore(nBlockHash), &mnpair.second));
+      }
+  }
+}
+CAmount GetMasternodePayment(int nHeight, CAmount blockValue, double lusoShare)
 {
     int nFairLaunch = Params().GetConsensus().nFairLaunch*2; // 1 month kickin for masternodes
 
@@ -1280,6 +1292,10 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue, bool isLUSO)
     double cycledReward = (double) ((double)nHeightf / (double)nMNPIPeriod)/(double)(12*10);
     double cycledRewardPerc = 0.4 * cycledReward; // max added 40%// +60% max
     if (cycledRewardPerc>0.25)cycledRewardPerc=0.25;
+    if (nHeight > Params().GetConsensus().nGEOLaunch) {
+        if (lusoShare > 0.2)lusoShare=0.2;
+        if (lusoShare < 0.05)lusoShare=0.2;
+    }
     if (nHeight > Params().GetConsensus().nGEOLaunch && isLUSO == 1)cycledRewardPerc+=0.20;
     ret += blockValue * cycledRewardPerc;
     //LogPrintf("Reward Masternode: %s\r\n",FormatMoney(ret));
@@ -4400,4 +4416,3 @@ public:
         mapBlockIndex.clear();
     }
 } instance_of_cmaincleanup;
-

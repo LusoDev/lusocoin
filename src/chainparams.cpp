@@ -223,7 +223,6 @@ public:
     }
 };
 static CMainParams mainParams;
-
 /**
  * Testnet (v3)
  */
