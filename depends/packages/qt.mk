@@ -4,7 +4,7 @@ $(package)_download_path=http://download.qt.io/archive/qt/5.5/$($(package)_versi
 $(package)_suffix=opensource-src-$($(package)_version).tar.gz
 $(package)_file_name=qtbase-$($(package)_suffix)
 $(package)_sha256_hash=7e82b1318f88e56a2a9376e069aa608d4fd96b48cb0e1b880ae658b0a1af0561
-$(package)_dependencies=openssl zlib
+$(package)_dependencies=openssl
 $(package)_linux_dependencies=freetype fontconfig dbus libxcb libX11 xproto libXext
 $(package)_build_subdir=qtbase
 $(package)_qt_libs=corelib network widgets gui plugins testlib
@@ -52,13 +52,11 @@ $(package)_config_opts += -bindir $(build_prefix)/bin
 $(package)_config_opts += -c++11
 $(package)_config_opts += -openssl-linked
 $(package)_config_opts += -v
-$(package)_config_opts += -system-zlib
 $(package)_config_opts += -static
 $(package)_config_opts += -silent
 $(package)_config_opts += -pkg-config
 $(package)_config_opts += -qt-libpng
 $(package)_config_opts += -qt-libjpeg
-$(package)_config_opts += -qt-zlib
 $(package)_config_opts += -qt-pcre
 $(package)_config_opts += -no-pulseaudio
 $(package)_config_opts += -no-openvg
@@ -171,3 +169,4 @@ define $(package)_postprocess_cmds
   rm -rf native/mkspecs/ native/lib/ lib/cmake/ && \
   rm -f lib/lib*.la lib/*.prl plugins/*/*.prl
 endef
+
