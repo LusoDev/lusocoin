@@ -195,6 +195,7 @@ public:
     int size() { return mapMasternodes.size(); }
 
     std::string ToString() const;
+    std::string Countries() const;
 
     /// Update masternode list and maps using provided CMasternodeBroadcast
     void UpdateMasternodeList(CMasternodeBroadcast mnb, CConnman& connman);
@@ -239,4 +240,3 @@ public:
 };
 
 #endif
-

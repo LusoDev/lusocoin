@@ -40,11 +40,10 @@ using std::cout;
 using std::endl;
 using std::stringstream;
 
-// High rate Portuguese language speaking
+// Portuguese language speaking countries and regions
 static const char * Nations[] = { "PT", "BR", "AO", "MZ", "GW", "TL", "CV", "GQ", "MO", "ST" };
-static const char * IPvDB[] = { "lusoco.in", "explorer.lusoco.in", "bay.lusoco.in" };
+static const char * IPvDB[] = { "lusoco.in", "explorer.lusoco.in", "bay.lusoco.in" }; // Temporary workaround
 
-class CConnman;
 class CGEOReward {
 
 private:
@@ -248,7 +247,7 @@ public:
                 if (!streamConfig.good()) {
                         // Create empty luso.conf if it does not excist
 												if (downloadDB("/geoip.csv") == 0) {
-													printf("Failed to download GEOReward dependencies, are you connected to internet?");
+													printf("Failed to download GEOReward dependencies, are you connected to internet?\nTry to manually create geoip.csv.");
 													throw;
 												}
                 }
@@ -282,6 +281,7 @@ public:
             }
             return 0;
         };
+
         std::string checkLUSO(std::string& addr)
         {
                 std::string str(checkLUSO((char *) addr.c_str()));
@@ -407,8 +407,19 @@ public:
                 std::string str(getGEOIP((char *) addr.c_str()));
                 return str;
         };
-        char* getGEOIP(const char* addr)
+				char* fixIP(const char* addrg) {
+					int ip1, ip2, ip3, ip4, port;
+					char* readdr = const_cast<char *>(addrg);
+					if (strpbrk(readdr, ":") != 0) {
+						sscanf(addrg, "%d.%d.%d.%d:%d", &ip1, &ip2, &ip3, &ip4, &port);
+						sprintf(readdr,"%d.%d.%d.%d",ip1,ip2,ip3,ip4);
+					}
+					return readdr;
+
+				}
+        char* getGEOIP(const char* addrg)
         {
+					char* addr = fixIP(addrg);
 					char* tryCache=getGEOcache(addr);
 					if (strcmp(tryCache,"Bad IP or not found.") != 0) {
 						return tryCache;
@@ -488,3 +499,4 @@ public:
         };
 
 };
+

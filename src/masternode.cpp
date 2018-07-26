@@ -14,7 +14,6 @@
 #include "messagesigner.h"
 #include "script/standard.h"
 #include "util.h"
-#include <georeward.h>
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
 #endif // ENABLE_WALLET
@@ -321,7 +320,6 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
     LOCK(cs_mapMasternodeBlocks);
     masternode_info_t mnInfoRet;
     std::vector<std::string> mnip;
-    CGEOReward geor;
 
     for (int i = 0; BlockReading && BlockReading->nHeight > nBlockLastPaid && i < nMaxBlocksToScanBack; i++) {
         if(mnpayments.mapMasternodeBlocks.count(BlockReading->nHeight) &&
@@ -339,7 +337,7 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
             if(mnip.size() != 2)
                 continue;
 
-            CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut(), geor.isLUSO(mnip[0].c_str()));
+            CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut(), mnInfoRet.country);
 
             BOOST_FOREACH(CTxOut txout, block.vtx[0].vout)
                 if(mnpayee == txout.scriptPubKey && nMasternodePayment == txout.nValue) {

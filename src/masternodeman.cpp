@@ -15,6 +15,7 @@
 #endif // ENABLE_WALLET
 #include "script/standard.h"
 #include "util.h"
+#include <georeward.h>
 
 /** Masternode manager */
 CMasternodeMan mnodeman;
@@ -74,9 +75,12 @@ bool CMasternodeMan::Add(CMasternode &mn)
 
     if (Has(mn.vin.prevout)) return false;
 
-    LogPrint("masternode", "CMasternodeMan::Add -- Adding new Masternode: addr=%s, %i now\n", mn.addr.ToString(), size() + 1);
+    CGEOReward geor;
+    mn.country=geor.getGEOIP(mn.addr.ToString().c_str());
     mapMasternodes[mn.vin.prevout] = mn;
+    MNNationsCountEnabled[mn.country]++;
     fMasternodesAdded = true;
+    LogPrint("masternode", "CMasternodeMan::Add -- Adding new Masternode: addr=%s, country=%s, %i now\n", mn.addr.ToString(),mn.country, size() + 1);
     return true;
 }
 
@@ -105,7 +109,12 @@ void CMasternodeMan::AskForMN(CNode* pnode, const COutPoint& outpoint, CConnman&
         LogPrintf("CMasternodeMan::AskForMN -- Asking peer %s for missing masternode entry for the first time: %s\n", pnode->addr.ToString(), outpoint.ToStringShort());
     }
     mWeAskedForMasternodeListEntry[outpoint][pnode->addr] = GetTime() + DSEG_UPDATE_SECONDS;
-
+    /*
+    if (length(pnode->country) < 2) {
+      CGEOReward geor;
+      mapMasternodes[pnode->vin.prevout].country = geor.getGEOIP(pnode->addr.ToString().c_str());
+    }
+    */
     connman.PushMessage(pnode, NetMsgType::DSEG, CTxIn(outpoint));
 }
 
@@ -170,7 +179,7 @@ void CMasternodeMan::CheckAndRemove(CConnman& connman)
         LOCK2(cs_main, cs);
 
         Check();
-
+        MNNationsCountEnabled.clear();
         // Remove spent masternodes, prepare structures and make requests to reasure the state of inactive ones
         rank_pair_vec_t vecMasternodeRanks;
         // ask for up to MNB_RECOVERY_MAX_ASK_ENTRIES masternode entries at a time
@@ -222,6 +231,8 @@ void CMasternodeMan::CheckAndRemove(CConnman& connman)
                     // wait for mnb recovery replies for MNB_RECOVERY_WAIT_SECONDS seconds
                     mMnbRecoveryRequests[hash] = std::make_pair(GetTime() + MNB_RECOVERY_WAIT_SECONDS, setRequested);
                 }
+                MNNationsCountEnabled[mnb.country]++;
+
                 ++it;
             }
         }
@@ -334,6 +345,7 @@ void CMasternodeMan::CheckAndRemove(CConnman& connman)
         }
 
         LogPrintf("CMasternodeMan::CheckAndRemove -- %s\n", ToString());
+        LogPrintf("CMasternodeMan::Countries -- %s\n", Countries());
     }
 
     if(fMasternodesRemoved) {
@@ -350,6 +362,8 @@ void CMasternodeMan::Clear()
     mWeAskedForMasternodeListEntry.clear();
     mapSeenMasternodeBroadcast.clear();
     mapSeenMasternodePing.clear();
+    MNNationsCount.clear();
+    MNNationsCountEnabled.clear();
     nDsqCount = 0;
     nLastWatchdogVoteTime = 0;
 }
@@ -359,9 +373,10 @@ int CMasternodeMan::CountMasternodes(int nProtocolVersion)
     LOCK(cs);
     int nCount = 0;
     nProtocolVersion = nProtocolVersion == -1 ? mnpayments.GetMinMasternodePaymentsProto() : nProtocolVersion;
-
+    MNNationsCount.clear();
     for (auto& mnpair : mapMasternodes) {
         if(mnpair.second.nProtocolVersion < nProtocolVersion) continue;
+        MNNationsCount[mnpair.second.country]++;
         nCount++;
     }
 
@@ -373,9 +388,10 @@ int CMasternodeMan::CountEnabled(int nProtocolVersion)
     LOCK(cs);
     int nCount = 0;
     nProtocolVersion = nProtocolVersion == -1 ? mnpayments.GetMinMasternodePaymentsProto() : nProtocolVersion;
-
+    MNNationsCountEnabled.clear();
     for (auto& mnpair : mapMasternodes) {
         if(mnpair.second.nProtocolVersion < nProtocolVersion || !mnpair.second.IsEnabled()) continue;
+        MNNationsCountEnabled[mnpair.second.country]++;
         nCount++;
     }
 
@@ -588,7 +604,7 @@ masternode_info_t CMasternodeMan::FindRandomNotInVec(const std::vector<COutPoint
     // shuffle pointers
     std::random_shuffle(vpMasternodesShuffled.begin(), vpMasternodesShuffled.end(), insecureRand);
     bool fExclude;
-
+    MNNationsCountEnabled.clear();
     // loop through
     BOOST_FOREACH(CMasternode* pmn, vpMasternodesShuffled) {
         if(pmn->nProtocolVersion < nProtocolVersion || !pmn->IsEnabled()) continue;
@@ -602,6 +618,7 @@ masternode_info_t CMasternodeMan::FindRandomNotInVec(const std::vector<COutPoint
         if(fExclude) continue;
         // found the one not in vecToExclude
         LogPrint("masternode", "CMasternodeMan::FindRandomNotInVec -- found, masternode=%s\n", pmn->vin.prevout.ToStringShort());
+        MNNationsCountEnabled[pmn->country]++;
         return pmn->GetInfo();
     }
 
@@ -1322,6 +1339,22 @@ std::string CMasternodeMan::ToString() const
             ", peers we asked for Masternode list: " << (int)mWeAskedForMasternodeList.size() <<
             ", entries in Masternode list we asked for: " << (int)mWeAskedForMasternodeListEntry.size() <<
             ", nDsqCount: " << (int)nDsqCount;
+
+    return info.str();
+}
+
+std::string CMasternodeMan::Countries() const
+{
+    std::ostringstream info;
+
+    info << "Countries: " << (int)MNNationsCountEnabled.size() << "\r\n";
+    std::map< std::string, int >::iterator reMap;
+    reMap = MNNationsCountEnabled.begin();
+    while(reMap != MNNationsCountEnabled.end() ) {
+       std::string key = (*reMap).first;
+       info << " " << key.c_str() << "(" << MNNationsCountEnabled[key] << ")";
+       reMap++;
+    }
 
     return info.str();
 }

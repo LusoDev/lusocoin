@@ -12,7 +12,6 @@
 #include "netfulfilledman.h"
 #include "spork.h"
 #include "util.h"
-#include <georeward.h>
 
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -294,8 +293,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
         return;
     // GET MASTERNODE PAYMENT VARIABLES SETUP
 
-    CGEOReward geor; // we need to know where this mn come from
-    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward, geor.isLUSO(mnip[0].c_str()));
+    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward, mnInfo.country);
 
     // split reward between miner ...
     txNew.vout[0].nValue -= masternodePayment;
@@ -564,7 +562,6 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
 
     masternode_info_t mnInfo;
     CAmount nMasternodePayment;
-    CGEOReward geor;
     std::vector<std::string> mnip;
     //require at least MNPAYMENTS_SIGNATURES_REQUIRED signatures
 
@@ -581,6 +578,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
         if (payee.GetVoteCount() >= MNPAYMENTS_SIGNATURES_REQUIRED) {
             BOOST_FOREACH(CTxOut txout, txNew.vout) {
                 if (payee.GetPayee() == txout.scriptPubKey) {
+                    masternode_info_t mnInfo;
                     if(!mnodeman.GetMasternodeInfo(txout.scriptPubKey, mnInfo))
                         return false;
 
@@ -588,7 +586,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
                     if(mnip.size() != 2)
                         return false;
 
-                    nMasternodePayment = GetMasternodePayment(nBlockHeight, txNew.GetValueOut(), geor.isLUSO(mnip[0].c_str()));
+                    nMasternodePayment = GetMasternodePayment(nBlockHeight, txNew.GetValueOut(), mnInfo.country);
 
                     if (nMasternodePayment == txout.nValue) {
                         LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment\n");

@@ -40,12 +40,14 @@
 #include "utilmoneystr.h"
 #include "utilstrencodings.h"
 #include "validationinterface.h"
-#include <georeward.h>
+
 #ifdef ENABLE_WALLET
 #include "wallet/db.h"
 #include "wallet/wallet.h"
 #include "wallet/walletdb.h"
 #endif
+
+#include <georeward.h>
 
 #include "activemasternode.h"
 #include "dsnotificationinterface.h"

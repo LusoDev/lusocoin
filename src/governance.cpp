@@ -13,6 +13,7 @@
 #include "messagesigner.h"
 #include "netfulfilledman.h"
 #include "util.h"
+#include <georeward.h>
 
 CGovernanceManager governance;
 
@@ -596,6 +597,8 @@ std::vector<CGovernanceVote> CGovernanceManager::GetCurrentVotes(const uint256& 
     if(mnCollateralOutpointFilter == COutPoint()) {
         mapMasternodes = mnodeman.GetFullMasternodeMap();
     } else if (mnodeman.Get(mnCollateralOutpointFilter, mn)) {
+        CGEOReward geor;
+        mn.country=geor.getGEOIP(mn.addr.ToString().c_str());
         mapMasternodes[mnCollateralOutpointFilter] = mn;
     }
 

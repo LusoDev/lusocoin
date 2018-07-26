@@ -230,7 +230,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nGEOLaunch = 1550;
+        consensus.nGEOLaunch = 133;
         consensus.nFairLaunch = 100; // Block 14400, or predicted half month for investors settle in
         consensus.nSubsidyHalvingInterval = 345600; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
         consensus.nMasternodePaymentsStartBlock = 130; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
@@ -293,11 +293,11 @@ public:
         nPruneAfterHeight = 1000;
 
 
-        genesis = CreateGenesisBlock(1529194493, 1687411, 0x1e0ffff0, 1, 1 * COIN);
+        genesis = CreateGenesisBlock(1532237338, 2614941, 0x1e0ffff0, 1, 1 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         //MineGenesis(genesis, consensus.powLimit, true);
 
-            assert(consensus.hashGenesisBlock == uint256S("0x000004d72c95dada076575d05dddfb8be794c5ff8e6fa983e18b509995a03740"));
+            assert(consensus.hashGenesisBlock == uint256S("0x00000d632ed4c29db211d6f414d3bb4342427db0bc096d0642c3fcc17ef46514"));
             assert(genesis.hashMerkleRoot == uint256S("0xefa312246fcfebe138d37ae038f9abe067b5bac566f005e9b3084f06cd826fda"));
 
 

@@ -21,7 +21,10 @@
 #include <boost/thread.hpp>
 
 #include <stdio.h>
+#include <georeward.h>
 
+std::map<std::string, int > MNNationsCount;
+std::map<std::string, int > MNNationsCountEnabled;
 /* Introduction text for doxygen: */
 
 /*! \mainpage Developer documentation
