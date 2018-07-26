@@ -1330,14 +1330,15 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue, std::string countr
     double cycledReward = (double) ((double)nHeightf / (double)nMNPIPeriod)/(double)(12*10);
     double cycledRewardPerc = 0.4 * cycledReward; // max added 40%// +60% max
 
-    if (cycledRewardPerc>0.4)cycledRewardPerc=0.4;
     if (nHeight > Params().GetConsensus().nGEOLaunch) {
+        cycledRewardPerc += 0.2;
         int mnrounded=roundUp(mnodeman.CountEnabled(),10)+10;
         cycledRewardPerc = cycledRewardPerc * GetCountryShare(country,mnrounded);// Change reward based on country
         if (geor.isLUSO(country.c_str(),(char*) country.c_str()) == 0) {
-            cycledRewardPerc -= 0.2 * GetLusoShare(mnrounded); // Change reward for LUSO countries
+            cycledRewardPerc -= 0.1 * GetLusoShare(mnrounded); // Change reward for LUSO countries
         }
     }
+    if (cycledRewardPerc>0.4)cycledRewardPerc=0.4;
     CAmount ret = blockValue * (0.25+cycledRewardPerc); // start at 25%
 //    printf("Reward Masternode: %d LUSO ( %g\%)\r\n",ret,0.25+cycledRewardPerc);
     return ret;
