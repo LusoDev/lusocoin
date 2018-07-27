@@ -28,7 +28,6 @@ $(package)_config_opts += -no-glib
 $(package)_config_opts += -no-icu
 $(package)_config_opts += -no-cups
 $(package)_config_opts += -no-iconv
-$(package)_config_opts += -no-gif
 $(package)_config_opts += -no-freetype
 $(package)_config_opts += -no-nis
 $(package)_config_opts += -pch
@@ -169,3 +168,4 @@ define $(package)_postprocess_cmds
   rm -rf native/mkspecs/ native/lib/ lib/cmake/ && \
   rm -f lib/lib*.la lib/*.prl plugins/*/*.prl
 endef
+

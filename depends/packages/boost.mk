@@ -33,10 +33,10 @@ define $(package)_config_cmds
 endef
 
 define $(package)_build_cmds
-  ./b2 -d2 -j2 -d1 --with-iostreams --with-program_options --with-chrono --with-filesystem --with-system --with-test --with-thread --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
+  ./b2 -d2 -j2 -d1 --with-iostreams --with-program_options --with-chrono --with-filesystem --with-system --with-test --with-thread -sZLIB_SOURCE="$($(package)_staging_dir)zlib" -sZLIB_INCLUDE="$($(package)_staging_dir)zlib/include" -sZLIB_LIBPATH="$($(package)_staging_dir)zlib/lib" --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) stage
 endef
 
 define $(package)_stage_cmds
-  ./b2 -d0 -j4 --with-iostreams --with-program_options --with-chrono --with-filesystem --with-system --with-test --with-thread --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
+  ./b2 -d0 -j4 --with-iostreams --with-program_options --with-chrono --with-filesystem --with-system --with-test --with-thread -sZLIB_SOURCE="$($(package)_staging_dir)zlib" -sZLIB_INCLUDE="$($(package)_staging_dir)zlib/include" -sZLIB_LIBPATH="$($(package)_staging_dir)zlib/lib" --prefix=$($(package)_staging_prefix_dir) $($(package)_config_opts) install
 endef
 
