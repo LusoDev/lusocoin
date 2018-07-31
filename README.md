@@ -27,7 +27,7 @@ Em tempos em que os poderes politicos e os donos do dinheiro visam a globalizaç
 
 Masternode Share (GeoReward v1)
 -------
-  Starts at Block 170000
+  Starts at Block 140000
   Max: 65%
   Min: 18%
 
@@ -133,4 +133,3 @@ Compilar a LUSO
     make install
 
 cd depends; make ; cd ..; ./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu --disable-tests; make
-

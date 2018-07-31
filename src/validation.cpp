@@ -1282,11 +1282,11 @@ double GetCountryShare(std::string country,int mnrounded)
   reMap = MNNationsCountEnabled.find(country);
   if (reMap == MNNationsCountEnabled.end())
     return 1;
-
   int cntrounded=roundUp(MNNationsCountEnabled[country],10);
   double perc = 1 - (cntrounded / mnrounded);
   if (perc < .02)perc=.02;
   if (perc > 1)perc=1;
+  //LogPrintf("GetCountryShare::%s-> %i/%i = %u\% share\n", country.c_str(), cntrounded , mnrounded, perc);
   return perc;
 }
 
@@ -1306,6 +1306,7 @@ double GetLusoShare(int mnrounded)
   double perc = 1 - (ttlc / mnrounded);
   if (perc < .02)perc=.02;
   if (perc > 1)perc=1;
+  //LogPrintf("GetLusoShare-> %i/%i = %u\% share\n", ttlc , mnrounded, perc);
   return perc;
 }
 
@@ -1323,7 +1324,7 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue, std::string countr
     }
     int nHeightf = nHeight - nFairLaunch; // fix cycles calc
     if (nHeightf<1)nHeightf=nHeight;
-
+    CAmount ret = blockValue * 0.25;
     //int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
     int nMNPIPeriod = Params().GetConsensus().nMasternodePaymentsIncreasePeriod;
 
@@ -1331,15 +1332,15 @@ CAmount GetMasternodePayment(int nHeight, CAmount blockValue, std::string countr
     double cycledRewardPerc = 0.4 * cycledReward; // max added 40%// +60% max
 
     if (nHeight > Params().GetConsensus().nGEOLaunch) {
-        cycledRewardPerc += 0.2;
         int mnrounded=roundUp(mnodeman.CountEnabled(),10)+10;
         cycledRewardPerc = cycledRewardPerc * GetCountryShare(country,mnrounded);// Change reward based on country
+        cycledRewardPerc += 0.2;
         if (geor.isLUSO(country.c_str(),(char*) country.c_str()) == 0) {
-            cycledRewardPerc -= 0.1 * GetLusoShare(mnrounded); // Change reward for LUSO countries
+            cycledRewardPerc -= 0.15 * GetLusoShare(mnrounded); // Change reward for LUSO countries
         }
     }
-    if (cycledRewardPerc>0.4)cycledRewardPerc=0.4;
-    CAmount ret = blockValue * (0.25+cycledRewardPerc); // start at 25%
+    if (cycledRewardPerc>0.45)cycledRewardPerc=0.45;
+    ret += blockValue * cycledRewardPerc; // start at 25%
 //    printf("Reward Masternode: %d LUSO ( %g\%)\r\n",ret,0.25+cycledRewardPerc);
     return ret;
 }
@@ -4458,4 +4459,3 @@ public:
         mapBlockIndex.clear();
     }
 } instance_of_cmaincleanup;
-

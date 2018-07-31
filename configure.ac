@@ -611,7 +611,17 @@ AX_BOOST_FILESYSTEM
 AX_BOOST_PROGRAM_OPTIONS
 AX_BOOST_THREAD
 AX_BOOST_CHRONO
-AX_BOOST_IOSTREAMS
+
+dnl AX_BOOST_IOSTREAMS
+dnl if test "$BOOST_IOSTREAMS_LIB" = ""; then
+dnl    AC_MSG_ERROR([No usable boost::iostreams found])
+dnl fi
+dnl AC_CHECK_HEADERS([iostream],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filter/gzip.hpp],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filter/zlib.hpp],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filtering_stream.hpp],[],[AC_MSG_ERROR(File needed)])
+
+AC_CHECK_HEADERS([zlib.h],[],[AC_MSG_ERROR(Zlib needed)])
 
 if test x$use_reduce_exports = xyes; then
   AC_MSG_CHECKING([for working boost reduced exports])
@@ -673,7 +683,7 @@ fi
 
 if test x$use_boost = xyes; then
 
-BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB $BOOST_IOSTREAMS_LIB"
+BOOST_LIBS="$BOOST_LDFLAGS $BOOST_SYSTEM_LIB $BOOST_FILESYSTEM_LIB $BOOST_PROGRAM_OPTIONS_LIB $BOOST_THREAD_LIB $BOOST_CHRONO_LIB"
 
 
 dnl If boost (prior to 1.57) was built without c++11, it emulated scoped enums
@@ -1074,7 +1084,7 @@ CPPFLAGS_TEMP="$CPPFLAGS"
 unset CPPFLAGS
 CPPFLAGS="$CPPFLAGS_TEMP"
 
-LDFLAGS_TEMP="$LDFLAGS"
+LDFLAGS_TEMP="$LDFLAGS -lz"
 unset LDFLAGS
 LDFLAGS="$LDFLAGS_TEMP"
 

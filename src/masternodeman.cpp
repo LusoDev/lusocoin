@@ -80,7 +80,7 @@ bool CMasternodeMan::Add(CMasternode &mn)
     mapMasternodes[mn.vin.prevout] = mn;
     MNNationsCountEnabled[mn.country]++;
     fMasternodesAdded = true;
-    LogPrint("masternode", "CMasternodeMan::Add -- Adding new Masternode: addr=%s, country=%s, %i now\n", mn.addr.ToString(),mn.country, size() + 1);
+    LogPrint("masternode", "CMasternodeMan::Add -- Adding new Masternode: addr=%s, %i now\n", mn.addr.ToString(), size() + 1);
     return true;
 }
 

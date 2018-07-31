@@ -416,7 +416,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 
 # bitcoind binary #
 lusod_SOURCES = lusod.cpp
-lusod_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+lusod_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) 
 lusod_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 lusod_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 

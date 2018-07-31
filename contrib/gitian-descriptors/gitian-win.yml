@@ -22,6 +22,9 @@ packages:
 - "ca-certificates"
 - "python"
 - "python3"
+- "zlibc"
+- "zlib1g"
+- "zlib1g-dev"
 reference_datetime: "2017-01-01 00:00:00"
 remotes:
 - "url": "https://github.com/lusodev/lusocoin.git"
@@ -189,4 +192,3 @@ script: |
     rm -rf ccache
     popd
   fi
-

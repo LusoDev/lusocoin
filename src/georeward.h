@@ -17,6 +17,7 @@
 #include "tinyformat.h"
 #include "timedata.h"
 #include "util.h"
+#include "utiltime.h"
 #include <univalue.h>
 #include "compat.h"
 
@@ -25,15 +26,12 @@
 #include <string>
 #include <vector>
 
-#include <boost/iostreams/filtering_stream.hpp>
-#include <boost/iostreams/filter/gzip.hpp>
-#include <boost/iostreams/copy.hpp>
-
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/asio.hpp>
+#include <zlib.h>
 
 using std::string;
 using std::cout;
@@ -197,6 +195,34 @@ private:
             }
             *dst = '\0';
         }
+				bool decompressgz(const char* fileName,const char* fileOut) {
+					gzFile inFileZ = gzopen(fileName, "rb");
+					if (inFileZ == NULL) {
+						const boost::filesystem::path tr = fileOut;
+						boost::filesystem::ifstream streamConfig(tr);
+						if (streamConfig.good()) {
+							return 1;
+						} else {
+					    printf("Error: Failed to gzopen %s\n", fileName);
+					    return 0;
+						}
+					}
+					FILE * pFile = fopen (fileOut, "wb");
+					unsigned char unzipBuffer[8192];
+					unsigned int unzippedBytes;
+					std::vector<unsigned char> unzippedData;
+					while (true) {
+					    unzippedBytes = gzread(inFileZ, unzipBuffer, 8192);
+					    if (unzippedBytes > 0) {
+        					fwrite(unzipBuffer, 1, unzippedBytes, pFile);
+					    } else {
+					        break;
+					    }
+					}
+					gzclose(inFileZ);
+					fclose (pFile);
+					return 1;
+				}
         bool downloadDB(std::string fl) {
 						boost::filesystem::path fl_gz = fl + ".gz";
 						boost::filesystem::path fullfl = GetDataDir() / fl;
@@ -213,18 +239,13 @@ private:
 
             if (strcmp(result.c_str(),"0") != 0) {
 							try {
-                std::ofstream of(fullfl_gz.string().c_str(), std::ios::binary);
+								std::ofstream of(fullfl_gz.string().c_str(), std::ios::binary);
                 of << result;
-								std::ifstream file(fullfl_gz.string().c_str(), std::ios_base::in | std::ios_base::binary);
-
-						    boost::iostreams::filtering_streambuf<boost::iostreams::input> in;
-						    in.push(boost::iostreams::gzip_decompressor());
-						    in.push(file);
-								std::ofstream af(fullfl.string().c_str(), std::ios_base::out | std::ios_base::binary);
-
-								boost::iostreams::copy(in,af);
-								remove(fullfl_gz.string().c_str());
-								downloaded=1;
+								MilliSleep(1000);
+								if (decompressgz(fullfl_gz.string().c_str(),fullfl.string().c_str()) == 1) {
+									remove(fullfl_gz.string().c_str());
+									downloaded=1;
+								}
 							} catch(...){
 								remove(fullfl.string().c_str());
 								remove(fullfl_gz.string().c_str());
@@ -251,6 +272,12 @@ public:
 													throw;
 												}
                 }
+								MilliSleep(1000);
+								char* tst=getGEOIP("99.99.99.99");
+								if (strcmp("US",tst) != 0) {
+									printf("Failed to geolocate ip,\nTry to manually create geoip.csv.");
+									throw;
+								}
         };
         bool isLUSO()
         {
@@ -364,10 +391,6 @@ public:
 
           }
 
-          if (found_it == 0) {
-              free(tmp);
-							//fclose(stream);
-					}
 					return countryName;
 				};
 				void setGEOcache(const char* linetry) {
@@ -431,7 +454,6 @@ public:
           sscanf(addr, "%d.%d.%d.%d", &s1, &s2, &s3, &s4);
           boost::filesystem::path fileIPv = GetDataDir() / "geoip.csv";
 
-					checkLoad(fileIPv);
           if (is_ipv4_address((std::string) addr)) {
                   c1 = (double)16777216 * s1;
                   c2 = (double)65536 * s2;
@@ -447,6 +469,7 @@ public:
 					boost::filesystem::ifstream streamConfig(fileIPv);
 						if (!streamConfig.good())
 							return countryName;
+
 					char* flopen = (char *) fileIPv.c_str();
           FILE* stream = fopen(flopen, "r");
           int found_it = 0;
@@ -488,10 +511,7 @@ public:
 
           }
 
-          if (found_it == 0) {
-              free(tmp);
-							//fclose(stream);
-          } else {
+          if (found_it != 0) {
 						const char* tmpln=line;
 						setGEOcache(tmpln);
 					}
@@ -499,4 +519,3 @@ public:
         };
 
 };
-

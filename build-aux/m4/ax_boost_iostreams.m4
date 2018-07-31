@@ -36,7 +36,7 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 	AC_ARG_WITH([boost-iostreams],
 	AS_HELP_STRING([--with-boost-iostreams@<:@=special-lib@:>@],
                    [use the IOStreams library from boost - it is possible to specify a certain library for the linker
-                        e.g. --with-boost-iostreams=boost_iostreams-gcc-mt-d-1_33_1 ]),
+                        e.g. --with-boost-iostreams=boost_iostreams-gcc-mt ]),
         [
         if test "$withval" = "no"; then
 			want_boost="no"

@@ -190,9 +190,9 @@ $($(1)_staged): | $($(1)_built)
 	$(AT)rm -rf $($(1)_extract_dir)
 	$(AT)touch $$@
 $($(1)_postprocessed): | $($(1)_staged)
-#	$(AT)echo Postprocessing $(1)...
-#	$(AT)cd $($(1)_staging_prefix_dir); $(call $(1)_postprocess_cmds)
-#	$(AT)touch $$@
+	$(AT)echo Postprocessing $(1)...
+	$(AT)cd $($(1)_staging_prefix_dir); $(call $(1)_postprocess_cmds)
+	$(AT)touch $$@
 $($(1)_cached): | $($(1)_dependencies) $($(1)_postprocessed)
 	$(AT)echo Caching $(1)...
 	$(AT)cd $$($(1)_staging_dir)/$(host_prefix); find . | sort | tar --no-recursion -czf $$($(1)_staging_dir)/$$(@F) -T -
