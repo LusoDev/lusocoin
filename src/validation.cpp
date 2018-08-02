@@ -1286,7 +1286,7 @@ double GetCountryShare(std::string country,int mnrounded)
   double perc = 1 - (cntrounded / mnrounded);
   if (perc < .02)perc=.02;
   if (perc > 1)perc=1;
-  //LogPrintf("GetCountryShare::%s-> %i/%i = %u\% share\n", country.c_str(), cntrounded , mnrounded, perc);
+  LogPrintf("GetCountryShare::%s-> %i/%i = %g\% share\n", country.c_str(), cntrounded , mnrounded, perc);
   return perc;
 }
 
@@ -1306,7 +1306,7 @@ double GetLusoShare(int mnrounded)
   double perc = 1 - (ttlc / mnrounded);
   if (perc < .02)perc=.02;
   if (perc > 1)perc=1;
-  //LogPrintf("GetLusoShare-> %i/%i = %u\% share\n", ttlc , mnrounded, perc);
+  LogPrintf("GetLusoShare-> %i/%i = %g\% share\n", ttlc , mnrounded, perc);
   return perc;
 }
 

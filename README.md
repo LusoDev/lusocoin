@@ -29,7 +29,7 @@ Masternode Share (GeoReward v1)
 -------
   Starts at Block 140000
   Max: 65%
-  Min: 18%
+  Min: 15%
 
 Country increase
   New country up to +40%
@@ -37,9 +37,9 @@ Country increase
     0.4 * ( 1 − (countryMNcount/totalMNcount))
 
 LUSO increase
-  - New country up to +20%
+  - New luso country up to +15%
   - Calculate:
-    0.2 * ( 1 − (lusoMNcount/totalMNcount))
+    0.15 * ( 1 − (lusoMNcount/totalMNcount))
 
 A lista de países lusofonos é nesta fase a seguinte:
   Portugal, Brazil, Angola, Mozambique, Guinea-Bissau, East Timor, Equatorial Guinea, Macau, Cape Verde, São Tomé and Príncipe

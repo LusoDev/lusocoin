@@ -21,10 +21,12 @@
 #include <univalue.h>
 #include "compat.h"
 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
+#include <regex>
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
@@ -45,7 +47,6 @@ static const char * IPvDB[] = { "lusoco.in", "explorer.lusoco.in", "bay.lusoco.i
 class CGEOReward {
 
 private:
-
 	char* appendCharToCharArray(char* array, char a) {
 	    size_t len = strlen(array);
 
@@ -203,11 +204,17 @@ private:
 						if (streamConfig.good()) {
 							return 1;
 						} else {
-					    printf("Error: Failed to gzopen %s\n", fileName);
+					    LogPrintf("Error: Failed to gzopen %s\n", fileName);
 					    return 0;
 						}
 					}
+#ifdef WIN32
+					std::string sz = fileOut;
+					rplc(sz,"\\","\\\\");
+					FILE * pFile = fopen (sz.c_str(), "wb");
+#else
 					FILE * pFile = fopen (fileOut, "wb");
+#endif
 					unsigned char unzipBuffer[8192];
 					unsigned int unzippedBytes;
 					std::vector<unsigned char> unzippedData;
@@ -227,12 +234,13 @@ private:
 						boost::filesystem::path fl_gz = fl + ".gz";
 						boost::filesystem::path fullfl = GetDataDir() / fl;
 						boost::filesystem::path fullfl_gz = GetDataDir() / (fl + ".gz");
-						//printf("Downloading %s to %s\r\n",fl_gz.string().c_str(),fullfl_gz.string().c_str());
+						fl = "/"+ fl_gz.string();
+						LogPrintf("Downloading %s to %s\r\n",fl_gz.string().c_str(),fullfl_gz.string().c_str());
             bool downloaded=0;
             std::string result = "0";
 						for(int i=0; i < 3; i++) {
 							if (IPvDB[i] == NULL) break;
-							result = httpreq(IPvDB[i],fl_gz.string().c_str());
+							result = httpreq(IPvDB[i],fl);
 							if (strcmp(result.c_str(),"0") != 0) break;
 
 						}
@@ -267,16 +275,17 @@ public:
                 boost::filesystem::ifstream streamConfig(csv);
                 if (!streamConfig.good()) {
                         // Create empty luso.conf if it does not excist
-												if (downloadDB("/geoip.csv") == 0) {
-													printf("Failed to download GEOReward dependencies, are you connected to internet?\nTry to manually create geoip.csv.");
-													throw;
+												if (downloadDB("geoip.csv") == 0) {
+													LogPrintf("Failed to download GEOReward dependencies, are you connected to internet?\nTry to manually create geoip.csv.");
+													exit(1);
 												}
                 }
+
 								MilliSleep(1000);
 								char* tst=getGEOIP("99.99.99.99");
 								if (strcmp("US",tst) != 0) {
-									printf("Failed to geolocate ip,\nTry to manually create geoip.csv.");
-									throw;
+									LogPrintf("Failed to geolocate ip,\nTry to manually create geoip.csv.");
+									exit(1);
 								}
         };
         bool isLUSO()
@@ -325,76 +334,67 @@ public:
             }
             return r;
         };
-				char* getGEOcache(const char* addr) {
-					int s1, s2, s3, s4;
-          double c1, c2, c3, c4;
-          double integer_ip;
+				char* getGEOcache(const char* addr,double integer_ip) {
+					std::string filenmIPv;
           char* countryName=(char *) "Bad IP or not found.";
-          sscanf(addr, "%d.%d.%d.%d", &s1, &s2, &s3, &s4);
-          boost::filesystem::path fileIPv = GetDataDir() / ".geoip.cache";
 
-          if (is_ipv4_address((std::string) addr)) {
-                  c1 = (double)16777216 * s1;
-                  c2 = (double)65536 * s2;
-                  c3 = (double)256 * s3;
-                  c4 = (double)s4;
-                  integer_ip = c1 + c2 + c3 + c4;
-          } else if (is_ipv6_address((std::string) addr)) {
-                  // unavailable on MN, YET!
-
-          } else
-                return countryName;
-
-
+					boost::filesystem::path fileIPv = GetDataDir() / ".geoip.cache";
 					boost::filesystem::ifstream streamConfig(fileIPv);
-					if (!streamConfig.good())
-						return countryName;
+          if (streamConfig.good()) {
+						FILE *stream;
+#ifdef WIN32
+						std::string sz = fileIPv.string();
+						rplc(sz,"\\","\\\\");
+						stream = fopen(sz.c_str(), "r");
+#else
+						stream = fopen(fileIPv.string().c_str(), "r");
+#endif
+						if (stream == NULL) {
+							return countryName;
+						}
 
-					char* flopen = (char *) fileIPv.c_str();
-					FILE* stream = fopen(flopen, "r");
-          int found_it = 0;
-          char* tmp;
-          char line[1024];
-          while (fgets(line, 1024, stream))
-          {
-                  tmp = strdup(line);
-                  char* tmp2 = strdup(line);
-                  char* tmp3 = strdup(line);
+						int found_it = 0;
+	          char* tmp;
+	          char line[1024];
+	          while (fgets(line, 1024, stream))
+	          {
+	                  tmp = strdup(line);
+	                  char* tmp2 = strdup(line);
+	                  char* tmp3 = strdup(line);
 
-                  char* thirdField = getfield(tmp,3);
-                  char* fourthField = getfield(tmp2,4);
-                  removeChar(thirdField, '"');
-                  removeChar(fourthField, '"');
+	                  char* thirdField = getfield(tmp,3);
+	                  char* fourthField = getfield(tmp2,4);
+	                  removeChar(thirdField, '"');
+	                  removeChar(fourthField, '"');
 
-                  double lower = atof(thirdField);
-                  double upper = atof(fourthField);
+	                  double lower = atof(thirdField);
+	                  double upper = atof(fourthField);
 
-                  double m = integer_ip;
+	                  double m = integer_ip;
 
-                  if (m > lower && m < upper) {
-                  found_it = 1;
-                  countryName = getfield(tmp3,5);
-                  removeChar(countryName, '"');
-                  free(tmp);
-									//fclose(stream);
-									break;
-                  }
+	                  if (m > lower && m < upper) {
+	                  found_it = 1;
+	                  countryName = getfield(tmp3,5);
+	                  removeChar(countryName, '"');
+	                  free(tmp);
+										//fclose(stream);
+										break;
+	                  }
 
-                  if (m == lower || m == upper) {
-                  found_it = 1;
-                  countryName = getfield(tmp3,5);
-                  removeChar(countryName, '"');
-                  free(tmp);
-									//fclose(stream);
-									break;
-                  }
+	                  if (m == lower || m == upper) {
+	                  found_it = 1;
+	                  countryName = getfield(tmp3,5);
+	                  removeChar(countryName, '"');
+	                  free(tmp);
+										break;
+	                  }
 
-          }
-
+	          }
+					}
 					return countryName;
 				};
 				void setGEOcache(const char* linetry) {
-					const boost::filesystem::path cache = GetDataDir() / ".geoip.cache";
+					boost::filesystem::path cache = GetDataDir() / ".geoip.cache";
 					boost::filesystem::ifstream streamConfig(cache);
 					bool foundGEO=0;
 					if (!streamConfig.good()) {
@@ -431,89 +431,106 @@ public:
                 return str;
         };
 				char* fixIP(const char* addrg) {
-					int ip1, ip2, ip3, ip4, port;
-					char* readdr = const_cast<char *>(addrg);
-					if (strpbrk(readdr, ":") != 0) {
-						sscanf(addrg, "%d.%d.%d.%d:%d", &ip1, &ip2, &ip3, &ip4, &port);
+					int ip1=-1;
+					int ip2=-1;
+					int ip3=-1;
+					int ip4=-1;
+					int port=0;
+					char* readdr = (char *) malloc(28);
+					sscanf(addrg, "%d.%d.%d.%d", &ip1, &ip2, &ip3, &ip4, &port);
+					if (ip1 > -1 && ip2 > -1 && ip3 > -1 && ip4 > -1) {
 						sprintf(readdr,"%d.%d.%d.%d",ip1,ip2,ip3,ip4);
+						return readdr;
+					} else {
+						return (char *)"Bad IP or not found.";
 					}
-					return readdr;
-
 				}
+				void rplc(std::string& subject, const std::string& search, const std::string& replace) {
+				    size_t pos = 0;
+				    while((pos = subject.find(search, pos)) != std::string::npos) {
+				         subject.replace(pos, search.length(), replace);
+				         pos += replace.length();
+				    }
+				}
+
         char* getGEOIP(const char* addrg)
         {
-					char* addr = fixIP(addrg);
-					char* tryCache=getGEOcache(addr);
+					char* countryName=(char *) "Bad IP or not found.";
+					boost::filesystem::path fileIPv = GetDataDir() / "geoip.csv";
+					int s1, s2, s3, s4;
+          double c1, c2, c3, c4;
+          double integer_ip;
+					char* addr=fixIP(addrg);
+
+					if (strcmp(addr,"Bad IP or not found.") == 0) {
+						return addr;
+					}
+					//Temporary just for ipv4 on MN
+					sscanf(addr, "%d.%d.%d.%d", &s1, &s2, &s3, &s4);
+					c1 = (double)16777216 * s1;
+					c2 = (double)65536 * s2;
+					c3 = (double)256 * s3;
+					c4 = (double)s4;
+					integer_ip = c1 + c2 + c3 + c4;
+
+					char* tryCache=getGEOcache(addr,integer_ip);
 					if (strcmp(tryCache,"Bad IP or not found.") != 0) {
 						return tryCache;
 					}
-          int s1, s2, s3, s4;
-          double c1, c2, c3, c4;
-          double integer_ip;
-          char* countryName=(char *) "Bad IP or not found.";
-          sscanf(addr, "%d.%d.%d.%d", &s1, &s2, &s3, &s4);
-          boost::filesystem::path fileIPv = GetDataDir() / "geoip.csv";
-
-          if (is_ipv4_address((std::string) addr)) {
-                  c1 = (double)16777216 * s1;
-                  c2 = (double)65536 * s2;
-                  c3 = (double)256 * s3;
-                  c4 = (double)s4;
-                  integer_ip = c1 + c2 + c3 + c4;
-          } else if (is_ipv6_address((std::string) addr)) {
-                  // unavailable on MN, YET!
-
-          } else
-                return countryName;
 
 					boost::filesystem::ifstream streamConfig(fileIPv);
-						if (!streamConfig.good())
-							return countryName;
+          if (streamConfig.good()) {
+			    //if (boost::filesystem::exists(fileIPv)) {
+#ifdef WIN32
+						std::string sz = fileIPv.string();
+						rplc(sz,"\\","\\\\");
+						FILE *stream = fopen(sz.c_str(), "r");
+#else
+						FILE *stream = fopen(fileIPv.string().c_str(), "r");
+#endif
 
-					char* flopen = (char *) fileIPv.c_str();
-          FILE* stream = fopen(flopen, "r");
-          int found_it = 0;
-          char* tmp;
-          char line[1024];
-          while (fgets(line, 1024, stream))
-          {
-                  tmp = strdup(line);
-                  char* tmp2 = strdup(line);
-                  char* tmp3 = strdup(line);
+	          int found_it = 0;
+	          char* tmp;
+	          char line[1024];
+	          while (fgets(line, 1024, stream))
+	          {
+	                  tmp = strdup(line);
+	                  char* tmp2 = strdup(line);
+	                  char* tmp3 = strdup(line);
 
-                  char* thirdField = getfield(tmp,3);
-                  char* fourthField = getfield(tmp2,4);
-                  removeChar(thirdField, '"');
-                  removeChar(fourthField, '"');
+	                  char* thirdField = getfield(tmp,3);
+	                  char* fourthField = getfield(tmp2,4);
+	                  removeChar(thirdField, '"');
+	                  removeChar(fourthField, '"');
 
-                  double lower = atof(thirdField);
-                  double upper = atof(fourthField);
+	                  double lower = atof(thirdField);
+	                  double upper = atof(fourthField);
 
-                  double m = integer_ip;
+	                  double m = integer_ip;
 
-                  if (m > lower && m < upper) {
-	                  found_it = 1;
-	                  countryName = getfield(tmp3,5);
-	                  removeChar(countryName, '"');
-	                  free(tmp);
-										//fclose(stream);
-										break;
-                  }
+	                  if (m > lower && m < upper) {
+		                  found_it = 1;
+		                  countryName = getfield(tmp3,5);
+		                  removeChar(countryName, '"');
+		                  free(tmp);
+											//fclose(stream);
+											break;
+	                  }
 
-                  if (m == lower || m == upper) {
-	                  found_it = 1;
-	                  countryName = getfield(tmp3,5);
-	                  removeChar(countryName, '"');
-	                  free(tmp);
-										//fclose(stream);
-										break;
-                  }
+	                  if (m == lower || m == upper) {
+		                  found_it = 1;
+		                  countryName = getfield(tmp3,5);
+		                  removeChar(countryName, '"');
+		                  free(tmp);
+											//fclose(stream);
+											break;
+	                  }
 
-          }
-
-          if (found_it != 0) {
-						const char* tmpln=line;
-						setGEOcache(tmpln);
+	          }
+	          if (found_it != 0) {
+							const char* tmpln=line;
+							setGEOcache(tmpln);
+						}
 					}
           return countryName;
         };

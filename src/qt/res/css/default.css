@@ -696,7 +696,7 @@ min-width:180px;
 }
 
 QDialog#RPCConsole QWidget#tab_peers  QLabel#peerHeading { /* Peers Info Header */
-color:#3398CC;
+color:#cc7c33;
 }
 
 QDialog#RPCConsole QPushButton#openDebugLogfileButton {
@@ -1567,7 +1567,7 @@ border:1px solid #9e9e9e;
 }
 
 QWidget#ReceiveCoinsDialog .QFrame#frame .QLabel#label_6 { /* Requested Payments History Label */
-color:#3398CC;
+color:#cc7c33;
 font-weight:bold;
 font-size:14px;
 }
