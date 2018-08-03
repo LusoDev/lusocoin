@@ -436,23 +436,23 @@ am__libbitcoin_util_a_SOURCES_DIST = support/pagelocker.cpp \
 	checkqueue.h clientversion.h coincontrol.h coins.h compat.h \
 	compat/byteswap.h compat/endian.h compat/sanity.h compressor.h \
 	consensus/consensus.h consensus/merkle.h consensus/params.h \
-	consensus/validation.h core_io.h core_memusage.h privatesend.h \
-	privatesend-client.h privatesend-server.h privatesend-util.h \
-	dsnotificationinterface.h governance.h governance-classes.h \
-	governance-exceptions.h governance-object.h \
-	governance-validators.h governance-vote.h governance-votedb.h \
-	flat-database.h hash.h hdchain.h httprpc.h httpserver.h init.h \
-	instantx.h key.h keepass.h keystore.h dbwrapper.h limitedmap.h \
-	masternode.h masternode-payments.h masternode-sync.h \
-	masternodeman.h masternodeconfig.h memusage.h merkleblock.h \
-	messagesigner.h miner.h net.h net_processing.h netaddress.h \
-	netbase.h netfulfilledman.h noui.h policy/fees.h \
-	policy/policy.h policy/rbf.h pow.h prevector.h \
-	primitives/block.h primitives/transaction.h protocol.h \
-	pubkey.h random.h reverselock.h rpc/client.h rpc/protocol.h \
-	rpc/server.h scheduler.h script/interpreter.h script/script.h \
-	script/script_error.h script/sigcache.h script/sign.h \
-	script/standard.h serialize.h spork.h streams.h \
+	consensus/validation.h core_io.h core_memusage.h georeward.h \
+	privatesend.h privatesend-client.h privatesend-server.h \
+	privatesend-util.h dsnotificationinterface.h governance.h \
+	governance-classes.h governance-exceptions.h \
+	governance-object.h governance-validators.h governance-vote.h \
+	governance-votedb.h flat-database.h hash.h hdchain.h httprpc.h \
+	httpserver.h init.h instantx.h key.h keepass.h keystore.h \
+	dbwrapper.h limitedmap.h masternode.h masternode-payments.h \
+	masternode-sync.h masternodeman.h masternodeconfig.h \
+	memusage.h merkleblock.h messagesigner.h miner.h net.h \
+	net_processing.h netaddress.h netbase.h netfulfilledman.h \
+	noui.h policy/fees.h policy/policy.h policy/rbf.h pow.h \
+	prevector.h primitives/block.h primitives/transaction.h \
+	protocol.h pubkey.h random.h reverselock.h rpc/client.h \
+	rpc/protocol.h rpc/server.h scheduler.h script/interpreter.h \
+	script/script.h script/script_error.h script/sigcache.h \
+	script/sign.h script/standard.h serialize.h spork.h streams.h \
 	support/allocators/secure.h support/allocators/zeroafterfree.h \
 	support/cleanse.h support/pagelocker.h sync.h threadsafety.h \
 	threadinterrupt.h timedata.h tinyformat.h torcontrol.h txdb.h \
@@ -598,23 +598,19 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/res/icons/default/edit.png \
 	qt/res/icons/default/editcopy.png \
 	qt/res/icons/default/editpaste.png \
-	qt/res/icons/default/export.png \
-	qt/res/icons/default/eye.png \
+	qt/res/icons/default/export.png qt/res/icons/default/eye.png \
 	qt/res/icons/default/eye_minus.png \
 	qt/res/icons/default/eye_plus.png \
 	qt/res/icons/default/filesave.png \
 	qt/res/icons/default/hd_disabled.png \
 	qt/res/icons/default/hd_enabled.png \
-	qt/res/icons/default/history.png \
-	qt/res/icons/default/key.png \
+	qt/res/icons/default/history.png qt/res/icons/default/key.png \
 	qt/res/icons/default/lock_closed.png \
 	qt/res/icons/default/lock_open.png \
 	qt/res/icons/default/masternodes.png \
 	qt/res/icons/default/overview.png \
-	qt/res/icons/default/quit.png \
-	qt/res/icons/default/receive.png \
-	qt/res/icons/default/remove.png \
-	qt/res/icons/default/send.png \
+	qt/res/icons/default/quit.png qt/res/icons/default/receive.png \
+	qt/res/icons/default/remove.png qt/res/icons/default/send.png \
 	qt/res/icons/default/synced.png \
 	qt/res/icons/default/transaction0.png \
 	qt/res/icons/default/transaction2.png \
@@ -643,8 +639,8 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/res/images/default/luso_default_rightArrow_small.png \
 	qt/res/images/default/luso_default_qtreeview_selected.png \
 	qt/res/images/default/luso_default_walletFrame_bg.png \
-	qt/res/css/default.css $(wildcard \
-	qt/res/movies/spinner-*.png)
+	qt/res/flags/pt.png qt/res/flags/us.png qt/res/css/default.css \
+	$(wildcard qt/res/movies/spinner-*.png)
 #am__objects_5 = qt/qt_libbitcoinqt_a-winshutdownmonitor.$(OBJEXT)
 am__objects_6 = qt/qt_libbitcoinqt_a-addressbookpage.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-addresstablemodel.$(OBJEXT) \
@@ -1446,14 +1442,15 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/user/luso/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /home/user/luso/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/user/luso/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/user/luso/build-aux/missing automake-1.15
-AWK = mawk
+AS = as
+AUTOCONF = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/missing automake-1.15
+AWK = gawk
 BDB_CPPFLAGS =
 BDB_LIBS = -ldb_cxx-4.8
 BOOST_CHRONO_LIB = -lboost_chrono
@@ -1469,23 +1466,23 @@ BREW =
 CC = gcc
 CCACHE =
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
-CLIENT_VERSION_BUILD = 1
+CFLAGS = -g -O2 
+CLIENT_VERSION_BUILD = 3
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 1
 CLIENT_VERSION_MINOR = 0
-CLIENT_VERSION_REVISION = 0
+CLIENT_VERSION_REVISION = 2
 COMPARISON_TOOL_REORG_TESTS = 0
 COPYRIGHT_YEAR = 2018
 CPP = gcc -E
 CPPFILT = /usr/bin/c++filt
-CPPFLAGS = -I/usr/local/BerkeleyDB.4.8/include -O2 -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
+CPPFLAGS =  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
 CRYPTO_CFLAGS =
 CRYPTO_LIBS = -lcrypto
-CXX = g++ -std=c++11
-CXXCPP = g++ -std=c++11 -E
+CXX = g++ -std=c++11 -std=c++11
+CXXCPP = g++ -std=c++11 -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -1519,11 +1516,11 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-JAVA =
+JAVA = /usr/bin/java
 JAVA_COMPARISON_TOOL =
 LCOV =
 LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = -L/usr/local/BerkeleyDB.4.8/lib
+LDFLAGS =
 LEVELDB_ATOMIC_CPPFLAGS = -DLEVELDB_ATOMIC_PRESENT
 LEVELDB_ATOMIC_CXXFLAGS = -std=c++0x
 LEVELDB_CPPFLAGS =  $(am__append_16)
@@ -1541,7 +1538,7 @@ LTLIBOBJS =
 LT_SYS_LIBRARY_PATH =
 LUPDATE = /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate
 MAINT =
-MAKEINFO = ${SHELL} /home/user/luso/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/missing makeinfo
 MAKENSIS =
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS =
@@ -1551,7 +1548,7 @@ MOC = /usr/lib/x86_64-linux-gnu/qt5/bin/moc
 MOC_DEFS = -DHAVE_CONFIG_H -I$(srcdir)
 NM = /usr/bin/nm -B
 NMEDIT =
-OBJCXX = g++ -std=c++11
+OBJCXX = g++ -std=c++11 -std=c++11
 OBJCXXDEPMODE = depmode=gcc3
 OBJCXXFLAGS =
 OBJDUMP = objdump
@@ -1561,10 +1558,10 @@ OTOOL64 =
 PACKAGE = lusocore
 PACKAGE_BUGREPORT = https://github.com/lusodev/lusocoin/issues
 PACKAGE_NAME = Luso Core
-PACKAGE_STRING = Luso Core 1.0.0
+PACKAGE_STRING = Luso Core 1.0.2
 PACKAGE_TARNAME = lusocore
 PACKAGE_URL =
-PACKAGE_VERSION = 1.0.0
+PACKAGE_VERSION = 1.0.2
 PATH_SEPARATOR = :
 PIC_FLAGS = -fPIC
 PIE_FLAGS = -fPIE
@@ -1617,7 +1614,7 @@ UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
 UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE =
 USE_UPNP =
-VERSION = 1.0.0
+VERSION = 1.0.2
 WINDOWS_BITS =
 WINDRES =
 X11XCB_CFLAGS =
@@ -1625,10 +1622,10 @@ X11XCB_LIBS =
 XGETTEXT = /usr/bin/xgettext
 ZMQ_CFLAGS =
 ZMQ_LIBS =
-abs_builddir = /home/user/luso/src
-abs_srcdir = /home/user/luso/src
-abs_top_builddir = /home/user/luso
-abs_top_srcdir = /home/user/luso
+abs_builddir = /home/user/luso/last/LusoCoin_git/src
+abs_srcdir = /home/user/luso/last/LusoCoin_git/src
+abs_top_builddir = /home/user/luso/last/LusoCoin_git
+abs_top_srcdir = /home/user/luso/last/LusoCoin_git
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -1660,7 +1657,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/user/luso/build-aux/install-sh
+install_sh = ${SHELL} /home/user/luso/last/LusoCoin_git/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -1669,7 +1666,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -1748,6 +1745,7 @@ BITCOIN_CORE_H = \
   consensus/validation.h \
   core_io.h \
   core_memusage.h \
+  georeward.h \
   privatesend.h \
   privatesend-client.h \
   privatesend-server.h \
@@ -2468,7 +2466,9 @@ RES_IMAGES = \
   qt/res/images/default/luso_default_leftArrow_small.png \
   qt/res/images/default/luso_default_rightArrow_small.png \
   qt/res/images/default/luso_default_qtreeview_selected.png \
-  qt/res/images/default/luso_default_walletFrame_bg.png
+  qt/res/images/default/luso_default_walletFrame_bg.png \
+  qt/res/flags/pt.png \
+  qt/res/flags/us.png
 
 RES_CSS = \
   qt/res/css/default.css

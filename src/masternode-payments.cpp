@@ -14,7 +14,8 @@
 #include "util.h"
 
 #include <boost/lexical_cast.hpp>
-
+#include <boost/algorithm/string/split.hpp>
+#include <boost/algorithm/string/classification.hpp>
 /** Object for who's going to get paid on which blocks */
 CMasternodePayments mnpayments;
 
@@ -270,22 +271,29 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
     txoutMasternodeRet = CTxOut();
 
     CScript payee;
+    masternode_info_t mnInfo;
+    std::vector<std::string> mnip;
 
     if(!mnpayments.GetBlockPayee(nBlockHeight, payee)) {
         // no masternode detected...
+        int foundMN = 0;
         int nCount = 0;
-        masternode_info_t mnInfo;
         if(!mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount, mnInfo)) {
-            // ...and we can't calculate it on our own
             LogPrintf("CMasternodePayments::FillBlockPayee -- Failed to detect masternode to pay\n");
             return;
         }
         // fill payee with locally calculated winner and hope for the best
         payee = GetScriptForDestination(mnInfo.pubKeyCollateralAddress.GetID());
-    }
+    } else
+        if (mnodeman.GetMasternodeInfo(payee, mnInfo) == 0)
+            return;
 
+    boost::split(mnip, (const std::string) mnInfo.addr.ToString(), boost::is_any_of(":"));
+    if(mnip.size() != 2)
+        return;
     // GET MASTERNODE PAYMENT VARIABLES SETUP
-    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward);
+
+    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward, mnInfo.country);
 
     // split reward between miner ...
     txNew.vout[0].nValue -= masternodePayment;
@@ -552,8 +560,9 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     int nMaxSignatures = 0;
     std::string strPayeesPossible = "";
 
-    CAmount nMasternodePayment = GetMasternodePayment(nBlockHeight, txNew.GetValueOut());
-
+    masternode_info_t mnInfo;
+    CAmount nMasternodePayment;
+    std::vector<std::string> mnip;
     //require at least MNPAYMENTS_SIGNATURES_REQUIRED signatures
 
     BOOST_FOREACH(CMasternodePayee& payee, vecPayees) {
@@ -568,9 +577,21 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     BOOST_FOREACH(CMasternodePayee& payee, vecPayees) {
         if (payee.GetVoteCount() >= MNPAYMENTS_SIGNATURES_REQUIRED) {
             BOOST_FOREACH(CTxOut txout, txNew.vout) {
-                if (payee.GetPayee() == txout.scriptPubKey && nMasternodePayment == txout.nValue) {
-                    LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment\n");
-                    return true;
+                if (payee.GetPayee() == txout.scriptPubKey) {
+                    masternode_info_t mnInfo;
+                    if(!mnodeman.GetMasternodeInfo(txout.scriptPubKey, mnInfo))
+                        return false;
+
+                    boost::split(mnip, (const std::string) mnInfo.addr.ToString(), boost::is_any_of(":"));
+                    if(mnip.size() != 2)
+                        return false;
+
+                    nMasternodePayment = GetMasternodePayment(nBlockHeight, txNew.GetValueOut(), mnInfo.country);
+
+                    if (nMasternodePayment == txout.nValue) {
+                        LogPrint("mnpayments", "CMasternodeBlockPayees::IsTransactionValid -- Found required payment\n");
+                        return true;
+                    }
                 }
             }
 

@@ -21,6 +21,8 @@
 #include <boost/thread.hpp>
 
 #include <stdio.h>
+#include <georeward.h>
+
 
 /* Introduction text for doxygen: */
 

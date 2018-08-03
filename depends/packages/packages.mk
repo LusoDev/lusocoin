@@ -1,14 +1,14 @@
-packages:=boost openssl libevent
+packages:=boost openssl libevent zlib
 darwin_packages:=zeromq
 linux_packages:=zeromq
-native_packages := native_ccache native_comparisontool
+native_packages := native_ccache native_comparisontool zlib
 
 qt_native_packages = native_protobuf
 qt_packages = qrencode protobuf
 
-qt_linux_packages= qt expat dbus libxcb xcb_proto libXau xproto freetype fontconfig libX11 xextproto libXext xtrans
+qt_linux_packages= qt expat dbus libxcb xcb_proto libXau xproto freetype fontconfig libX11 xextproto libXext xtrans zlib
 qt_darwin_packages=qt
-qt_mingw32_packages=qt
+qt_mingw32_packages=qt zlib
 
 
 wallet_packages=bdb
@@ -16,5 +16,5 @@ wallet_packages=bdb
 upnp_packages=miniupnpc
 
 ifneq ($(build_os),darwin)
-darwin_native_packages=native_cctools native_cdrkit native_libdmg-hfsplus
+darwin_native_packages=native_cctools native_cdrkit native_libdmg-hfsplus zlib
 endif

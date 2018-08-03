@@ -39,7 +39,7 @@
 #ifdef ENABLE_LUSO_DEBUG
 #define DBG( x ) x
 #else
-#define DBG( x ) 
+#define DBG( x )
 #endif
 
 //Luso only features
@@ -53,6 +53,9 @@ static const bool DEFAULT_LOGIPS         = false;
 static const bool DEFAULT_LOGTIMESTAMPS  = true;
 static const bool DEFAULT_LOGTHREADNAMES = false;
 
+
+extern std::map<std::string, int > MNNationsCount;
+extern std::map<std::string, int > MNNationsCountEnabled;
 /** Signals for translation. */
 class CTranslationInterface
 {

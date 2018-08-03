@@ -33,6 +33,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "generate", 0 },
     { "getnetworkhashps", 0 },
     { "getnetworkhashps", 1 },
+    { "geoip", 1 },
+    { "checkluso", 1 },
     { "sendtoaddress", 1 },
     { "sendtoaddress", 4 },
     { "sendtoaddress", 5 },
@@ -100,7 +102,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "signrawtransaction", 1 },
     { "signrawtransaction", 2 },
     { "sendrawtransaction", 1 },
-    { "sendrawtransaction", 2 },    
+    { "sendrawtransaction", 2 },
     { "fundrawtransaction", 1 },
     { "gettxout", 1 },
     { "gettxout", 2 },
@@ -195,4 +197,3 @@ UniValue RPCConvertValues(const std::string &strMethod, const std::vector<std::s
 
     return params;
 }
-

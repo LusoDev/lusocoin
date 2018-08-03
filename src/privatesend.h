@@ -18,13 +18,19 @@ class CPrivateSend;
 class CConnman;
 
 // timeouts
+/*
 static const int PRIVATESEND_AUTO_TIMEOUT_MIN       = 5;
 static const int PRIVATESEND_AUTO_TIMEOUT_MAX       = 15;
 static const int PRIVATESEND_QUEUE_TIMEOUT          = 30;
 static const int PRIVATESEND_SIGNING_TIMEOUT        = 15;
+*/
+static const int PRIVATESEND_AUTO_TIMEOUT_MIN       = 65;
+static const int PRIVATESEND_AUTO_TIMEOUT_MAX       = 75;
+static const int PRIVATESEND_QUEUE_TIMEOUT          = 80;
+static const int PRIVATESEND_SIGNING_TIMEOUT        = 65;
 
 //! minimum peer version accepted by mixing pool
-static const int MIN_PRIVATESEND_PEER_PROTO_VERSION = 70208;
+static const int MIN_PRIVATESEND_PEER_PROTO_VERSION = 70020;
 
 static const CAmount PRIVATESEND_ENTRY_MAX_SIZE     = 9;
 
@@ -319,7 +325,6 @@ private:
 
     static CCriticalSection cs_mapdstx;
 
-    static void CheckDSTXes(int nHeight);
 
 public:
     static void InitStandardDenominations();
@@ -353,6 +358,7 @@ public:
     static void AddDSTX(const CDarksendBroadcastTx& dstx);
     static CDarksendBroadcastTx GetDSTX(const uint256& hash);
 
+    static void CheckDSTXes(int nHeight);
     static void UpdatedBlockTip(const CBlockIndex *pindex);
     static void SyncTransaction(const CTransaction& tx, const CBlock* pblock);
 };

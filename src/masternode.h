@@ -110,8 +110,10 @@ struct masternode_info_t
 
     int nActiveState = 0;
     int nProtocolVersion = 0;
+
     int64_t sigTime = 0; //mnb message time
 
+    std::string country;
     CTxIn vin{};
     CService addr{};
     CPubKey pubKeyCollateralAddress{};
@@ -190,6 +192,7 @@ public:
         READWRITE(nTimeLastWatchdogVote);
         READWRITE(nActiveState);
         READWRITE(nCollateralMinConfBlockHash);
+        READWRITE(country);
         READWRITE(nBlockLastPaid);
         READWRITE(nProtocolVersion);
         READWRITE(nPoSeBanScore);

@@ -301,7 +301,10 @@ RES_IMAGES = \
   qt/res/images/default/luso_default_leftArrow_small.png \
   qt/res/images/default/luso_default_rightArrow_small.png \
   qt/res/images/default/luso_default_qtreeview_selected.png \
-  qt/res/images/default/luso_default_walletFrame_bg.png
+  qt/res/images/default/luso_default_walletFrame_bg.png \
+  qt/res/flags/pt.png \
+  qt/res/flags/us.png
+
 
 RES_CSS = \
   qt/res/css/default.css

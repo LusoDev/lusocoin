@@ -7,6 +7,9 @@
 #include "util.h"
 
 #include <QMenu>
+#include <QPixmap>
+#include <QIcon>
+#include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QWidget>
 

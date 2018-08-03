@@ -18,6 +18,10 @@ packages:
 - "binutils-gold"
 - "ca-certificates"
 - "python"
+- "python3"
+- "zlibc"
+- "zlib1g"
+- "zlib1g-dev"
 reference_datetime: "2017-01-01 00:00:00"
 remotes:
 - "url": "https://github.com/lusodev/lusocoin.git"
@@ -120,4 +124,3 @@ script: |
   mv ${OUTDIR}/${DISTNAME}-i686-*-debug.tar.gz ${OUTDIR}/${DISTNAME}-linux32-debug.tar.gz
   mv ${OUTDIR}/${DISTNAME}-x86_64-*.tar.gz ${OUTDIR}/${DISTNAME}-linux64.tar.gz
   mv ${OUTDIR}/${DISTNAME}-i686-*.tar.gz ${OUTDIR}/${DISTNAME}-linux32.tar.gz
-

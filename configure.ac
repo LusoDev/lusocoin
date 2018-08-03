@@ -3,7 +3,7 @@ AC_PREREQ([2.60])
 define(_CLIENT_VERSION_MAJOR, 1)
 define(_CLIENT_VERSION_MINOR, 0)
 define(_CLIENT_VERSION_REVISION, 2)
-define(_CLIENT_VERSION_BUILD, 2)
+define(_CLIENT_VERSION_BUILD, 3)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
 AC_INIT([Luso Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/lusodev/lusocoin/issues],[lusocore])
@@ -30,6 +30,9 @@ AM_MAINTAINER_MODE([enable])
 
 dnl make the compilation flags quiet unless V=1 is used
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+
+dnl Require C++11 compiler (no GNU extensions)
+AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory], [nodefault])
 
 dnl Compiler checks (here before libtool).
 if test "x${CXXFLAGS+set}" = "xset"; then
@@ -609,6 +612,16 @@ AX_BOOST_PROGRAM_OPTIONS
 AX_BOOST_THREAD
 AX_BOOST_CHRONO
 
+dnl AX_BOOST_IOSTREAMS
+dnl if test "$BOOST_IOSTREAMS_LIB" = ""; then
+dnl    AC_MSG_ERROR([No usable boost::iostreams found])
+dnl fi
+dnl AC_CHECK_HEADERS([iostream],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filter/gzip.hpp],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filter/zlib.hpp],[],[AC_MSG_ERROR(File needed)])
+dnl AC_CHECK_HEADERS([boost/iostreams/filtering_stream.hpp],[],[AC_MSG_ERROR(File needed)])
+
+AC_CHECK_HEADERS([zlib.h],[],[AC_MSG_ERROR(Zlib needed)])
 
 if test x$use_reduce_exports = xyes; then
   AC_MSG_CHECKING([for working boost reduced exports])
@@ -754,7 +767,8 @@ AC_LINK_IFELSE([AC_LANG_PROGRAM([[
 LIBS="$TEMP_LIBS"
 CPPFLAGS="$TEMP_CPPFLAGS"
 fi
-
+boost_sleep=yes
+AC_DEFINE(HAVE_WORKING_BOOST_SLEEP, 1, [Define this symbol if boost sleep works])
 if test x$boost_sleep != xyes; then
   AC_MSG_ERROR(No working boost sleep implementation found.)
 fi
@@ -1070,7 +1084,7 @@ CPPFLAGS_TEMP="$CPPFLAGS"
 unset CPPFLAGS
 CPPFLAGS="$CPPFLAGS_TEMP"
 
-LDFLAGS_TEMP="$LDFLAGS"
+LDFLAGS_TEMP="$LDFLAGS -lz"
 unset LDFLAGS
 LDFLAGS="$LDFLAGS_TEMP"
 

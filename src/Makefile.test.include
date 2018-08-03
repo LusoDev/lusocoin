@@ -117,6 +117,9 @@ if ENABLE_ZMQ
 test_test_luso_LDADD += $(ZMQ_LIBS)
 endif
 
+test_test_luso_CXXFLAGS += -lz
+test_test_luso_LDADD += -lz
+
 nodist_test_test_luso_SOURCES = $(GENERATED_TEST_FILES)
 
 $(BITCOIN_TESTS): $(GENERATED_TEST_FILES)

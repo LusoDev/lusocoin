@@ -1,4 +1,4 @@
-Luso Core v1.0.0.1
+Luso Core v1.0.2.3
 ===============================
 
 https://www.lusoco.in/
@@ -9,20 +9,43 @@ Copyright (c) 2011-2015 Litecoin Core Developers
 
 Copyright (c) 2014-2017 Dash Core Developers
 
-Copyright (c) 2017-2018 LusoCoin Developers
+Copyright (c) 2017-2018 Luso Networks Developers
 
 
 License
 -------
 
-Luso Core foi lançado usando os termos de licença MIT. Ver [COPYING](COPYING) para mais informação ou ver https://opensource.org/licenses/MIT.
+Luso Coin foi lançado usando os termos de licença MIT. Ver [COPYING](COPYING) para mais informação ou ver https://opensource.org/licenses/MIT.
 
 
 O que é a LUSO?
 -------
 LusoCoin, é um fork do trabalho feito pela equipa da moeda DASH, anteriormente conhecida como DarkCoin, uma tecnologia que tem o melhor interesse nos seus consumidores e investidores, com funcionalidades de performance, privacidade, segurança e capitalização inexistentes em moedas como o Bitcoin.
 
-Em tempos em que os bancos e os donos do dinheiro visam a globalização para fins de controlo, manipulação e execução de várias agendas ,o Nacionalismo é a nova forma de resistência.
+Em tempos em que os poderes politicos e os donos do dinheiro visam a globalização para fins de controlo, manipulação e execução de várias agendas ,o Nacionalismo é a nova forma de resistência.
+
+
+Masternode Share (GeoReward v1)
+-------
+  Starts at Block 140000
+  Max: 65%
+  Min: 15%
+
+Country increase
+  New country up to +40%
+  - Calculate:
+    0.4 * ( 1 − (countryMNcount/totalMNcount))
+
+LUSO increase
+  - New luso country up to +15%
+  - Calculate:
+    0.15 * ( 1 − (lusoMNcount/totalMNcount))
+
+A lista de países lusofonos é nesta fase a seguinte:
+  Portugal, Brazil, Angola, Mozambique, Guinea-Bissau, East Timor, Equatorial Guinea, Macau, Cape Verde, São Tomé and Príncipe
+
+  static const char * Nations[] = { "PT", "BR", "AO", "MZ", "GW", "TL", "CV", "GQ", "MO", "ST" };
+
 
 Especificações técnicas
 -------
@@ -53,6 +76,10 @@ Portas:
     REGTEST 22505
 
 
+Testnet:
+  ./src/lusod -testnet
+
+
 Processo de desenvolvimento
 -------
   Os desenvolvedores trabalham em suas próprias árvores e, em seguida, enviam pedidos de "push" quando acham que sua funcionalidade ou correção está pronta.
@@ -80,15 +107,9 @@ Compilar a LUSO
 -------
 
   --- Dependencias
-    sudo apt-get install build-essential libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils qt5-default qt4-default libprotobuf-dev protobuf-compiler qttools5-dev-tools libqrencode-dev libboost-all-dev libboost-dev libminiupnpc-dev
+    sudo apt-get install build-essential libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils libprotobuf-dev protobuf-compiler qttools5-dev-tools libqrencode-dev libboost-all-dev libboost-dev libminiupnpc-dev
 
     --- Boost
-    sudo apt-get update
-    wget -c 'http://sourceforge.net/projects/boost/files/boost/1.48.0/boost_1_48_0.tar.bz2/download'
-    tar xf download
-    cd boost_1_48_0
-    ./bootstrap.sh
-    sudo ./b2 install
 
     wget -c 'http://sourceforge.net/projects/boost/files/boost/1.62.0/boost_1_62_0.tar.bz2/download'
     tar xf download
@@ -111,12 +132,4 @@ Compilar a LUSO
     make
     make install
 
-cd pastadodaemon
-./configure
-make
-
-Se obtiveres erros, tenta incluir directamente as dependencias ou fazer disable de funcionalidades:
-./configure help
-ex:
-  ./configure CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include -O2" LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib" --disable-tests
-  ./configure CPPFLAGS="-I/usr/include -O2" LDFLAGS="-L/usr/lib" --disable-tests --with-gui=qt4
+cd depends; make ; cd ..; ./configure --prefix=`pwd`/depends/x86_64-pc-linux-gnu --disable-tests; make

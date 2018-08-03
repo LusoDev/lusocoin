@@ -12,8 +12,11 @@
 #include "wallet/wallet.h"
 #include "walletmodel.h"
 
+#include <georeward.h>
+
 #include <QTimer>
 #include <QMessageBox>
+#include <QIcon>
 
 int GetOffsetFromUtc()
 {
@@ -37,10 +40,10 @@ MasternodeList::MasternodeList(const PlatformStyle *platformStyle, QWidget *pare
     ui->startButton->setEnabled(false);
 
     int columnAliasWidth = 100;
-    int columnAddressWidth = 200;
+    int columnAddressWidth = 180;
     int columnProtocolWidth = 60;
     int columnStatusWidth = 80;
-    int columnActiveWidth = 130;
+    int columnActiveWidth = 110;
     int columnLastSeenWidth = 130;
 
     ui->tableWidgetMyMasternodes->setColumnWidth(0, columnAliasWidth);
@@ -51,10 +54,12 @@ MasternodeList::MasternodeList(const PlatformStyle *platformStyle, QWidget *pare
     ui->tableWidgetMyMasternodes->setColumnWidth(5, columnLastSeenWidth);
 
     ui->tableWidgetMasternodes->setColumnWidth(0, columnAddressWidth);
-    ui->tableWidgetMasternodes->setColumnWidth(1, columnProtocolWidth);
-    ui->tableWidgetMasternodes->setColumnWidth(2, columnStatusWidth);
-    ui->tableWidgetMasternodes->setColumnWidth(3, columnActiveWidth);
-    ui->tableWidgetMasternodes->setColumnWidth(4, columnLastSeenWidth);
+    ui->tableWidgetMasternodes->setColumnWidth(1, 60);
+    ui->tableWidgetMasternodes->setColumnWidth(2, 60);
+    ui->tableWidgetMasternodes->setColumnWidth(3, columnProtocolWidth);
+    ui->tableWidgetMasternodes->setColumnWidth(4, columnStatusWidth);
+    ui->tableWidgetMasternodes->setColumnWidth(5, columnActiveWidth);
+    ui->tableWidgetMasternodes->setColumnWidth(6, columnLastSeenWidth);
 
     ui->tableWidgetMyMasternodes->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -281,7 +286,22 @@ void MasternodeList::updateNodeList()
         CMasternode mn = mnpair.second;
         // populate list
         // Address, Protocol, Status, Active Seconds, Last Seen, Pub Key
+        std::vector<std::string> mnip;
+        boost::split(mnip, (const std::string) mn.addr.ToString(), boost::is_any_of(":"));
+        if(mnip.size() != 2)
+            return;
+        CGEOReward geor;
+        char *countrychr=geor.getGEOIP(mnip[0].c_str());
+        string country = countrychr;
+        const char *isluso="No";
+
+        if (geor.isLUSO(mnip[0].c_str(),countrychr))isluso="Yes";
+        std::transform(country.begin(), country.end(),country.begin(), ::tolower);
+        QString countryqs=QString::fromStdString(":/flags/" + country + ".png");
+
         QTableWidgetItem *addressItem = new QTableWidgetItem(QString::fromStdString(mn.addr.ToString()));
+        QTableWidgetItem *countryItem = new QTableWidgetItem(QIcon(countryqs),QString::fromStdString(country));
+        QTableWidgetItem *lusoItem = new QTableWidgetItem(QString::fromStdString(isluso));
         QTableWidgetItem *protocolItem = new QTableWidgetItem(QString::number(mn.nProtocolVersion));
         QTableWidgetItem *statusItem = new QTableWidgetItem(QString::fromStdString(mn.GetStatus()));
         QTableWidgetItem *activeSecondsItem = new QTableWidgetItem(QString::fromStdString(DurationToDHMS(mn.lastPing.sigTime - mn.sigTime)));
@@ -291,6 +311,8 @@ void MasternodeList::updateNodeList()
         if (strCurrentFilter != "")
         {
             strToFilter =   addressItem->text() + " " +
+                            countryItem->text() + " " +
+                            lusoItem->text() + " " +
                             protocolItem->text() + " " +
                             statusItem->text() + " " +
                             activeSecondsItem->text() + " " +
@@ -298,14 +320,23 @@ void MasternodeList::updateNodeList()
                             pubkeyItem->text();
             if (!strToFilter.contains(strCurrentFilter)) continue;
         }
-
+/*
+        QPixmap pix(countryqs);
+        QPixmap resPix = pix.scaled(22,14, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        QLabel *lblTest = new QLabel;
+        lblTest->setPixmap(resPix);
+        lblTest->setAlignment(Qt::AlignCenter);
+*/
         ui->tableWidgetMasternodes->insertRow(0);
         ui->tableWidgetMasternodes->setItem(0, 0, addressItem);
-        ui->tableWidgetMasternodes->setItem(0, 1, protocolItem);
-        ui->tableWidgetMasternodes->setItem(0, 2, statusItem);
-        ui->tableWidgetMasternodes->setItem(0, 3, activeSecondsItem);
-        ui->tableWidgetMasternodes->setItem(0, 4, lastSeenItem);
-        ui->tableWidgetMasternodes->setItem(0, 5, pubkeyItem);
+//        ui->tableWidgetMasternodes->setCellWidget(0, 1, lblTest);
+        ui->tableWidgetMasternodes->setItem(0, 1, countryItem);
+        ui->tableWidgetMasternodes->setItem(0, 2, lusoItem);
+        ui->tableWidgetMasternodes->setItem(0, 3, protocolItem);
+        ui->tableWidgetMasternodes->setItem(0, 4, statusItem);
+        ui->tableWidgetMasternodes->setItem(0, 5, activeSecondsItem);
+        ui->tableWidgetMasternodes->setItem(0, 6, lastSeenItem);
+        ui->tableWidgetMasternodes->setItem(0, 7, pubkeyItem);
     }
 
     ui->countLabel->setText(QString::number(ui->tableWidgetMasternodes->rowCount()));

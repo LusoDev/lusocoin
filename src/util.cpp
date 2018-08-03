@@ -119,7 +119,8 @@ int nWalletBackups = 10;
 
 const char * const BITCOIN_CONF_FILENAME = "luso.conf";
 const char * const BITCOIN_PID_FILENAME = "lusod.pid";
-
+map<std::string, int > MNNationsCount;
+map<std::string, int > MNNationsCountEnabled;
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
 bool fDebug = false;
@@ -1003,4 +1004,3 @@ std::string SafeIntVersionToString(uint32_t nVersion)
         return "invalid_version";
     }
 }
-

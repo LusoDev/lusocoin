@@ -6,7 +6,7 @@ $(package)_sha256_hash=8f9faeaebad088e772f4ef5e38252d472be4d878c6b3a2718c10a4fce
 
 define $(package)_set_vars
 $(package)_config_env=AR="$($(package)_ar)" RANLIB="$($(package)_ranlib)" CC="$($(package)_cc)"
-$(package)_config_opts=--prefix=$(host_prefix) --openssldir=$(host_prefix)/etc/openssl no-zlib no-shared no-dso
+$(package)_config_opts=--prefix=$(host_prefix) --openssldir=$(host_prefix)/etc/openssl no-shared no-dso
 $(package)_config_opts+=no-krb5 no-capieng no-dtls1 no-gost no-gmp no-heartbeats no-jpake no-md2
 $(package)_config_opts+=no-rc5 no-rdrand no-rfc3779 no-rsax no-sctp no-sha0 no-static_engine no-ssl2 no-ssl3
 $(package)_config_opts+=$($(package)_cflags) $($(package)_cppflags)

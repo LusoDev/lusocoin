@@ -94,6 +94,7 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/build-aux/m4/ax_boost_base.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_chrono.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_filesystem.m4 \
+	$(top_srcdir)/build-aux/m4/ax_boost_iostreams.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_program_options.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_system.m4 \
 	$(top_srcdir)/build-aux/m4/ax_boost_thread.m4 \
@@ -228,8 +229,7 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/luso-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
-	build-aux/missing
+	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -271,46 +271,48 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/user/luso/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
-AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /home/user/luso/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/user/luso/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/user/luso/build-aux/missing automake-1.15
-AWK = mawk
+AR = ar
+AS = as
+AUTOCONF = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/missing automake-1.15
+AWK = gawk
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
-BOOST_CHRONO_LIB = -lboost_chrono
-BOOST_CPPFLAGS = -pthread -I/usr/include
-BOOST_FILESYSTEM_LIB = -lboost_filesystem
-BOOST_LDFLAGS = -L/usr/lib/x86_64-linux-gnu
-BOOST_LIBS = -L/usr/lib/x86_64-linux-gnu -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_chrono
-BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options
-BOOST_SYSTEM_LIB = -lboost_system
-BOOST_THREAD_LIB = -lboost_thread
+BOOST_CHRONO_LIB = -lboost_chrono-mt
+BOOST_CPPFLAGS = -pthread -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include
+BOOST_FILESYSTEM_LIB = -lboost_filesystem-mt
+BOOST_IOSTREAMS_LIB = 
+BOOST_LDFLAGS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../lib
+BOOST_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../lib -lboost_system-mt -lboost_filesystem-mt -lboost_program_options-mt -lboost_thread-mt -lboost_chrono-mt -lboost_iostreams
+BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options-mt
+BOOST_SYSTEM_LIB = -lboost_system-mt
+BOOST_THREAD_LIB = -lboost_thread-mt
 BOOST_UNIT_TEST_FRAMEWORK_LIB = 
 BREW = 
-CC = gcc
-CCACHE = 
+CC = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/ccache gcc -m64
+CCACHE = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/ccache
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
-CLIENT_VERSION_BUILD = 1
+CFLAGS = -pipe -O2 
+CLIENT_VERSION_BUILD = 3
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 1
 CLIENT_VERSION_MINOR = 0
-CLIENT_VERSION_REVISION = 0
+CLIENT_VERSION_REVISION = 2
 COMPARISON_TOOL_REORG_TESTS = 0
 COPYRIGHT_YEAR = 2018
-CPP = gcc -E
+CPP = gcc -m64 -E
 CPPFILT = /usr/bin/c++filt
-CPPFLAGS = -I/usr/local/BerkeleyDB.4.8/include -O2 -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
-CRYPTO_CFLAGS = 
-CRYPTO_LIBS = -lcrypto
-CXX = g++ -std=c++11
-CXXCPP = g++ -std=c++11 -E
+CPPFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
+CRYPTO_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+CRYPTO_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lcrypto -ldl
+CXX = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/ccache g++ -m64 -std=c++11
+CXXCPP = g++ -m64 -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter
+CXXFLAGS = -pipe -O2 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -321,10 +323,10 @@ ECHO_C =
 ECHO_N = -n
 ECHO_T = 
 EGREP = /bin/grep -E
-EVENT_CFLAGS = 
-EVENT_LIBS = -levent
-EVENT_PTHREADS_CFLAGS = -pthread
-EVENT_PTHREADS_LIBS = -levent_pthreads -levent
+EVENT_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+EVENT_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -levent
+EVENT_PTHREADS_CFLAGS = -pthread -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+EVENT_PTHREADS_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -levent_pthreads -levent
 EXEEXT = 
 EXTENDED_RPC_TESTS = 
 FGREP = /bin/grep -F
@@ -344,11 +346,11 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-JAVA = 
-JAVA_COMPARISON_TOOL = 
+JAVA = /usr/bin/java
+JAVA_COMPARISON_TOOL = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/share/BitcoindComparisonTool_jar/BitcoindComparisonTool.jar
 LCOV = 
 LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = -L/usr/local/BerkeleyDB.4.8/lib
+LDFLAGS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../lib 
 LEVELDB_ATOMIC_CPPFLAGS = -DLEVELDB_ATOMIC_PRESENT
 LEVELDB_ATOMIC_CXXFLAGS = -std=c++0x
 LEVELDB_CPPFLAGS = 
@@ -361,22 +363,22 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_APP_LDFLAGS = 
 LIPO = 
 LN_S = ln -s
-LRELEASE = /usr/lib/x86_64-linux-gnu/qt5/bin/lrelease
+LRELEASE = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/lrelease
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-LUPDATE = /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate
+LUPDATE = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/user/luso/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
 MINIUPNPC_LIBS = -lminiupnpc
 MKDIR_P = /bin/mkdir -p
-MOC = /usr/lib/x86_64-linux-gnu/qt5/bin/moc
+MOC = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/moc
 MOC_DEFS = -DHAVE_CONFIG_H -I$(srcdir)
-NM = /usr/bin/nm -B
+NM = nm
 NMEDIT = 
-OBJCXX = g++ -std=c++11
+OBJCXX = g++ -m64
 OBJCXXDEPMODE = depmode=gcc3
 OBJCXXFLAGS = 
 OBJDUMP = objdump
@@ -386,77 +388,77 @@ OTOOL64 =
 PACKAGE = lusocore
 PACKAGE_BUGREPORT = https://github.com/lusodev/lusocoin/issues
 PACKAGE_NAME = Luso Core
-PACKAGE_STRING = Luso Core 1.0.0
+PACKAGE_STRING = Luso Core 1.0.2
 PACKAGE_TARNAME = lusocore
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.0.0
+PACKAGE_VERSION = 1.0.2
 PATH_SEPARATOR = :
 PIC_FLAGS = -fPIC
 PIE_FLAGS = -fPIE
-PKG_CONFIG = /usr/bin/pkg-config
-PKG_CONFIG_LIBDIR = 
-PKG_CONFIG_PATH = 
+PKG_CONFIG = /usr/bin/pkg-config --static
+PKG_CONFIG_LIBDIR = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../lib/pkgconfig
+PKG_CONFIG_PATH = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../share/pkgconfig
 PORT = 
-PROTOBUF_CFLAGS = -pthread
-PROTOBUF_LIBS = -lprotobuf -pthread -lpthread
-PROTOC = /usr/bin/protoc
-PTHREAD_CC = gcc
+PROTOBUF_CFLAGS = -pthread -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+PROTOBUF_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lprotobuf -pthread -lpthread -lz
+PROTOC = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/protoc
+PTHREAD_CC = gcc -m64
 PTHREAD_CFLAGS = -pthread
 PTHREAD_LIBS = 
 PYTHON = /usr/bin/python
-QR_CFLAGS = 
-QR_LIBS = -lqrencode
-QTPLATFORM_CFLAGS = 
-QTPLATFORM_LIBS = 
+QR_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+QR_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lqrencode -lpthread
+QTPLATFORM_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtPlatformSupport -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QTPLATFORM_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5PlatformSupport -lfontconfig -lfreetype -lQt5Gui -lqtharfbuzzng -lQt5DBus -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Gui -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt
 QTPRINT_CFLAGS = 
 QTPRINT_LIBS = 
-QTXCBQPA_CFLAGS = 
-QTXCBQPA_LIBS = 
-QT_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
-QT_DBUS_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
-QT_DBUS_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
-QT_DBUS_LIBS = -lQt5DBus -lQt5Core
-QT_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QTXCBQPA_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtXcbQpa -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QTXCBQPA_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -L//home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -L/home/user/luso/last/LusoCoin/depends/work/build/x86_64-pc-linux-gnu/qt/5.5.0-e943ab6c44f/qtbase/src/plugins/platforms/xcb/xcb-static -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5XcbQpa -lX11 -lX11-xcb -lxcb -lxcb-static -lQt5PlatformSupport -lfontconfig -lfreetype -lQt5DBus -lQt5Gui -lqtharfbuzzng -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Gui -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt
+QT_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtNetwork -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QT_DBUS_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtDBus -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QT_DBUS_INCLUDES = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtDBus -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QT_DBUS_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5DBus -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt
+QT_INCLUDES = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtNetwork -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtWidgets -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtGui -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
 QT_LDFLAGS = 
-QT_LIBS = -lQt5Network -lQt5Widgets -lQt5Gui -lQt5Core
-QT_PIE_FLAGS = -fPIC
+QT_LIBS = -lqxcb -lxcb-static -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -L//home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -L/home/user/luso/last/LusoCoin/depends/work/build/x86_64-pc-linux-gnu/qt/5.5.0-e943ab6c44f/qtbase/src/plugins/platforms/xcb/xcb-static -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5XcbQpa -lX11 -lX11-xcb -lxcb -lxcb-static -lQt5PlatformSupport -lfontconfig -lfreetype -lQt5DBus -lQt5Gui -lqtharfbuzzng -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Gui -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lX11-xcb -lX11 -lpthread -lxcb -lXau -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5PlatformSupport -lfontconfig -lfreetype -lQt5Gui -lqtharfbuzzng -lQt5DBus -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Gui -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5Network -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lssl -lcrypto -lQt5Widgets -lQt5Gui -lqtharfbuzzng -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Gui -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../plugins/platforms
+QT_PIE_FLAGS = -fPIE
 QT_SELECT = qt5
-QT_TEST_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtTest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
-QT_TEST_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtTest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
-QT_TEST_LIBS = -lQt5Test -lQt5Core
-QT_TRANSLATION_DIR = 
-RANLIB = /usr/bin/ranlib
-RCC = /usr/lib/x86_64-linux-gnu/qt5/bin/rcc
+QT_TEST_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtTest -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QT_TEST_INCLUDES = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtTest -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/QtCore
+QT_TEST_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lQt5Test -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lQt5Core -lpthread -lqtpcre -lm -ldl -lrt
+QT_TRANSLATION_DIR = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../translations
+RANLIB = ranlib
+RCC = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/rcc
 RCCFLAGS = 
 READELF = /usr/bin/readelf
 RELDFLAGS = 
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-SSL_CFLAGS = 
-SSL_LIBS = -lssl
+SSL_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+SSL_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lssl -lcrypto -ldl
 STRIP = /usr/bin/strip
 TESTDEFS = 
-UIC = /usr/lib/x86_64-linux-gnu/qt5/bin/uic
+UIC = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/share/../native/bin/uic
 UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
 UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_UPNP = 
-VERSION = 1.0.0
+VERSION = 1.0.2
 WINDOWS_BITS = 
 WINDRES = 
-X11XCB_CFLAGS = 
-X11XCB_LIBS = 
+X11XCB_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include/xcb-shared -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+X11XCB_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lX11-xcb -lX11 -lpthread -lxcb -lXau
 XGETTEXT = /usr/bin/xgettext
-ZMQ_CFLAGS = 
-ZMQ_LIBS = 
-abs_builddir = /home/user/luso
-abs_srcdir = /home/user/luso
-abs_top_builddir = /home/user/luso
-abs_top_srcdir = /home/user/luso
-ac_ct_AR = ar
-ac_ct_CC = gcc
-ac_ct_CXX = g++
+ZMQ_CFLAGS = -I/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/include
+ZMQ_LIBS = -L/home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu/lib -lzmq
+abs_builddir = /home/user/luso/last/LusoCoin
+abs_srcdir = /home/user/luso/last/LusoCoin
+abs_top_builddir = /home/user/luso/last/LusoCoin
+abs_top_srcdir = /home/user/luso/last/LusoCoin
+ac_ct_AR = 
+ac_ct_CC = 
+ac_ct_CXX = 
 ac_ct_DUMPBIN = 
 ac_ct_OBJCXX = 
 am__include = include
@@ -478,14 +480,14 @@ docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
 host = x86_64-pc-linux-gnu
-host_alias = 
+host_alias = x86_64-pc-linux-gnu
 host_cpu = x86_64
 host_os = linux-gnu
 host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/user/luso/build-aux/install-sh
+install_sh = ${SHELL} /home/user/luso/last/LusoCoin/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -494,7 +496,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /home/user/luso/last/LusoCoin/depends/x86_64-pc-linux-gnu
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -937,7 +939,7 @@ distuninstallcheck:
 	        fi ; \
 	        $(distuninstallcheck_listfiles) ; \
 	        exit 1; } >&2
-check-local:
+#check-local:
 check-am: all-am
 	$(MAKE) $(AM_MAKEFLAGS) check-local
 check: check-recursive
@@ -1220,7 +1222,7 @@ $(BITCOIN_CLI_BIN): FORCE
 
 # Luso: disable the test until upstream switches from convoluted comparison tool
 # Ref https://github.com/bitcoin/bitcoin/issues/4545
-#check-local:
+check-local:
 
 .INTERMEDIATE: $(COVERAGE_INFO)
 
