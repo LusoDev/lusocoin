@@ -284,23 +284,24 @@ void MasternodeList::updateNodeList()
     for(auto& mnpair : mapMasternodes)
     {
         CMasternode mn = mnpair.second;
+        CGEOReward geor;
         // populate list
         // Address, Protocol, Status, Active Seconds, Last Seen, Pub Key
         std::vector<std::string> mnip;
         boost::split(mnip, (const std::string) mn.addr.ToString(), boost::is_any_of(":"));
         if(mnip.size() != 2)
             return;
-        CGEOReward geor;
-        char *countrychr=geor.getGEOIP(mnip[0].c_str());
-        string country = countrychr;
-        const char *isluso="No";
 
-        if (geor.isLUSO(mnip[0].c_str(),countrychr))isluso="Yes";
+        char *isluso=(char *) "No";
+        if (geor.isLUSO(mnip[0].c_str(),(char *) mn.country.c_str()))isluso=(char *) "Yes";
+
+        std::string country(mn.country.c_str());
         std::transform(country.begin(), country.end(),country.begin(), ::tolower);
         QString countryqs=QString::fromStdString(":/flags/" + country + ".png");
 
         QTableWidgetItem *addressItem = new QTableWidgetItem(QString::fromStdString(mn.addr.ToString()));
-        QTableWidgetItem *countryItem = new QTableWidgetItem(QIcon(countryqs),QString::fromStdString(country));
+        //QTableWidgetItem *countryItem = new QTableWidgetItem(QIcon(countryqs),QString::fromStdString(mn.country));
+        QTableWidgetItem *countryItem = new QTableWidgetItem(QString::fromStdString(mn.country));
         QTableWidgetItem *lusoItem = new QTableWidgetItem(QString::fromStdString(isluso));
         QTableWidgetItem *protocolItem = new QTableWidgetItem(QString::number(mn.nProtocolVersion));
         QTableWidgetItem *statusItem = new QTableWidgetItem(QString::fromStdString(mn.GetStatus()));
