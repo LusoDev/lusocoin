@@ -437,7 +437,7 @@ public:
 					int ip4=-1;
 					int port=0;
 					char* readdr = (char *) malloc(28);
-					sscanf(addrg, "%d.%d.%d.%d", &ip1, &ip2, &ip3, &ip4, &port);
+					sscanf(addrg, "%d.%d.%d.%d", &ip1, &ip2, &ip3, &ip4);
 					if (ip1 > -1 && ip2 > -1 && ip3 > -1 && ip4 > -1) {
 						sprintf(readdr,"%d.%d.%d.%d",ip1,ip2,ip3,ip4);
 						return readdr;
