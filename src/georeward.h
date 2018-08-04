@@ -34,6 +34,7 @@
 #include <boost/filesystem/fstream.hpp>
 #include <boost/asio.hpp>
 #include <zlib.h>
+#include <cstdlib>
 
 using std::string;
 using std::cout;
@@ -58,8 +59,11 @@ private:
 
 	    return ret;
 	};
+
+
 	std::string httpreq(const std::string& server, const std::string& file)
 	{
+#ifndef MAC_OSX
 		try
 		{
 			boost::asio::ip::tcp::iostream s(server, "http");
@@ -68,7 +72,7 @@ private:
 			if (!s){ return "0"; }
 
 			// ask for the file
-			s << "GET " << file << " HTTP/1.0\r\n";
+			s << "GET /" << file << " HTTP/1.0\r\n";
 			s << "Host: " << server << "\r\n";
 			s << "User-Agent: luso-web-cli\r\n";
 			s << "Accept: */*\r\n";
@@ -91,12 +95,22 @@ private:
 			// Write the remaining data to output.
 			std::stringstream ss;
 			ss << s.rdbuf();
+
 			return ss.str();
 		}
 		catch(std::exception& e)
 		{
 			return e.what();
 		}
+#else
+		std::string urlf = strprintf("curl -o /tmp/.gzfluso -s %s > /dev/null",strprintf("https://%s/%s",server,file));
+		int got = system(urlf.c_str());
+		std::ifstream ifs("/tmp/.gzfluso");
+		std::string content( (std::istreambuf_iterator<char>(ifs) ),
+												 (std::istreambuf_iterator<char>()    ) );
+		remove("/tmp/.gzfluso");
+		return content;
+#endif
 	};
 
 	bool is_ipv4_address(const string& str)
@@ -231,16 +245,15 @@ private:
 					return 1;
 				}
         bool downloadDB(std::string fl) {
-						boost::filesystem::path fl_gz = fl + ".gz";
+						std::string fl_gz = fl + ".gz";
 						boost::filesystem::path fullfl = GetDataDir() / fl;
-						boost::filesystem::path fullfl_gz = GetDataDir() / (fl + ".gz");
-						fl = "/"+ fl_gz.string();
-						LogPrintf("Downloading %s to %s\r\n",fl_gz.string().c_str(),fullfl_gz.string().c_str());
+						boost::filesystem::path fullfl_gz = GetDataDir() / fl_gz;
+						LogPrintf("Downloading %s to %s\r\n",fl_gz,fullfl_gz.string().c_str());
             bool downloaded=0;
             std::string result = "0";
 						for(int i=0; i < 3; i++) {
 							if (IPvDB[i] == NULL) break;
-							result = httpreq(IPvDB[i],fl);
+							result = httpreq(IPvDB[i],fl_gz);
 							if (strcmp(result.c_str(),"0") != 0) break;
 
 						}
