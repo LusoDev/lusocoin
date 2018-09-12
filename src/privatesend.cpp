@@ -184,11 +184,17 @@ bool CPrivateSend::IsCollateralValid(const CTransaction& txCollateral)
 
     CAmount nValueIn = 0;
     CAmount nValueOut = 0;
+    int minproto;
+    if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+    	minproto = 70099;
+    } else {
+    	minproto = MIN_PRIVATESEND_PEER_PROTO_VERSION;
+    }
 
     BOOST_FOREACH(const CTxOut txout, txCollateral.vout) {
         nValueOut += txout.nValue;
-
-        if(!txout.scriptPubKey.IsPayToPublicKeyHash()) {
+        bool fAllowData = mnpayments.GetMinMasternodePaymentsProto() > minproto;
+        if (!txout.scriptPubKey.IsPayToPublicKeyHash() && !(fAllowData && txout.scriptPubKey.IsUnspendable())) {
             LogPrintf ("CPrivateSend::IsCollateralValid -- Invalid Script, txCollateral=%s", txCollateral.ToString());
             return false;
         }

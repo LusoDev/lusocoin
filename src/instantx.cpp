@@ -56,7 +56,13 @@ void CInstantSend::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataSt
 
     if (strCommand == NetMsgType::TXLOCKVOTE) // InstantSend Transaction Lock Consensus Votes
     {
-        if(pfrom->nVersion < MIN_INSTANTSEND_PROTO_VERSION) return;
+        int minproto;
+        if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+        	minproto = 70099;
+        } else {
+        	minproto = MIN_INSTANTSEND_PROTO_VERSION;
+        }
+        if(pfrom->nVersion < minproto) return;
 
         CTxLockVote vote;
         vRecv >> vote;
@@ -214,8 +220,15 @@ void CInstantSend::Vote(CTxLockCandidate& txLockCandidate, CConnman& connman)
 
         int nLockInputHeight = nPrevoutHeight + 4;
 
+        int minproto;
+        if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+        	minproto = 70099;
+        } else {
+        	minproto = MIN_INSTANTSEND_PROTO_VERSION;
+        }
+
         int nRank;
-        if(!mnodeman.GetMasternodeRank(activeMasternode.outpoint, nRank, nLockInputHeight, MIN_INSTANTSEND_PROTO_VERSION)) {
+        if(!mnodeman.GetMasternodeRank(activeMasternode.outpoint, nRank, nLockInputHeight, minproto)) {
             LogPrint("instantsend", "CInstantSend::Vote -- Can't calculate rank for masternode %s\n", activeMasternode.outpoint.ToStringShort());
             ++itOutpointLock;
             continue;
@@ -1021,8 +1034,15 @@ bool CTxLockVote::IsValid(CNode* pnode, CConnman& connman) const
 
     int nLockInputHeight = coin.nHeight + 4;
 
+    int minproto;
+    if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+        minproto = 70099;
+    } else {
+        minproto = MIN_INSTANTSEND_PROTO_VERSION;
+    }
+
     int nRank;
-    if(!mnodeman.GetMasternodeRank(outpointMasternode, nRank, nLockInputHeight, MIN_INSTANTSEND_PROTO_VERSION)) {
+    if(!mnodeman.GetMasternodeRank(outpointMasternode, nRank, nLockInputHeight, minproto)) {
         //can be caused by past versions trying to vote with an invalid protocol
         LogPrint("instantsend", "CTxLockVote::IsValid -- Can't calculate rank for masternode %s\n", outpointMasternode.ToStringShort());
         return false;
