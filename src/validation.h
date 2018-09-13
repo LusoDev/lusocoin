@@ -130,7 +130,6 @@ static const bool DEFAULT_ENABLE_REPLACEMENT = false;
 /** Maximum number of headers to announce when relaying blocks with headers message.*/
 static const unsigned int MAX_BLOCKS_TO_ANNOUNCE = 8;
 static const std::string burnAddrs[] = { // LUSO lost wallets along with servers
-    "LfdfsdfsdfsdfsfsdfsdfLVUft158tEM24",
     "LUeHwuWsk9ZX6D3or6cAhKkssZMNkoSCDS",
 };
 struct BlockHasher
