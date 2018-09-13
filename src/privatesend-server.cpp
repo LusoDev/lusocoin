@@ -21,10 +21,16 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
     if(!fMasterNode) return;
     if(fLiteMode) return; // ignore all Luso related functionality
     if(!masternodeSync.IsBlockchainSynced()) return;
+    int minproto;
+    if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+        minproto = 70099;
+    } else {
+        minproto = MIN_PRIVATESEND_PEER_PROTO_VERSION;
+    }
 
     if(strCommand == NetMsgType::DSACCEPT) {
 
-        if(pfrom->nVersion < MIN_PRIVATESEND_PEER_PROTO_VERSION) {
+        if(pfrom->nVersion < minproto) {
             LogPrintf("DSACCEPT -- incompatible version! nVersion: %d\n", pfrom->nVersion);
             PushStatus(pfrom, STATUS_REJECTED, ERR_VERSION, connman);
             return;
@@ -50,7 +56,7 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
         }
 
         if(vecSessionCollaterals.size() == 0 && mnInfo.nLastDsq != 0 &&
-            mnInfo.nLastDsq + mnodeman.CountEnabled(MIN_PRIVATESEND_PEER_PROTO_VERSION)/5 > mnodeman.nDsqCount)
+            mnInfo.nLastDsq + mnodeman.CountEnabled(minproto)/5 > mnodeman.nDsqCount)
         {
             LogPrintf("DSACCEPT -- last dsq too recent, must wait: addr=%s\n", pfrom->addr.ToString());
             PushStatus(pfrom, STATUS_REJECTED, ERR_RECENT, connman);
@@ -75,7 +81,7 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
         TRY_LOCK(cs_darksend, lockRecv);
         if(!lockRecv) return;
 
-        if(pfrom->nVersion < MIN_PRIVATESEND_PEER_PROTO_VERSION) {
+        if(pfrom->nVersion < minproto) {
             LogPrint("privatesend", "DSQUEUE -- incompatible version! nVersion: %d\n", pfrom->nVersion);
             return;
         }
@@ -113,7 +119,7 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
                 }
             }
 
-            int nThreshold = mnInfo.nLastDsq + mnodeman.CountEnabled(MIN_PRIVATESEND_PEER_PROTO_VERSION)/5;
+            int nThreshold = mnInfo.nLastDsq + mnodeman.CountEnabled(minproto)/5;
             LogPrint("privatesend", "DSQUEUE -- nLastDsq: %d  threshold: %d  nDsqCount: %d\n", mnInfo.nLastDsq, nThreshold, mnodeman.nDsqCount);
             //don't allow a few nodes to dominate the queuing process
             if(mnInfo.nLastDsq != 0 && nThreshold > mnodeman.nDsqCount) {
@@ -129,7 +135,7 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
 
     } else if(strCommand == NetMsgType::DSVIN) {
 
-        if(pfrom->nVersion < MIN_PRIVATESEND_PEER_PROTO_VERSION) {
+        if(pfrom->nVersion < minproto) {
             LogPrintf("DSVIN -- incompatible version! nVersion: %d\n", pfrom->nVersion);
             PushStatus(pfrom, STATUS_REJECTED, ERR_VERSION, connman);
             return;
@@ -238,7 +244,7 @@ void CPrivateSendServer::ProcessMessage(CNode* pfrom, std::string& strCommand, C
 
     } else if(strCommand == NetMsgType::DSSIGNFINALTX) {
 
-        if(pfrom->nVersion < MIN_PRIVATESEND_PEER_PROTO_VERSION) {
+        if(pfrom->nVersion < minproto) {
             LogPrintf("DSSIGNFINALTX -- incompatible version! nVersion: %d\n", pfrom->nVersion);
             return;
         }

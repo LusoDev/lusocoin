@@ -12,6 +12,7 @@
 #include "masternode-sync.h"
 #include "masternodeconfig.h"
 #include "masternodeman.h"
+#include "chainparams.h"
 #ifdef ENABLE_WALLET
 #include "privatesend-client.h"
 #endif // ENABLE_WALLET
@@ -187,9 +188,15 @@ UniValue masternode(const UniValue& params, bool fHelp)
             return mnodeman.size();
 
         std::string strMode = params[1].get_str();
+        int minproto;
+        if (chainActive.Height() > Params().GetConsensus().nGEOLaunch) { //friday may 25 00:00:00 GMT
+          minproto = 70099;
+        } else {
+          minproto = MIN_PRIVATESEND_PEER_PROTO_VERSION;
+        }
 
         if (strMode == "ps")
-            return mnodeman.CountEnabled(MIN_PRIVATESEND_PEER_PROTO_VERSION);
+            return mnodeman.CountEnabled(minproto);
 
         if (strMode == "enabled")
             return mnodeman.CountEnabled();
@@ -203,7 +210,7 @@ UniValue masternode(const UniValue& params, bool fHelp)
 
         if (strMode == "all")
             return strprintf("Total: %d (PS Compatible: %d / Enabled: %d / Qualify: %d)",
-                mnodeman.size(), mnodeman.CountEnabled(MIN_PRIVATESEND_PEER_PROTO_VERSION),
+                mnodeman.size(), mnodeman.CountEnabled(minproto),
                 mnodeman.CountEnabled(), nCount);
     }
 

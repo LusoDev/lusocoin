@@ -284,15 +284,15 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int nBlockH
         }
         // fill payee with locally calculated winner and hope for the best
         payee = GetScriptForDestination(mnInfo.pubKeyCollateralAddress.GetID());
-    } else
-        if (mnodeman.GetMasternodeInfo(payee, mnInfo) == 0)
-            return;
+    }
+
+    if (mnodeman.GetMasternodeInfo(payee, mnInfo) == 0)
+        return;
 
     boost::split(mnip, (const std::string) mnInfo.addr.ToString(), boost::is_any_of(":"));
     if(mnip.size() != 2)
         return;
     // GET MASTERNODE PAYMENT VARIABLES SETUP
-
     CAmount masternodePayment = GetMasternodePayment(nBlockHeight, blockReward, mnInfo.country);
 
     // split reward between miner ...

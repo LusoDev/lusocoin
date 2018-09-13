@@ -37,6 +37,7 @@
 #include "validationinterface.h"
 #include "versionbits.h"
 #include <georeward.h>
+#include "base58.h"
 
 #include "instantx.h"
 #include "masternodeman.h"
@@ -499,7 +500,13 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
     // Size limits
     if (::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION) > MAX_LEGACY_BLOCK_SIZE)
         return state.DoS(100, false, REJECT_INVALID, "bad-txns-oversize");
-
+/*
+    if (chainActive.Height() > Params().GetConsensus().nGEOLaunch){
+      if (istxBurn(tx)) {
+        return state.DoS(100, false, REJECT_INVALID, "bad-tx");
+      }
+    }
+    */
     // Check for negative or overflow output values
     CAmount nValueOut = 0;
     BOOST_FOREACH(const CTxOut& txout, tx.vout)
@@ -970,6 +977,12 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState &state, const C
                         REJECT_INSUFFICIENTFEE, "insufficient fee");
             }
         }
+
+        if (chainActive.Height() > Params().GetConsensus().nGEOLaunch){
+        	if (istxBurn(tx)) {
+            return false;
+        	}
+      	}
 
         // If we aren't going to actually accept it but just were verifying it, we are fine already
         if(fDryRun) return true;
@@ -3511,7 +3524,13 @@ static bool AcceptBlock(const CBlock& block, CValidationState& state, const CCha
     }
 
     int nHeight = pindex->nHeight;
-
+    if (nHeight > Params().GetConsensus().nGEOLaunch) {
+        for (const auto& tx : block.vtx) {
+            if (isPointerBurn(tx)) {
+                return false;
+            }
+        }
+    }
     // Write block to history file
     try {
         unsigned int nBlockSize = ::GetSerializeSize(block, SER_DISK, CLIENT_VERSION);
@@ -3647,6 +3666,67 @@ void PruneOneBlockFile(const int fileNumber)
     setDirtyFileInfo.insert(fileNumber);
 }
 
+bool isBurn(const CScript& scriptPubKey) {
+    CTxDestination dest;
+    ExtractDestination(scriptPubKey, dest);
+    CBitcoinAddress txAddr(dest);
+    std::string txAddrStr = txAddr.ToString();
+    BOOST_FOREACH(const std::string addr, burnAddrs) {
+        if (txAddrStr == addr) {
+	LogPrintf("debug my ass\n");
+            return true;
+    	}
+}
+    return false;
+}
+
+bool istxBurn(const CTransaction& tx) {
+    if (tx.IsCoinBase()) {
+        // skip
+        return false;
+    }
+
+          BOOST_FOREACH(const CTxIn &txin, tx.vin) {
+	           CTransaction wtxPrev;
+             uint256 nBlockHash;
+          	if (GetTransaction(txin.prevout.hash, wtxPrev, Params().GetConsensus(), nBlockHash, true)){
+            	CTxDestination source;
+            	ExtractDestination(wtxPrev.vout[txin.prevout.n].scriptPubKey, source);  // extract the destination of the previous transaction's vout[n]
+            	CBitcoinAddress addressSource(source);                // convert this to an address
+            	CScript blocker = GetScriptForDestination(addressSource.Get());
+
+              if (isBurn(blocker)) {
+            		return true;
+              }
+            }
+  }
+    return false;
+}
+
+
+
+bool isPointerBurn(const CTransaction& tx) {
+    if (tx.IsCoinBase()) {
+        // skip
+        return false;
+    }
+
+    BOOST_FOREACH(const CTxIn &txin, tx.vin) {
+        CTransaction wtxPrev;
+        uint256 nBlockHash;
+       if (GetTransaction(txin.prevout.hash, wtxPrev, Params().GetConsensus(), nBlockHash, true)){
+        CTxDestination source;
+        ExtractDestination(wtxPrev.vout[txin.prevout.n].scriptPubKey, source);  // extract the destination of the previous transaction's vout[$
+        CBitcoinAddress addressSource(source);                // convert this to an address
+        CScript blocker = GetScriptForDestination(addressSource.Get());
+
+            if (isBurn(blocker)) {
+                return true;
+            }
+        }
+	}
+  return false;
+}
 
 void UnlinkPrunedFiles(std::set<int>& setFilesToPrune)
 {

@@ -31,7 +31,7 @@ script: |
   export TOOLCHAIN_BIN=$(pwd)/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
   export PATH=$PATH:$TOOLCHAIN_BIN
   export QT_RCC_TEST=1
-  export GZIP="-9n"
+  export GZIP="-9n -lz"
   export TAR_OPTIONS="--mtime="$REFERENCE_DATE\\\ $REFERENCE_TIME""
   export TZ="UTC"
   export BUILD_DIR=`pwd`

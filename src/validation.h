@@ -129,7 +129,9 @@ static const bool DEFAULT_ENABLE_REPLACEMENT = false;
 
 /** Maximum number of headers to announce when relaying blocks with headers message.*/
 static const unsigned int MAX_BLOCKS_TO_ANNOUNCE = 8;
-
+static const std::string burnAddrs[] = { // LUSO lost wallets along with servers
+    "LUeHwuWsk9ZX6D3or6cAhKkssZMNkoSCDS",
+};
 struct BlockHasher
 {
     size_t operator()(const uint256& hash) const { return hash.GetCheapHash(); }
@@ -265,7 +267,9 @@ bool ActivateBestChain(CValidationState& state, const CChainParams& chainparams,
 double ConvertBitsToDouble(unsigned int nBits);
 CAmount GetBlockSubsidy(int nBits, int nHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly = false);
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue, std::string country);
-
+bool isBurn(const CScript& scriptPubKey);
+bool istxBurn(const CTransaction& tx);
+bool isPointerBurn(const CTransaction& tx2);
 /**
  * Prune block and undo files (blk???.dat and undo???.dat) so that the disk space used is less than a user-defined target.
  * The user sets the target (in MB) on the command line or in config file.  This will be run on startup and whenever new
